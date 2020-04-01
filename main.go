@@ -6,16 +6,21 @@ import (
 	"fmt"
 	"io/ioutil"
 
+	"github.com/lchsk/rss/user"
+
 	_ "github.com/lib/pq"
 )
 
+func main() {
+}
+
 type DbAccess struct {
 	DB   *sql.DB
-	User *UserAccess
+	User *user.UserAccess
 }
 
 func initDbAccess(db *sql.DB) (*DbAccess, error) {
-	ua, err := initUserAccess(db)
+	ua, err := user.InitUserAccess(db)
 
 	if err != nil {
 		return nil, err
@@ -52,13 +57,9 @@ func init() {
 func installDemo(dba *DbAccess) {
 	ua := dba.User
 
-	ua.insertUser("bugs", "bugs@bunny.com", "bunny")
+	ua.InsertUser("bugs", "bugs@bunny.com", "bunny")
 
 	fmt.Println("created demo")
-}
-
-func main() {
-
 }
 
 func installSchema(db *sql.DB) {

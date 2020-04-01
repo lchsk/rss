@@ -1,4 +1,4 @@
-package main
+package user
 
 import (
 	"database/sql"
@@ -70,7 +70,7 @@ func (ua *UserAccess) FindUserById(id string) (*User, error) {
 	return u, nil
 }
 
-func (ua *UserAccess) insertUser(username string, email string, password string) (*User, error) {
+func (ua *UserAccess) InsertUser(username string, email string, password string) (*User, error) {
 	u := &User{}
 
 	stmt := ua.Queries["insertUser"]
@@ -86,7 +86,7 @@ func (ua *UserAccess) insertUser(username string, email string, password string)
 	return u, err
 }
 
-func initUserAccess(db *sql.DB) (*UserAccess, error) {
+func InitUserAccess(db *sql.DB) (*UserAccess, error) {
 	queries := map[string]*sql.Stmt{}
 
 	queriesToPrepare := map[string]string{
