@@ -28,10 +28,10 @@ const sqlFindUserById = `
 `
 
 type User struct {
-	ID        string
-	Username  string
-	Email     string
-	CreatedAt time.Time
+	ID        string    `json:"id"`
+	Username  string    `json:"-"`
+	Email     string    `json:"-"`
+	CreatedAt time.Time `json:"-"`
 }
 
 type UserAccess struct {
@@ -81,7 +81,9 @@ func (ua *UserAccess) InsertUser(username string, email string, password string)
 		return nil, err
 	}
 
-	stmt.QueryRow(id, username, email, password).Scan(&u.ID, &u.Username, &u.Email, &u.CreatedAt)
+	err = stmt.QueryRow(id, username, email, password).Scan(&u.ID, &u.Username, &u.Email, &u.CreatedAt)
+
+	// TODO: Log postgres error
 
 	return u, err
 }

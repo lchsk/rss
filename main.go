@@ -1,32 +1,14 @@
 package main
 
 import (
-	"database/sql"
 	"flag"
 	"fmt"
-	"io/ioutil"
 
-	"github.com/lchsk/rss/user"
-
+	"github.com/lchsk/rss/db"
 	_ "github.com/lib/pq"
 )
 
 func main() {
-}
-
-type DbAccess struct {
-	DB   *sql.DB
-	User *user.UserAccess
-}
-
-func initDbAccess(db *sql.DB) (*DbAccess, error) {
-	ua, err := user.InitUserAccess(db)
-
-	if err != nil {
-		return nil, err
-	}
-
-	return &DbAccess{DB: db, User: ua}, nil
 }
 
 func init() {
@@ -35,7 +17,7 @@ func init() {
 
 	flag.Parse()
 
-	db, err := getDBConn()
+	conn, err := db.GetDBConn("rss", "rss", "rss_db", "5432")
 
 	if err != nil {
 		fmt.Printf("cannot get connection: %s\n", err)
@@ -43,63 +25,23 @@ func init() {
 	}
 
 	if *install {
-		installSchema(db)
+		db.InstallSchema(conn, "schema.sql")
 	}
 
-	dba, _ := initDbAccess(db)
+	DBA, err := db.InitDbAccess(conn)
+
+	if err != nil {
+		fmt.Printf("cannot init db access: %s\n", err)
+		return
+	}
 
 	if *demo {
-		installDemo(dba)
+		installDemo(DBA)
 	}
-
 }
 
-func installDemo(dba *DbAccess) {
+func installDemo(dba *db.DbAccess) {
 	ua := dba.User
 
 	ua.InsertUser("bugs", "bugs@bunny.com", "bunny")
-
-	fmt.Println("created demo")
-}
-
-func installSchema(db *sql.DB) {
-	f, err := ioutil.ReadFile("schema.sql")
-
-	if err != nil {
-		fmt.Printf("cannot open schema.sql: %s\n", err)
-		return
-	}
-
-	schema := string(f)
-
-	if err != nil {
-		fmt.Printf("cannot get db conn: %s\n", err)
-		return
-	}
-
-	_, err = db.Exec(schema)
-
-	if err == nil {
-		fmt.Println("created schema successfully")
-	} else {
-		fmt.Printf("error creating schema: %s\n", err)
-	}
-
-}
-
-func getDBConn() (*sql.DB, error) {
-	psqlInfo := "host=localhost port=4432 user=rss password=rss dbname=rss sslmode=disable"
-
-	db, err := sql.Open("postgres", psqlInfo)
-
-	if err != nil {
-		return nil, err
-	}
-	err = db.Ping()
-
-	if err != nil {
-		return nil, err
-	}
-
-	return db, nil
 }
