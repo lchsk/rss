@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 	"strings"
 	"time"
 
@@ -15,11 +16,6 @@ type AccessDetails struct {
 	AccessUuid string
 	UserId     string
 }
-
-const (
-	authAccessSecret  = "1234"
-	authRefreshSecret = "5678"
-)
 
 func checkValidToken(handler func(w http.ResponseWriter, r *http.Request)) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -51,7 +47,7 @@ func VerifyToken(r *http.Request) (*jwt.Token, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
 		}
-		return []byte(authAccessSecret), nil
+		return []byte(os.Getenv("API_ACCESS_SECRET")), nil
 		return nil, nil
 	})
 
@@ -155,7 +151,7 @@ func CreateToken(userId string) (*user.TokenData, error) {
 	atClaims["access_uuid"] = accessUuid
 	atClaims["exp"] = t.AccessExpiresAt
 	at := jwt.NewWithClaims(jwt.SigningMethodHS256, atClaims)
-	t.AccessToken, err = at.SignedString([]byte(authAccessSecret))
+	t.AccessToken, err = at.SignedString([]byte(os.Getenv("API_ACCESS_SECRET")))
 
 	if err != nil {
 		return nil, err
@@ -168,7 +164,7 @@ func CreateToken(userId string) (*user.TokenData, error) {
 	rtClaims["exp"] = t.RefreshExpiresAt
 
 	rt := jwt.NewWithClaims(jwt.SigningMethodHS256, rtClaims)
-	t.RefreshToken, err = rt.SignedString([]byte(authRefreshSecret))
+	t.RefreshToken, err = rt.SignedString([]byte(os.Getenv("API_REFRESH_SECRET")))
 
 	if err != nil {
 		return nil, err

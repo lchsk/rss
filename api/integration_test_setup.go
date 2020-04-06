@@ -5,7 +5,9 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	"os"
 
+	"github.com/joho/godotenv"
 	"github.com/lchsk/rss/cache"
 	"github.com/lchsk/rss/db"
 )
@@ -21,7 +23,17 @@ func setupSchema(conn *sql.DB) error {
 }
 
 func setupIntegrationTests() error {
-	conn, err := db.GetDBConn("rsstest", "rsstest", "rss_testdb", "5433")
+	err := godotenv.Load("../.env")
+
+	if err != nil {
+		return fmt.Errorf("cannot find env file: %s", err)
+	}
+
+	conn, err := db.GetDBConn(
+		os.Getenv("POSTGRES_TEST_USER"),
+		os.Getenv("POSTGRES_TEST_PASSWORD"),
+		os.Getenv("POSTGRES_TEST_DB"),
+		os.Getenv("POSTGRES_TEST_PORT"))
 
 	if err != nil {
 		return fmt.Errorf("getdbconn err: %v", err)

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/dgrijalva/jwt-go"
 )
@@ -28,7 +29,7 @@ func Refresh(w http.ResponseWriter, req *http.Request) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
 		}
-		return []byte(authRefreshSecret), nil
+		return []byte(os.Getenv("API_REFRESH_SECRET")), nil
 	})
 
 	if err != nil {

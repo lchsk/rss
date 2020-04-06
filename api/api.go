@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/gorilla/mux"
+	"github.com/joho/godotenv"
 	"github.com/lchsk/rss/cache"
 	"github.com/lchsk/rss/db"
 	"github.com/lchsk/rss/libs/api"
@@ -60,10 +61,10 @@ func setupLogging() {
 }
 
 func setupDB() error {
-	dbUser := "rss"
-	dbPassword := "rss"
-	dbName := "rss_db"
-	dbPort := "5432"
+	dbUser := os.Getenv("POSTGRES_USER")
+	dbPassword := os.Getenv("POSTGRES_PASSWORD")
+	dbName := os.Getenv("POSTGRES_DB")
+	dbPort := os.Getenv("POSTGRES_PORT")
 
 	conn, err := db.GetDBConn(dbUser, dbPassword, dbName, dbPort)
 
@@ -104,28 +105,38 @@ func setupCache() error {
 	return nil
 }
 
+func setupEnv() error {
+	return godotenv.Load("../.env")
+}
+
 func runAPI() {
 	router := getRouter()
 
-	log.Print(fmt.Sprintf("Running API on port %d", 8000))
-	log.Fatal(http.ListenAndServe(":8000", api.CommonMiddleware(router)))
+	apiPort := os.Getenv("API_PORT")
+
+	log.Print(fmt.Sprintf("Running API on port %s", apiPort))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", apiPort), api.CommonMiddleware(router)))
 }
 
 func init() {
-	setupLogging()
-
-	err := setupDB()
+	err := setupEnv()
 
 	if err != nil {
-		log.Print(err)
-		return
+		log.Fatal(err)
+	}
+
+	setupLogging()
+
+	err = setupDB()
+
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	err = setupCache()
 
 	if err != nil {
-		log.Print(err)
-		return
+		log.Fatal(err)
 	}
 }
 
