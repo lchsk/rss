@@ -1,6 +1,7 @@
 package api
 
 import (
+	"fmt"
 	"log"
 	"math"
 	"net/http"
@@ -50,6 +51,6 @@ func CommonMiddleware(next http.Handler) http.Handler {
 
 		// Round to milliseconds with 3 decimal places
 		durationRounded := math.Round(duration.Seconds()*1000000) / 1000
-		log.Println(sw.status, r.Method, r.RequestURI, durationRounded)
+		log.Println(fmt.Sprintf("status=%d method=%v url=%v duration=%v", sw.status, r.Method, r.RequestURI, durationRounded))
 	})
 }

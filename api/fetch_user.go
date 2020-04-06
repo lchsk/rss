@@ -4,7 +4,6 @@ import (
 	"net/http"
 
 	"github.com/google/uuid"
-	"github.com/lchsk/rss/user"
 )
 
 func handlerFetchUser(w http.ResponseWriter, req *http.Request) {
@@ -26,12 +25,11 @@ func handlerFetchUser(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	var u *user.User
 	var err error = nil
 
 	if err == nil {
 		var dbErr error
-		u, dbErr = DBA.User.FindUserById(userId)
+		_, dbErr = DBA.User.FindUserById(userId)
 
 		if dbErr != nil {
 			w.WriteHeader(404)
