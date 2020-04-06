@@ -1,0 +1,52 @@
+version: "3.7"
+
+services:
+  rss_db:
+    container_name: rss_db
+    image: postgres:11
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      PGDATA: /data/postgres
+    volumes:
+       - rss_db:/data/postgres
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    networks:
+      - rss
+    restart: unless-stopped
+
+  rss_testdb:
+    container_name: rss_testdb
+    image: postgres:11
+    environment:
+      POSTGRES_USER: ${POSTGRES_TEST_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_TEST_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_TEST_DB}
+      PGDATA: /data/postgrestest
+    volumes:
+       - rss_testdb:/data/postgrestest
+    ports:
+      - "${POSTGRES_TEST_PORT}:${POSTGRES_PORT}"
+    networks:
+      - rss
+    restart: unless-stopped
+
+  redis:
+    image: "redis:alpine"
+    ports:
+     - "6379:6379"
+    volumes:
+     - redis-data:/var/lib/redis
+    networks:
+      - rss
+    restart: unless-stopped
+
+networks:
+  rss:
+
+volumes:
+  rss_db:
+  rss_testdb:
+  redis-data:
