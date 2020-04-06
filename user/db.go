@@ -38,6 +38,15 @@ type UserAccess struct {
 	Queries map[string]*sql.Stmt
 }
 
+type TokenData struct {
+	AccessToken      string
+	RefreshToken     string
+	AccessUuid       string
+	RefreshUuid      string
+	AccessExpiresAt  int64
+	RefreshExpiresAt int64
+}
+
 func (ua *UserAccess) FindUserByCredentials(email string, password string) (*User, error) {
 	u := &User{}
 
@@ -46,7 +55,7 @@ func (ua *UserAccess) FindUserByCredentials(email string, password string) (*Use
 
 	if err != nil {
 		if err == sql.ErrNoRows {
-			return nil, nil
+			return nil, err
 		}
 		return nil, err
 	}

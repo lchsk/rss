@@ -16,18 +16,18 @@ type ErrorResponse struct {
 	Errors []Error `json:"errors"`
 }
 
-type statusWriter struct {
+type StatusWriter struct {
 	http.ResponseWriter
 	status int
 	length int
 }
 
-func (w *statusWriter) WriteHeader(status int) {
+func (w *StatusWriter) WriteHeader(status int) {
 	w.status = status
 	w.ResponseWriter.WriteHeader(status)
 }
 
-func (w *statusWriter) Write(b []byte) (int, error) {
+func (w *StatusWriter) Write(b []byte) (int, error) {
 	if w.status == 0 {
 		w.status = 200
 	}
@@ -43,7 +43,7 @@ func CommonMiddleware(next http.Handler) http.Handler {
 		}
 		w.Header().Add("Content-Type", "application/json")
 
-		sw := statusWriter{ResponseWriter: w}
+		sw := StatusWriter{ResponseWriter: w}
 		start := time.Now()
 		next.ServeHTTP(&sw, r)
 		duration := time.Now().Sub(start)
