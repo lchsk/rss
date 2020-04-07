@@ -3,3 +3,5 @@ rss
 api/api
 
 api/logs
+
+fe/node_modules
