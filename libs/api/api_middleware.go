@@ -42,10 +42,22 @@ func CommonMiddleware(next http.Handler) http.Handler {
 		if r.URL.Path != "/" {
 			r.URL.Path = strings.TrimSuffix(r.URL.Path, "/")
 		}
-		w.Header().Add("Content-Type", "application/json")
+
+		w.Header().Set("Access-Control-Allow-Origin", r.Header.Get("Origin"))
+		w.Header().Set("Content-Type", "application/json")
 
 		sw := StatusWriter{ResponseWriter: w}
 		start := time.Now()
+
+		// Necessary to pass cookies
+		w.Header().Set("Access-Control-Allow-Credentials", "true")
+
+		if r.Method == "OPTIONS" {
+			w.Header().Set("Access-Control-Allow-Methods", "GET, POST")
+			w.Header().Set("Access-Control-Allow-Headers", "Content-Type, X-CSRF-Token, Authorization")
+			return
+		}
+
 		next.ServeHTTP(&sw, r)
 		duration := time.Now().Sub(start)
 

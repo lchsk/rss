@@ -5,7 +5,6 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -53,7 +52,7 @@ func TestLogout__success(t *testing.T) {
 
 	// Logout
 	req, err = http.NewRequest("GET", "/logout", nil)
-	req.Header.Set("Authorization", fmt.Sprintf("Token %s", resp.AccessToken))
+	req.AddCookie(getCookie("token", resp.AccessToken, AccessCookieDuration))
 
 	assert.Nil(t, err)
 
@@ -66,7 +65,6 @@ func TestLogout__success(t *testing.T) {
 
 	// Try to fetch user data
 	req, err = http.NewRequest("GET", "/users/1", nil)
-	req.Header.Set("Authorization", fmt.Sprintf("Token %s", resp.AccessToken))
 
 	assert.Nil(t, err)
 
@@ -101,7 +99,7 @@ func TestLogout__success(t *testing.T) {
 
 	// Try to get authed data using new access token
 	req, err = http.NewRequest("GET", "/users/1", nil)
-	req.Header.Set("Authorization", fmt.Sprintf("Token %s", resp.AccessToken))
+	req.AddCookie(getCookie("token", resp.AccessToken, AccessCookieDuration))
 
 	assert.Nil(t, err)
 

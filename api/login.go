@@ -68,6 +68,9 @@ func handlerAuthentication(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
+	http.SetCookie(w, getCookie("token", tokenData.AccessToken, AccessCookieDuration))
+	http.SetCookie(w, getCookie("refresh", tokenData.RefreshToken, RefreshCookieDuration))
+
 	w.WriteHeader(200)
 	json.NewEncoder(w).Encode(AuthenticationResponse{
 		AccessToken:  tokenData.AccessToken,

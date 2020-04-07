@@ -5,7 +5,6 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -65,7 +64,8 @@ func TestFetchUser__success(t *testing.T) {
 
 	// Fetch user with the access token
 	req, err = http.NewRequest("GET", "/users/1", nil)
-	req.Header.Set("Authorization", fmt.Sprintf("Token %s", resp.AccessToken))
+
+	req.AddCookie(getCookie("token", resp.AccessToken, AccessCookieDuration))
 
 	assert.Nil(t, err)
 

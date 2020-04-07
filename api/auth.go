@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
-	"strings"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -15,6 +15,22 @@ import (
 type AccessDetails struct {
 	AccessUuid string
 	UserId     string
+}
+
+const (
+	AccessCookieDuration  = time.Minute * 15
+	RefreshCookieDuration = time.Minute * 1500
+)
+
+func getCookie(name string, value string, duration time.Duration) *http.Cookie {
+	return &http.Cookie{
+		Name:     name,
+		Value:    value,
+		HttpOnly: true,
+		Path:     "/",
+		Expires:  time.Now().Add(duration),
+	}
+
 }
 
 func checkValidToken(handler func(w http.ResponseWriter, r *http.Request)) func(w http.ResponseWriter, r *http.Request) {
@@ -30,14 +46,14 @@ func checkValidToken(handler func(w http.ResponseWriter, r *http.Request)) func(
 }
 
 func ExtractToken(r *http.Request) string {
-	bearerToken := r.Header.Get("Authorization")
-	token := strings.Split(bearerToken, " ")
+	token, err := r.Cookie("token")
 
-	if len(token) == 2 {
-		return token[1]
+	if err != nil || token == nil {
+		log.Print(fmt.Sprintf("error extracting token %s", err))
+		return ""
 	}
 
-	return ""
+	return token.Value
 }
 
 func VerifyToken(r *http.Request) (*jwt.Token, error) {
