@@ -21,15 +21,15 @@ type UserRegistrationResponse struct {
 }
 
 func validateRegisterUser(input *UserRegistrationInput) error {
-	if len(input.Username) < 6 || len(input.Username) > 20 {
+	if len(input.Username) < 6 || len(input.Username) > 32 {
 		return errors.New(errInvalidUsernameLen)
 	}
 
-	if len(input.Password) < 8 || len(input.Password) > 30 {
+	if len(input.Password) < 8 || len(input.Password) > 32 {
 		return errors.New(errInvalidPasswordLen)
 	}
 
-	if len(input.Email) < 6 || len(input.Email) > 20 {
+	if len(input.Email) < 6 || len(input.Email) > 32 {
 		return errors.New(errInvalidEmailLen)
 	}
 
