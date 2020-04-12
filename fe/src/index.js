@@ -1,5 +1,7 @@
 import m from "mithril";
 
+import {SignUpComponent} from "./signup";
+
 var Login = {
   current: {},
   submit: () => {
@@ -37,7 +39,7 @@ const UserComponent = {
 };
 
 const LoginComponent = {
-  view: node => {
+  view: (node) => {
     return m(
       "form",
       {
@@ -72,6 +74,11 @@ m.route(document.body, "/", {
   "/login": {
     render: function() {
       return m(LoginComponent);
+    }
+  },
+  "/signup": {
+    render: () => {
+      return m(SignUpComponent);
     }
   },
   "/user": {
