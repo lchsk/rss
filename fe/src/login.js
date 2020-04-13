@@ -1,6 +1,8 @@
 import m from "mithril";
 
 import { getErrorMessage, getSingleError } from "./error";
+import { User } from "./user";
+import { getLoadingView } from "./loading";
 
 var Login = {
   current: {},
@@ -26,30 +28,39 @@ var Login = {
 };
 
 var LoginComponent = {
+  oninit: node => {
+    User.load();
+  },
   view: node => {
-    return m(
-      "form",
-      {
-        onsubmit: e => {
-          e.preventDefault();
-          Login.submit();
-        }
-      },
-      [
-        m("div#login-error", Login.current.error),
-        m("input[type=text][placeholder=Email]", {
-          oninput: m.withAttr("value", value => {
-            Login.current.email = value;
-          })
-        }),
-        m("input[type=password][placeholder=Password]", {
-          oninput: m.withAttr("value", value => {
-            Login.current.password = value;
-          })
-        }),
-        m("button[type=submit]", "Sign in")
-      ]
-    );
+    if (User.authState === User.AuthState.SIGNED_IN) {
+      m.route.set("/index");
+    } else if (User.authState === User.AuthState.UNKNOWN) {
+      return m("div", getLoadingView());
+    } else if (User.authState === User.AuthState.SIGNED_OUT) {
+      return m(
+        "form",
+        {
+          onsubmit: e => {
+            e.preventDefault();
+            Login.submit();
+          }
+        },
+        [
+          m("div#login-error", Login.current.error),
+          m("input[type=text][placeholder=Email]", {
+            oninput: m.withAttr("value", value => {
+              Login.current.email = value;
+            })
+          }),
+          m("input[type=password][placeholder=Password]", {
+            oninput: m.withAttr("value", value => {
+              Login.current.password = value;
+            })
+          }),
+          m("button[type=submit]", "Sign in")
+        ]
+      );
+    }
   }
 };
 
