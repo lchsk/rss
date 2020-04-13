@@ -12,7 +12,13 @@ var User = {
   authState: UserAuthState.UNKNOWN,
 
   load: () => {
-    if (User.authState !== UserAuthState.UNKNOWN) {
+
+    if (User.authState === UserAuthState.SIGNED_OUT) {
+      if (m.route.get() !== "/login") {
+        m.route.set("/login");
+      }
+      return;
+    } else if (User.authState === UserAuthState.SIGNED_IN) {
       return;
     }
 
@@ -27,7 +33,9 @@ var User = {
       })
       .catch(e => {
         User.data = { error: e };
+        // TODO: Check for status
         User.authState = User.AuthState.SIGNED_OUT;
+		m.route.set("/login");
       });
   }
 };

@@ -3,20 +3,11 @@ import m from "mithril";
 import { SignUpComponent } from "./signup";
 import { LoginComponent } from "./login";
 import { LogoutComponent } from "./logout";
+import { User } from "./user"
 
 const UserComponent = {
   oninit: node => {
-    m.request({
-      method: "GET",
-      url: "http://localhost:8000/api/users/1",
-      withCredentials: true
-    })
-      .then(result => {
-        console.log(result);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+    User.load();
   },
   view: node => {}
 };
