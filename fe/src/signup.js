@@ -1,6 +1,8 @@
 import m from "mithril";
 
 import { getErrorMessage, getSingleError } from "./error";
+import { User } from "./user";
+import { getLoadingView } from "./loading";
 
 var SignUp = {
   current: {},
@@ -42,41 +44,48 @@ var SignUp = {
 var SignUpComponent = {
   oninit: node => {
     SignUp.setError("");
+    User.load();
   },
   view: node => {
-    return m(
-      "form",
-      {
-        onsubmit: e => {
-          e.preventDefault();
-          SignUp.submit();
-        }
-      },
-      [
-        m("div#signup-error", SignUp.current.error),
-        m("input[type=text][placeholder=Email]", {
-          oninput: m.withAttr("value", value => {
-            SignUp.current.email = value;
-          })
-        }),
-        m("input[type=text][placeholder=Username]", {
-          oninput: m.withAttr("value", value => {
-            SignUp.current.username = value;
-          })
-        }),
-        m("input[type=password][placeholder=Password]", {
-          oninput: m.withAttr("value", value => {
-            SignUp.current.password1 = value;
-          })
-        }),
-        m("input[type=password][placeholder=Repeat password]", {
-          oninput: m.withAttr("value", value => {
-            SignUp.current.password2 = value;
-          })
-        }),
-        m("button[type=submit]", "Sign up")
-      ]
-    );
+    if (User.authState === User.AuthState.SIGNED_IN) {
+      m.route.set("/index");
+    } else if (User.authState === User.AuthState.UNKNOWN) {
+      return m("div", getLoadingView());
+    } else if (User.authState === User.AuthState.SIGNED_OUT) {
+      return m(
+        "form",
+        {
+          onsubmit: e => {
+            e.preventDefault();
+            SignUp.submit();
+          }
+        },
+        [
+          m("div#signup-error", SignUp.current.error),
+          m("input[type=text][placeholder=Email]", {
+            oninput: m.withAttr("value", value => {
+              SignUp.current.email = value;
+            })
+          }),
+          m("input[type=text][placeholder=Username]", {
+            oninput: m.withAttr("value", value => {
+              SignUp.current.username = value;
+            })
+          }),
+          m("input[type=password][placeholder=Password]", {
+            oninput: m.withAttr("value", value => {
+              SignUp.current.password1 = value;
+            })
+          }),
+          m("input[type=password][placeholder=Repeat password]", {
+            oninput: m.withAttr("value", value => {
+              SignUp.current.password2 = value;
+            })
+          }),
+          m("button[type=submit]", "Sign up")
+        ]
+      );
+    }
   }
 };
 
