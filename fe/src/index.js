@@ -1,7 +1,7 @@
 import m from "mithril";
 
-import {SignUpComponent} from "./signup";
-import {LoginComponent} from "./login";
+import { SignUpComponent } from "./signup";
+import { LoginComponent } from "./login";
 
 const UserComponent = {
   oninit: node => {
@@ -19,7 +19,6 @@ const UserComponent = {
   },
   view: node => {}
 };
-
 
 m.route.prefix("#!");
 

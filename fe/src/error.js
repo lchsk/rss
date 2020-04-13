@@ -1,4 +1,3 @@
-
 const errorCodes = {
   // API errors
   invalid_username_len: "Invalid username length",
@@ -11,7 +10,7 @@ const errorCodes = {
   db_error: "Invalid",
 
   // UI errors
-  passwords_are_not_the_same: "Passwords are not the same",
+  passwords_are_not_the_same: "Passwords are not the same"
 };
 
 function getErrorMessage(errorCode) {
@@ -19,7 +18,7 @@ function getErrorMessage(errorCode) {
     return errorCodes[errorCode];
   }
 
-  return 'Unknown error, please try again';
+  return "Unknown error, please try again";
 }
 
 function getSingleError(error) {
@@ -28,7 +27,7 @@ function getSingleError(error) {
   try {
     resp = JSON.parse(error);
   } catch (e) {
-    return getErrorMessage('errMsgUnknown');
+    return getErrorMessage("errMsgUnknown");
   }
 
   if (resp.errors) {
@@ -39,7 +38,7 @@ function getSingleError(error) {
     }
   }
 
-  return getErrorMessage('errMsgUnknown');
+  return getErrorMessage("errMsgUnknown");
 }
 
-export {getErrorMessage, getSingleError}
+export { getErrorMessage, getSingleError };

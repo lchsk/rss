@@ -1,6 +1,6 @@
 import m from "mithril";
 
-import {getErrorMessage, getSingleError} from "./error";
+import { getErrorMessage, getSingleError } from "./error";
 
 var Login = {
   current: {},
@@ -16,8 +16,8 @@ var Login = {
         withCredentials: true
       })
       .then(result => {
-        this.setError('');
-        m.route.set('/index');
+        this.setError("");
+        m.route.set("/index");
       })
       .catch(e => {
         this.setError(getSingleError(e.message));
@@ -26,7 +26,7 @@ var Login = {
 };
 
 var LoginComponent = {
-  view: (node) => {
+  view: node => {
     return m(
       "form",
       {

@@ -1,6 +1,6 @@
 import m from "mithril";
 
-import {getErrorMessage, getSingleError} from "./error";
+import { getErrorMessage, getSingleError } from "./error";
 
 var SignUp = {
   current: {},
@@ -12,43 +12,45 @@ var SignUp = {
     let password2 = SignUp.current.password2;
 
     if (password1 !== password2) {
-      this.setError(getErrorMessage('passwords_are_not_the_same'));
+      this.setError(getErrorMessage("passwords_are_not_the_same"));
     } else {
-      this.setError('');
+      this.setError("");
     }
 
-    if (SignUp.current.error === '') {
-    return m.request({
-      method: "POST",
-      url: "http://localhost:8000/api/users",
-      data: {
-        email: SignUp.current.email,
-        username: SignUp.current.username,
-        password: SignUp.current.password1,
-      },
-    })
+    if (SignUp.current.error === "") {
+      return m
+        .request({
+          method: "POST",
+          url: "http://localhost:8000/api/users",
+          data: {
+            email: SignUp.current.email,
+            username: SignUp.current.username,
+            password: SignUp.current.password1
+          }
+        })
         .then(result => {
-          this.setError('');
-        m.route.set('/login');
-      }).catch(e => {
-        this.setError(getSingleError(e.message));
-      })
+          this.setError("");
+          m.route.set("/login");
+        })
+        .catch(e => {
+          this.setError(getSingleError(e.message));
+        });
     }
-  },
+  }
 };
 
 var SignUpComponent = {
-  oninit: (node) => {
-    SignUp.setError("")
+  oninit: node => {
+    SignUp.setError("");
   },
-  view: (node) => {
+  view: node => {
     return m(
       "form",
       {
-        onsubmit: (e) => {
+        onsubmit: e => {
           e.preventDefault();
           SignUp.submit();
-        },
+        }
       },
       [
         m("div#signup-error", SignUp.current.error),
@@ -72,10 +74,10 @@ var SignUpComponent = {
             SignUp.current.password2 = value;
           })
         }),
-        m("button[type=submit]", "Sign up"),
-      ],
+        m("button[type=submit]", "Sign up")
+      ]
     );
-  },
+  }
 };
 
 export var SignUpComponent;
