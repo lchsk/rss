@@ -25,8 +25,8 @@ func InitDbAccess(db *sql.DB) (*DbAccess, error) {
 	return &DbAccess{DB: db, User: ua}, nil
 }
 
-func GetDBConn(user, password, dbname, port string) (*sql.DB, error) {
-	connString := fmt.Sprintf("host=localhost port=%s user=%s password=%s dbname=%s sslmode=disable", port, user, password, dbname)
+func GetDBConn(host, user, password, dbname, port string) (*sql.DB, error) {
+	connString := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
 
 	db, err := sql.Open("postgres", connString)
 

@@ -13,7 +13,7 @@ import (
 )
 
 func setupSchema(conn *sql.DB) error {
-	err := db.InstallSchema(conn, "../schema.sql")
+	err := db.InstallSchema(conn, "../sql/schema.sql")
 
 	if err != nil {
 		return fmt.Errorf("installschema err %s", err)
@@ -30,6 +30,7 @@ func setupIntegrationTests() error {
 	}
 
 	conn, err := db.GetDBConn(
+		os.Getenv("POSTGRES_TEST_HOST"),
 		os.Getenv("POSTGRES_TEST_USER"),
 		os.Getenv("POSTGRES_TEST_PASSWORD"),
 		os.Getenv("POSTGRES_TEST_DB"),
@@ -53,7 +54,7 @@ func setupIntegrationTests() error {
 
 	DBA = dba
 
-	redis, err := cache.GetRedisConn()
+	redis, err := cache.GetRedisConn(os.Getenv("REDIS_HOST"), os.Getenv("REDIS_PORT"))
 
 	if err != nil {
 		return fmt.Errorf("getredisconn err: %v", err)

@@ -64,12 +64,17 @@ func setupLogging() {
 }
 
 func setupDB() error {
+	dbHost := os.Getenv("POSTGRES_HOST")
 	dbUser := os.Getenv("POSTGRES_USER")
 	dbPassword := os.Getenv("POSTGRES_PASSWORD")
 	dbName := os.Getenv("POSTGRES_DB")
 	dbPort := os.Getenv("POSTGRES_PORT")
 
-	conn, err := db.GetDBConn(dbUser, dbPassword, dbName, dbPort)
+	logDebug(fmt.Sprintf(
+		"Attempting to connect to Postgres on host=%s user=%s pass=%s name=%s port=%s",
+		dbHost, dbUser, dbPassword, dbName, dbPort))
+
+	conn, err := db.GetDBConn(dbHost, dbUser, dbPassword, dbName, dbPort)
 
 	if err != nil {
 		return fmt.Errorf("error connecting to DB: %s", err)
@@ -89,7 +94,12 @@ func setupDB() error {
 }
 
 func setupCache() error {
-	redis, err := cache.GetRedisConn()
+	redisHost := os.Getenv("REDIS_HOST")
+	redisPort := os.Getenv("REDIS_PORT")
+
+	logDebug(fmt.Sprintf("Attempting to connect to Redis on %s:%s", redisHost, redisPort))
+
+	redis, err := cache.GetRedisConn(redisHost, redisPort)
 
 	if err != nil {
 		return fmt.Errorf("error getting redis conn: %s", err)

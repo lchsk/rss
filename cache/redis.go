@@ -1,6 +1,10 @@
 package cache
 
-import "github.com/go-redis/redis/v7"
+import (
+	"fmt"
+
+	"github.com/go-redis/redis/v7"
+)
 
 type CacheAccess struct {
 	Redis *redis.Client
@@ -10,8 +14,8 @@ func InitCacheAccess(client *redis.Client) (*CacheAccess, error) {
 	return &CacheAccess{Redis: client}, nil
 }
 
-func GetRedisConn() (*redis.Client, error) {
-	dsn := "localhost:6379"
+func GetRedisConn(host string, port string) (*redis.Client, error) {
+	dsn := fmt.Sprintf("%s:%s", host, port)
 
 	client := redis.NewClient(&redis.Options{
 		Addr: dsn,
