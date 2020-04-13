@@ -1,25 +1,7 @@
 import m from "mithril";
 
 import {SignUpComponent} from "./signup";
-
-var Login = {
-  current: {},
-  submit: () => {
-    return m
-      .request({
-        method: "POST",
-        url: "http://localhost:8000/api/authentication",
-        data: Login.current,
-        withCredentials: true
-      })
-      .then(result => {
-        console.log(result);
-      })
-      .catch(e => {
-        console.log(e.code, e.response, e.message);
-      });
-  }
-};
+import {LoginComponent} from "./login";
 
 const UserComponent = {
   oninit: node => {
@@ -38,32 +20,6 @@ const UserComponent = {
   view: node => {}
 };
 
-const LoginComponent = {
-  view: (node) => {
-    return m(
-      "form",
-      {
-        onsubmit: e => {
-          e.preventDefault();
-          Login.submit();
-        }
-      },
-      [
-        m("input[type=text][placeholder=Email]", {
-          oninput: m.withAttr("value", value => {
-            Login.current.email = value;
-          })
-        }),
-        m("input[type=password][placeholder=Password]", {
-          oninput: m.withAttr("value", value => {
-            Login.current.password = value;
-          })
-        }),
-        m("button[type=submit]", "Sign in")
-      ]
-    );
-  }
-};
 
 m.route.prefix("#!");
 
