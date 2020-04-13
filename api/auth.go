@@ -20,6 +20,8 @@ type AccessDetails struct {
 const (
 	AccessCookieDuration  = time.Minute * 15
 	RefreshCookieDuration = time.Minute * 1500
+
+	AccessTokenHeader = "X-AccessToken"
 )
 
 func getCookie(name string, value string, duration time.Duration) *http.Cookie {
@@ -36,9 +38,27 @@ func getCookie(name string, value string, duration time.Duration) *http.Cookie {
 func checkValidToken(handler func(w http.ResponseWriter, r *http.Request)) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		err := TokenValid(r)
+
 		if err != nil {
-			w.WriteHeader(401)
-			return
+			refresh, err := r.Cookie("refresh")
+
+			if err != nil || refresh == nil {
+				w.WriteHeader(401)
+				return
+			}
+
+			if err == nil && refresh != nil {
+				tokenData, httpStatus := refreshToken(refresh)
+
+				if httpStatus == 200 {
+					r.Header.Set(AccessTokenHeader, tokenData.AccessToken)
+					http.SetCookie(w, getCookie("token", tokenData.AccessToken, AccessCookieDuration))
+					http.SetCookie(w, getCookie("refresh", tokenData.RefreshToken, RefreshCookieDuration))
+				} else {
+					w.WriteHeader(httpStatus)
+					return
+				}
+			}
 		}
 
 		handler(w, r)
@@ -46,6 +66,12 @@ func checkValidToken(handler func(w http.ResponseWriter, r *http.Request)) func(
 }
 
 func ExtractToken(r *http.Request) string {
+	headerToken := r.Header.Get(AccessTokenHeader)
+
+	if headerToken != "" {
+		return headerToken
+	}
+
 	token, err := r.Cookie("token")
 
 	if err != nil || token == nil {
