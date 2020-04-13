@@ -7,10 +7,66 @@ import (
 	"os"
 
 	"github.com/dgrijalva/jwt-go"
+	"github.com/lchsk/rss/user"
 )
 
 type RefreshTokenInput struct {
 	RefreshToken string `json:"refresh_token"`
+}
+
+func refreshToken(refreshCookie *http.Cookie) (*user.TokenData, int) {
+	token, err := jwt.Parse(refreshCookie.Value, func(token *jwt.Token) (interface{}, error) {
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
+		}
+		return []byte(os.Getenv("API_REFRESH_SECRET")), nil
+	})
+
+	if err != nil {
+		return nil, 401
+	}
+
+	if _, ok := token.Claims.(jwt.Claims); !ok || !token.Valid {
+		return nil, 401
+	}
+
+	claims, ok := token.Claims.(jwt.MapClaims)
+
+	if !ok || !token.Valid {
+		return nil, 401
+	}
+
+	refreshUuid, ok := claims["refresh_uuid"].(string)
+
+	if !ok {
+		return nil, 422
+	}
+
+	userId, ok := claims["user_id"].(string)
+
+	if !ok {
+		return nil, 422
+	}
+
+	_, delErr := DeleteAuth(refreshUuid)
+	if delErr != nil {
+		return nil, 401
+	}
+
+	ts, createErr := CreateToken(userId)
+
+	if createErr != nil {
+		return nil, 403
+	}
+
+	saveErr := CreateAuth(userId, ts)
+
+	if saveErr != nil {
+		return nil, 403
+	}
+
+	return ts, 200
+
 }
 
 func Refresh(w http.ResponseWriter, req *http.Request) {
@@ -64,7 +120,6 @@ func Refresh(w http.ResponseWriter, req *http.Request) {
 	}
 
 	deleted, delErr := DeleteAuth(refreshUuid)
-
 	if delErr != nil || deleted == 0 {
 		w.WriteHeader(401)
 		return
