@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
@@ -36,12 +37,14 @@ const (
 var DBA *db.DbAccess
 var Cache *cache.CacheAccess
 
+var DEBUG bool
+
 func getRouter() *mux.Router {
 	router := mux.NewRouter()
 	router.HandleFunc(registerUserUrl, handlerRegisterUser).Methods(http.MethodPost)
 	router.HandleFunc(authenticationUrl, handlerAuthentication).Methods(http.MethodPost)
 	router.HandleFunc(logoutUrl, checkValidToken(handlerLogout)).Methods(http.MethodPost)
-	router.HandleFunc(refreshTokenUrl, Refresh).Methods(http.MethodPost)
+	// router.HandleFunc(refreshTokenUrl, Refresh).Methods(http.MethodPost)
 	router.HandleFunc(fetchUserUrl, checkValidToken(handlerFetchUser)).Methods(http.MethodGet)
 
 	return router
@@ -114,8 +117,15 @@ func runAPI() {
 
 	apiPort := os.Getenv("API_PORT")
 
+	logDebug("Running in DEBUG mode")
 	log.Print(fmt.Sprintf("Running API on port %s", apiPort))
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", apiPort), api.CommonMiddleware(router)))
+}
+
+func logDebug(msg string) {
+	if DEBUG {
+		log.Println("DEBUG", msg)
+	}
 }
 
 func init() {
@@ -124,6 +134,8 @@ func init() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	DEBUG, _ = strconv.ParseBool(os.Getenv("DEBUG"))
 
 	setupLogging()
 

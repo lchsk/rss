@@ -1,6 +1,6 @@
 # Executables
-rss
 api/api
+manage/manage
 
 api/logs
 
