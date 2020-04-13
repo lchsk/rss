@@ -2,6 +2,7 @@ import m from "mithril";
 
 import { SignUpComponent } from "./signup";
 import { LoginComponent } from "./login";
+import { LogoutComponent } from "./logout";
 
 const UserComponent = {
   oninit: node => {
@@ -29,6 +30,11 @@ m.route(document.body, "/", {
   "/login": {
     render: function() {
       return m(LoginComponent);
+    }
+  },
+  "/logout": {
+    render: function() {
+      return m(LogoutComponent);
     }
   },
   "/signup": {

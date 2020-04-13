@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+	"prettier": "./node_modules/prettier/bin-prettier.js --write 'src/**/*.js'",
+    "lint": "./node_modules/eslint/bin/eslint.js -c ./.eslintrs.js src/",
     "test": "echo \"No test specified\" && exit 0"
   },
   "keywords": [],
