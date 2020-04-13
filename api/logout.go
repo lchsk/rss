@@ -16,5 +16,8 @@ func handlerLogout(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
+	http.SetCookie(w, getCookie("token", "", -1))
+	http.SetCookie(w, getCookie("refresh", "", -1))
+
 	w.WriteHeader(200)
 }
