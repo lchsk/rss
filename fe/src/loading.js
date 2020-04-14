@@ -1,4 +1,4 @@
-import m from "mithril";
+var m = require("mithril");
 
 function getLoadingView() {
   return m.trust(
@@ -23,4 +23,4 @@ function getLoadingView() {
   );
 }
 
-export { getLoadingView };
+module.exports = getLoadingView;

@@ -1,9 +1,9 @@
 import m from "mithril";
 
-import { SignUpComponent } from "./signup";
-import { LoginComponent } from "./login";
-import { LogoutComponent } from "./logout";
-import { User } from "./user"
+const SignUpComponent = require('./signup');
+const LoginComponent = require('./login');
+const LogoutComponent = require('./logout');
+const User = require('./user');
 
 const UserComponent = {
   oninit: node => {

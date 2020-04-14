@@ -41,4 +41,7 @@ function getSingleError(error) {
   return getErrorMessage("errMsgUnknown");
 }
 
-export { getErrorMessage, getSingleError };
+module.exports = {
+  getErrorMessage: getErrorMessage,
+  getSingleError: getSingleError,
+};

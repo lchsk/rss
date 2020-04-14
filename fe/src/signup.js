@@ -1,8 +1,7 @@
-import m from "mithril";
-
-import { getErrorMessage, getSingleError } from "./error";
-import { User } from "./user";
-import { getLoadingView } from "./loading";
+var m = require("mithril");
+var {getErrorMessage, getSingleError} = require("./error");
+const User = require("./user");
+const getLoadingView = require("./loading")
 
 var SignUp = {
   current: {},
@@ -89,4 +88,4 @@ var SignUpComponent = {
   }
 };
 
-export var SignUpComponent;
+module.exports = SignUpComponent;

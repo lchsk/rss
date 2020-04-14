@@ -1,4 +1,4 @@
-import m from "mithril";
+var m = require("mithril");
 
 const UserAuthState = {
   UNKNOWN: "unknown",
@@ -12,11 +12,10 @@ var User = {
   authState: UserAuthState.UNKNOWN,
 
   load: () => {
-
     if (User.authState === UserAuthState.SIGNED_OUT) {
-      if (m.route.get() !== "/login") {
-        m.route.set("/login");
-      }
+      // if (m.route.get() !== "/login" && m.route.get() !== "/signup") {
+        // m.route.set("/login");
+      // }
       return;
     } else if (User.authState === UserAuthState.SIGNED_IN) {
       return;
@@ -35,9 +34,9 @@ var User = {
         User.data = { error: e };
         // TODO: Check for status
         User.authState = User.AuthState.SIGNED_OUT;
-		m.route.set("/login");
+		// m.route.set("/login");
       });
   }
 };
 
-export { User };
+module.exports = User;

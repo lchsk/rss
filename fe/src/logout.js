@@ -1,4 +1,4 @@
-import m from "mithril";
+var m = require("mithril");
 
 var LogoutComponent = {
   view: node => {
@@ -14,4 +14,4 @@ var LogoutComponent = {
   }
 };
 
-export var LogoutComponent;
+module.exports = LogoutComponent;
