@@ -38,7 +38,7 @@ var LoginComponent = {
       return m("div", getLoadingView());
     } else if (User.authState === User.AuthState.SIGNED_OUT) {
       return m(
-        "form",
+        "form.form-signin",
         {
           onsubmit: e => {
             e.preventDefault();
@@ -47,17 +47,17 @@ var LoginComponent = {
         },
         [
           m("div#login-error", Login.current.error),
-          m("input[type=text][placeholder=Email]", {
-            oninput: m.withAttr("value", value => {
-              Login.current.email = value;
-            })
-          }),
-          m("input[type=password][placeholder=Password]", {
+			m("input[type=email][placeholder=Email] .form-control", {
+              oninput: m.withAttr("value", value => {
+				Login.current.email = value;
+              })
+			}),
+          m("input[type=password][placeholder=Password] .form-control", {
             oninput: m.withAttr("value", value => {
               Login.current.password = value;
             })
           }),
-          m("button[type=submit]", "Sign in")
+          m("button[type=submit] .btn .btn-lg .btn-primary .btn-block", "Sign in")
         ]
       );
     }
