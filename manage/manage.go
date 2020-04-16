@@ -13,7 +13,7 @@ func init() {
 
 	flag.Parse()
 
-	conn, err := db.GetDBConn("rss", "rss", "rss_db", "5432")
+	conn, err := db.GetDBConn("localhost", "rss", "rss", "rss_db", "5432")
 
 	if err != nil {
 		log.Println("cannot get connection: %s\n", err)
