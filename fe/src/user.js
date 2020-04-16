@@ -23,7 +23,7 @@ var User = {
 
     m.request({
       method: "GET",
-      url: "http://localhost:8000/api/users/1",
+      url: "http://localhost:8000/api/users/current",
       withCredentials: true
     })
       .then(result => {

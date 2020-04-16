@@ -18,11 +18,11 @@ import (
 
 const (
 	// URLs
-	registerUserUrl   = "/api/users"
-	authenticationUrl = "/api/authentication"
-	refreshTokenUrl   = "/api/authentication/refresh"
-	logoutUrl         = "/api/logout"
-	fetchUserUrl      = "/api/users/{user_id}"
+	registerUserUrl     = "/api/users"
+	authenticationUrl   = "/api/authentication"
+	refreshTokenUrl     = "/api/authentication/refresh"
+	logoutUrl           = "/api/logout"
+	fetchCurrentUserUrl = "/api/users/current"
 
 	// API Errors
 	errInvalidUsernameLen = "invalid_username_len"
@@ -45,7 +45,7 @@ func getRouter() *mux.Router {
 	router.HandleFunc(authenticationUrl, handlerAuthentication).Methods(http.MethodPost)
 	router.HandleFunc(logoutUrl, checkValidToken(handlerLogout)).Methods(http.MethodPost)
 	// router.HandleFunc(refreshTokenUrl, Refresh).Methods(http.MethodPost)
-	router.HandleFunc(fetchUserUrl, checkValidToken(handlerFetchUser)).Methods(http.MethodGet)
+	router.HandleFunc(fetchCurrentUserUrl, checkValidToken(handlerFetchCurrentUser)).Methods(http.MethodGet)
 
 	return router
 }

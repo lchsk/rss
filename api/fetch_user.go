@@ -6,7 +6,7 @@ import (
 	"github.com/google/uuid"
 )
 
-func handlerFetchUser(w http.ResponseWriter, req *http.Request) {
+func handlerFetchCurrentUser(w http.ResponseWriter, req *http.Request) {
 	tokenAuth, errToken := ExtractTokenMetadata(req)
 	if errToken != nil {
 		w.WriteHeader(401)
