@@ -23,6 +23,7 @@ const (
 	refreshTokenUrl     = "/api/authentication/refresh"
 	logoutUrl           = "/api/logout"
 	fetchCurrentUserUrl = "/api/users/current"
+	addNewChannelUrl    = "/api/channels"
 
 	// API Errors
 	errInvalidUsernameLen = "invalid_username_len"
@@ -46,6 +47,7 @@ func getRouter() *mux.Router {
 	router.HandleFunc(logoutUrl, checkValidToken(handlerLogout)).Methods(http.MethodPost)
 	// router.HandleFunc(refreshTokenUrl, Refresh).Methods(http.MethodPost)
 	router.HandleFunc(fetchCurrentUserUrl, checkValidToken(handlerFetchCurrentUser)).Methods(http.MethodGet)
+	router.HandleFunc(addNewChannelUrl, checkValidToken(handlerAddNewChannelUrl)).Methods(http.MethodPost)
 
 	return router
 }

@@ -48,13 +48,13 @@ create table channels (
   created_at timestamp without time zone default (now() at time zone 'utc') not null,
   updated_at timestamp without time zone default (now() at time zone 'utc') not null,
 
-  title text not null,
-  description text not null,
-  website_url text not null,
   channel_url text not null,
-  managing_editor text not null,
-  pub_date_str text not null,
-  pub_date timestamp without time zone,
+  title text not null default '',
+  description text not null default '',
+  website_url text not null default '',
+  managing_editor text not null default '',
+  pub_date_str text not null default '',
+  pub_date timestamp without time zone null,
   category_id uuid null,
 
   constraint fk_channels_category_id

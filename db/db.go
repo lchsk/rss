@@ -5,12 +5,14 @@ import (
 	"fmt"
 	"io/ioutil"
 
+	"github.com/lchsk/rss/channel"
 	"github.com/lchsk/rss/user"
 )
 
 type DbAccess struct {
-	DB   *sql.DB
-	User *user.UserAccess
+	DB      *sql.DB
+	User    *user.UserAccess
+	Channel *channel.ChannelAccess
 }
 
 var DBA *DbAccess
@@ -22,7 +24,13 @@ func InitDbAccess(db *sql.DB) (*DbAccess, error) {
 		return nil, err
 	}
 
-	return &DbAccess{DB: db, User: ua}, nil
+	ca, err := channel.InitChannelAccess(db)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &DbAccess{DB: db, User: ua, Channel: ca}, nil
 }
 
 func GetDBConn(host, user, password, dbname, port string) (*sql.DB, error) {
