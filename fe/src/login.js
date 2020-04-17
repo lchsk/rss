@@ -57,7 +57,7 @@ var LoginComponent = {
               Login.current.password = value;
             })
           }),
-          m("button[type=submit] .btn .btn-lg .btn-primary .btn-block", "Sign in")
+          m("button[type=submit] .btn .btn-lg .btn-primary", "Sign in")
         ]
       );
     }

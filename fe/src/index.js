@@ -4,6 +4,8 @@ const SignUpComponent = require('./signup');
 const LoginComponent = require('./login');
 const LogoutComponent = require('./logout');
 const User = require('./user');
+const AddNewChannelComponent = require('./add_channel');
+var {getErrorMessage, getSingleError} = require("./error");
 
 const UserComponent = {
   oninit: node => {
@@ -24,9 +26,20 @@ var Layout = {
   view: function(node) {
 
 	return m(".container-fluid", [
+	  m('.row.top-bar', [
+		m(".col-sm-3", [
+          m("div", "hello",)
+        ]),
+		m(".col-sm-6", [
+          m("div", "",)
+        ]),
+		m(".col-sm-3 .text-right", [
+          m("div", "user",)
+        ]),
+	  ]),
       m('.row', [
-        m('.col-sm', [
-          getLink(".btn .btn-block .btn-primary", "/channels/new", "Add new channel"),
+        m('.col-sm .text-center', [
+          getLink(".btn .btn-primary", "/channels/new", "Add new channel"),
 
           m('hr'),
 
@@ -39,8 +52,7 @@ var Layout = {
           ]),
 
         ]),
-        // m('.col-sm-10', "Content"),
-        m('.col-sm-10', node.children),
+        m('.col-sm-9', node.children),
       ])
     ])
   }
@@ -58,28 +70,6 @@ var BoxLayout = {
       ]),
 	])
   }
-};
-
-var AddNewChannelComponent = {
-  view: function(node) {
-    return m("div", [
-      m("h1", "Add new channel"),
-      m("form", {}, [
-        m("div.form-group", [
-          m("div.col-lg-5", [
-		    m("input[type=text][placeholder=RSS Channel URL] autofocus .form-control .form-control-lg", {
-              autofocus: true,
-              oninput: m.withAttr("value", value => {
-              })
-		    }),
-            m("small.form-text .text-muted", "Some helpful info"),
-            m("div", {style: {paddingTop: '8px'}}),
-            m("button[type=submit] .btn .btn-lg .btn-primary", "Add"),
-          ]),
-        ]),
-      ]),
-    ]);
-  },
 };
 
 
