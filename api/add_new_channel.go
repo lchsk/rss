@@ -27,6 +27,12 @@ func isUrlValid(channelUrl string) bool {
 }
 
 func handlerAddNewChannelUrl(w http.ResponseWriter, req *http.Request) {
+	tokenAuth, errToken := ExtractTokenMetadata(req)
+	if errToken != nil {
+		w.WriteHeader(401)
+		return
+	}
+
 	decoder := json.NewDecoder(req.Body)
 
 	var input AddNewChannelInput
@@ -47,14 +53,34 @@ func handlerAddNewChannelUrl(w http.ResponseWriter, req *http.Request) {
 	var channel *channel.Channel
 
 	if err == nil {
-		var dbErr error
-		channel, dbErr = DBA.Channel.InsertChannel(input.ChannelUrl)
+		var insertUserChannel bool = false
 
-		if dbErr != nil {
-			log.Println(dbErr)
-			err = errors.New(errDbError)
+		var dbErr error
+		channel, dbErr = DBA.Channel.FetchChannelByUrl(input.ChannelUrl)
+
+		if dbErr == nil {
+			// Channel exists - we can insert user channel
+			insertUserChannel = true
 		} else {
-			log.Printf("Added new channel URL: %s\n", input.ChannelUrl)
+			// Channel doesn't exist - need to add it
+			channel, dbErr = DBA.Channel.InsertChannel(input.ChannelUrl)
+
+			if dbErr == nil {
+				log.Printf("Added new channel URL: %s\n", input.ChannelUrl)
+				insertUserChannel = true
+			} else {
+				log.Printf("Error insertint new channel %s: %s\n", input.ChannelUrl, dbErr)
+				err = errors.New(errDbError)
+			}
+		}
+
+		if insertUserChannel {
+			userChannelErr := DBA.Channel.InsertUserChannel(channel.ID, tokenAuth.UserId)
+
+			if userChannelErr != nil {
+				log.Printf("Error inserting user channel user_id=%s channel_id=%s : %s\n", channel.ID, tokenAuth.UserId, dbErr)
+				err = errors.New(errDbError)
+			}
 		}
 	}
 
