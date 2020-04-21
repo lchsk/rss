@@ -10,14 +10,20 @@ import (
 )
 
 const sqlInsertChannel = `
-    INSERT INTO channels (id, channel_url) VALUES
-    ($1, $2)
-    RETURNING id
+    insert into channels (id, channel_url, category_id) values
+    ($1, $2, $3)
+    returning id
 `
 
 const sqlInsertUserChannel = `
     insert into user_channels (id, channel_id, user_id) VALUES
     ($1, $2, $3)
+`
+
+const sqlInsertUserCategory = `
+    insert into categories (id, title, user_id, parent_id) VALUES
+    ($1, $2, $3, $4)
+    returning id
 `
 
 const sqlFetchChannelByUrl = `
@@ -58,18 +64,28 @@ type ChannelAccess struct {
 	Queries map[string]*sql.Stmt
 }
 
-func (ca *ChannelAccess) InsertChannel(channelUrl string) (*Channel, error) {
+func (ca *ChannelAccess) InsertChannel(channelUrl string, categoryId *string) (*Channel, error) {
 	c := &Channel{}
 
 	stmt := ca.Queries["insertChannel"]
 
 	id := uuid.New()
 
-	err := stmt.QueryRow(id, channelUrl).Scan(&c.ID)
+	err := stmt.QueryRow(id, channelUrl, categoryId).Scan(&c.ID)
 
 	// TODO: Log postgres error
 
 	return c, err
+}
+
+func (ca *ChannelAccess) InsertUserCategory(title string, userId string, parentId *string) (uuid.UUID, error) {
+	stmt := ca.Queries["insertUserCategory"]
+
+	id := uuid.New()
+
+	_, err := stmt.Exec(id, title, userId, parentId)
+
+	return id, err
 }
 
 func (ca *ChannelAccess) InsertUserChannel(channelId string, userId string) error {
@@ -142,10 +158,11 @@ func InitChannelAccess(db *sql.DB) (*ChannelAccess, error) {
 	queries := map[string]*sql.Stmt{}
 
 	queriesToPrepare := map[string]string{
-		"insertChannel":     sqlInsertChannel,
-		"fetchChannelByUrl": sqlFetchChannelByUrl,
-		"insertUserChannel": sqlInsertUserChannel,
-		"fetchUserChannels": sqlFetchUserChannels,
+		"insertChannel":      sqlInsertChannel,
+		"insertUserChannel":  sqlInsertUserChannel,
+		"insertUserCategory": sqlInsertUserCategory,
+		"fetchChannelByUrl":  sqlFetchChannelByUrl,
+		"fetchUserChannels":  sqlFetchUserChannels,
 	}
 
 	for name, sql := range queriesToPrepare {
