@@ -26,8 +26,10 @@ const sqlFetchChannelByUrl = `
 
 const sqlFetchUserChannels = `
 select
-	c.ID,
-	c.channel_url
+	c.ID as channel_id,
+	c.channel_url as channel_url,
+	cat.id as category_id,
+	cat.title as category_title
 from
 	channels c
 join user_channels uc on
@@ -43,8 +45,13 @@ type Channel struct {
 }
 
 type UserChannel struct {
-	ChannelId  string `json:"channel_id"`
-	ChannelUrl string `json:"channel_url"`
+	ChannelId     string  `json:"channel_id"`
+	ChannelUrl    string  `json:"channel_url"`
+	CategoryId    *string `json:"category_id"`
+	CategoryTitle *string `json:"category_title"`
+
+	DbCategoryId    sql.NullString `json:"-"`
+	DbCategoryTitle sql.NullString `json:"-"`
 }
 
 type ChannelAccess struct {
@@ -107,9 +114,22 @@ func (ca *ChannelAccess) FetchUserChannels(userId string) ([]UserChannel, error)
 	for rows.Next() {
 		uc := UserChannel{}
 
-		if err := rows.Scan(&uc.ChannelId, &uc.ChannelUrl); err != nil {
+		if err := rows.Scan(
+			&uc.ChannelId,
+			&uc.ChannelUrl,
+			&uc.DbCategoryId,
+			&uc.DbCategoryTitle,
+		); err != nil {
 			log.Printf("Error reading user channels for user_id=%s: %s\n", userId, err)
 			return nil, err
+		}
+
+		if uc.DbCategoryId.Valid {
+			uc.CategoryId = &uc.DbCategoryId.String
+		}
+
+		if uc.DbCategoryTitle.Valid {
+			uc.CategoryTitle = &uc.DbCategoryTitle.String
 		}
 
 		userChannels = append(userChannels, uc)
