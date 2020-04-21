@@ -78,7 +78,7 @@ func handlerAddNewChannelUrl(w http.ResponseWriter, req *http.Request) {
 			userChannelErr := DBA.Channel.InsertUserChannel(channel.ID, tokenAuth.UserId)
 
 			if userChannelErr != nil {
-				log.Printf("Error inserting user channel user_id=%s channel_id=%s : %s\n", channel.ID, tokenAuth.UserId, dbErr)
+				log.Printf("Error inserting user channel user_id=%s channel_id=%s : %s\n", channel.ID, tokenAuth.UserId, userChannelErr)
 				err = errors.New(errDbError)
 			}
 		}
