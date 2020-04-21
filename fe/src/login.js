@@ -1,8 +1,8 @@
 var m = require("mithril");
-var {getErrorMessage, getSingleError} = require("./error");
+var { getErrorMessage, getSingleError } = require("./error");
 
 const User = require("./user");
-const getLoadingView = require("./loading")
+const getLoadingView = require("./loading");
 
 var Login = {
   current: {},
@@ -47,11 +47,11 @@ var LoginComponent = {
         },
         [
           m("div#login-error", Login.current.error),
-			m("input[type=email][placeholder=Email] .form-control", {
-              oninput: m.withAttr("value", value => {
-				Login.current.email = value;
-              })
-			}),
+          m("input[type=email][placeholder=Email] .form-control", {
+            oninput: m.withAttr("value", value => {
+              Login.current.email = value;
+            })
+          }),
           m("input[type=password][placeholder=Password] .form-control", {
             oninput: m.withAttr("value", value => {
               Login.current.password = value;

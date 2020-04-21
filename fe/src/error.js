@@ -43,5 +43,5 @@ function getSingleError(error) {
 
 module.exports = {
   getErrorMessage: getErrorMessage,
-  getSingleError: getSingleError,
+  getSingleError: getSingleError
 };
