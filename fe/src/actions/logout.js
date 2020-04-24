@@ -1,6 +1,6 @@
 var m = require("mithril");
 
-var LogoutComponent = {
+var Logout = {
   view: node => {
     m.request({
       method: "POST",
@@ -14,4 +14,4 @@ var LogoutComponent = {
   }
 };
 
-module.exports = LogoutComponent;
+module.exports = Logout;

@@ -1,6 +1,6 @@
 var m = require("mithril");
-var { getErrorMessage, getSingleError } = require("./error");
-const User = require("./user");
+var { getErrorMessage, getSingleError } = require("../common/error");
+const User = require("../actions/user");
 const getLoadingView = require("./loading");
 
 var SignUp = {
@@ -52,7 +52,7 @@ var SignUpComponent = {
       return m("div", getLoadingView());
     } else if (User.authState === User.AuthState.SIGNED_OUT) {
       return m(
-        "form",
+        "form.form-major",
         {
           onsubmit: e => {
             e.preventDefault();
@@ -61,27 +61,27 @@ var SignUpComponent = {
         },
         [
           m("div#signup-error", SignUp.current.error),
-          m("input[type=text][placeholder=Email]", {
+          m("input[type=text][placeholder=Email] .form-control", {
             oninput: m.withAttr("value", value => {
               SignUp.current.email = value;
             })
           }),
-          m("input[type=text][placeholder=Username]", {
+          m("input[type=text][placeholder=Username] .form-control", {
             oninput: m.withAttr("value", value => {
               SignUp.current.username = value;
             })
           }),
-          m("input[type=password][placeholder=Password]", {
+          m("input[type=password][placeholder=Password] .form-control", {
             oninput: m.withAttr("value", value => {
               SignUp.current.password1 = value;
             })
           }),
-          m("input[type=password][placeholder=Repeat password]", {
+          m("input[type=password][placeholder=Repeat password] .form-control", {
             oninput: m.withAttr("value", value => {
               SignUp.current.password2 = value;
             })
           }),
-          m("button[type=submit]", "Sign up")
+          m("button[type=submit] .btn .btn-lg .btn-primary", "Sign up")
         ]
       );
     }

@@ -1,5 +1,5 @@
 var m = require("mithril");
-var { getErrorMessage, getSingleError } = require("./error");
+var { getErrorMessage, getSingleError } = require("../common/error");
 const getLoadingView = require("./loading");
 
 var AddChannel = {
