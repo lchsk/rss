@@ -1,6 +1,5 @@
 var m = require("mithril");
 
-
 function getLink(classes, href, anchor) {
   return m(
     "a" + classes,
@@ -11,6 +10,5 @@ function getLink(classes, href, anchor) {
     anchor
   );
 }
-
 
 module.exports = getLink;

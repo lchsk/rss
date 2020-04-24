@@ -7,7 +7,7 @@ const MainViewWithChannelsList = {
     return m(".container-fluid", [
       m(".row", [
         m(".col-sm-3", m(ChannelsList)),
-        m(".col-sm-9", node.children),
+        m(".col-sm-9", node.children)
       ])
     ]);
   }

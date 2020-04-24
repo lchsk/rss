@@ -1,6 +1,3 @@
-
-
-
 function defDict(type) {
   var dict = {};
   return {

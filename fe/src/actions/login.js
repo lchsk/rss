@@ -27,5 +27,4 @@ var Login = {
   }
 };
 
-
 module.exports = LoginComponent;

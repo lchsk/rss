@@ -23,16 +23,22 @@ const Login = {
         },
         [
           // m("div#login-error", Login.current.error),
-          m("input[type=email][placeholder=Email] .form-control .together-top", {
-            oninput: m.withAttr("value", value => {
-              // Login.current.email = value;
-            })
-          }),
-          m("input[type=password][placeholder=Password] .form-control .together-bottom", {
-            oninput: m.withAttr("value", value => {
-              // Login.current.password = value;
-            })
-          }),
+          m(
+            "input[type=email][placeholder=Email] .form-control .together-top",
+            {
+              oninput: m.withAttr("value", value => {
+                // Login.current.email = value;
+              })
+            }
+          ),
+          m(
+            "input[type=password][placeholder=Password] .form-control .together-bottom",
+            {
+              oninput: m.withAttr("value", value => {
+                // Login.current.password = value;
+              })
+            }
+          ),
           m("button[type=submit] .btn .btn-lg .btn-primary", "Sign in")
         ]
       );

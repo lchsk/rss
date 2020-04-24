@@ -39,10 +39,10 @@ m.route(document.body, "/", {
     render: () => {
       return m(AppNoAuth, m(SignUpComponent));
     }
-  },
+  }
   // "/user": {
-    // render: function() {
-      // return m(UserComponent);
-    // }
+  // render: function() {
+  // return m(UserComponent);
+  // }
   // }
 });

@@ -2,8 +2,8 @@ var m = require("mithril");
 
 const User = {
   // oninit: node => {
-    // User.load();
-  },
+  // User.load();
+  // },
   view: node => {}
 };
 
