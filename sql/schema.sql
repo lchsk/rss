@@ -57,6 +57,10 @@ create table channels (
   pub_date timestamp without time zone null,
   category_id uuid null,
 
+  -- In seconds
+  refresh_interval int not null default 300,
+  last_successful_update timestamp without time zone default (now() at time zone 'utc') not null,
+
   constraint fk_channels_category_id
      foreign key (category_id)
      references categories (id)
@@ -85,3 +89,60 @@ create table user_channels (
 
 drop index if exists idx_user_channels_channel_id_user_id;
 create unique index idx_user_channels_channel_id_user_id on user_channels(channel_id, user_id);
+
+-- articles
+
+drop table if exists articles cascade;
+create table articles (
+  id uuid not null primary key,
+  created_at timestamp without time zone default (now() at time zone 'utc') not null,
+
+  pub_at timestamp without time zone default (now() at time zone 'utc') not null,
+
+  url text not null,
+  title text not null,
+  description text not null,
+  author text not null,
+
+  channel_id uuid not null,
+  user_id uuid not null,
+  category_id uuid not null,
+
+  constraint fk_articles_channel_id
+     foreign key (channel_id)
+     references channels (id),
+  constraint fk_articles_user_id
+     foreign key (user_id)
+     references users (id),
+  constraint fk_articles_category_id
+     foreign key (category_id)
+     references categories (id)
+);
+
+-- Add indexes / unique
+-- drop index if exists idx_articles__channel_id_user_id;
+-- create unique index idx_articles_channel_id_user_id on articles(channel_id, user_id);
+
+-- user_articles
+
+drop table if exists user_articles cascade;
+
+drop type if exists user_articles_status;
+create type user_articles_status as enum ('unread', 'read');
+
+create table user_articles (
+  id uuid not null primary key,
+  created_at timestamp without time zone default (now() at time zone 'utc') not null,
+
+  user_id uuid not null,
+  article_id uuid not null,
+
+  status user_articles_status not null default 'unread',
+
+  constraint fk_user_articles_user_id
+     foreign key (user_id)
+     references users (id),
+  constraint fk_user_articles_article_id
+     foreign key (article_id)
+     references articles (id)
+);
