@@ -67,36 +67,6 @@ func setupLogging() {
 	log.SetFlags(log.Lshortfile | log.LUTC | log.Ltime | log.Ldate)
 }
 
-func setupDB() error {
-	dbHost := os.Getenv("POSTGRES_HOST")
-	dbUser := os.Getenv("POSTGRES_USER")
-	dbPassword := os.Getenv("POSTGRES_PASSWORD")
-	dbName := os.Getenv("POSTGRES_DB")
-	dbPort := os.Getenv("POSTGRES_PORT")
-
-	logDebug(fmt.Sprintf(
-		"Attempting to connect to Postgres on host=%s user=%s pass=%s name=%s port=%s",
-		dbHost, dbUser, dbPassword, dbName, dbPort))
-
-	conn, err := db.GetDBConn(dbHost, dbUser, dbPassword, dbName, dbPort)
-
-	if err != nil {
-		return fmt.Errorf("error connecting to DB: %s", err)
-	}
-
-	dba, err := db.InitDbAccess(conn)
-
-	if err != nil {
-		return fmt.Errorf("error initiating db access: %s", err)
-	}
-
-	DBA = dba
-
-	log.Print("Connected to DB")
-
-	return nil
-}
-
 func setupCache() error {
 	redisHost := os.Getenv("REDIS_HOST")
 	redisPort := os.Getenv("REDIS_PORT")
@@ -153,11 +123,13 @@ func init() {
 
 	setupLogging()
 
-	err = setupDB()
+	dba, err := db.GetDBConnection()
 
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	DBA = dba
 
 	err = setupCache()
 
