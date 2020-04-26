@@ -1,6 +1,10 @@
 package comms
 
-import "github.com/streadway/amqp"
+import (
+	"log"
+
+	"github.com/streadway/amqp"
+)
 
 type Queue struct {
 	Name             string
@@ -16,17 +20,21 @@ type Connection struct {
 }
 
 func ConnectionInit(url string) (*Connection, error) {
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	conn, err := amqp.Dial(url)
 
 	if err != nil {
 		return nil, err
 	}
+
+	log.Println("Rabbit connection established")
 
 	ch, err := conn.Channel()
 
 	if err != nil {
 		return nil, err
 	}
+
+	log.Println("Rabbit channel opened")
 
 	return &Connection{
 		Connection: conn,
@@ -35,8 +43,10 @@ func ConnectionInit(url string) (*Connection, error) {
 }
 
 func (connection *Connection) ConnectionClose() {
+	log.Printf("Cleaning up connection\n")
 	connection.Channel.Close()
 	connection.Connection.Close()
+	log.Printf("Connection cleaned up\n")
 }
 
 func getQueues() []Queue {
