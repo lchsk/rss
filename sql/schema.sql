@@ -58,7 +58,7 @@ create table channels (
   category_id uuid null,
 
   -- In seconds
-  refresh_interval int not null default 300,
+  refresh_interval interval not null default '30 minutes',
   last_successful_update timestamp without time zone default (now() at time zone 'utc') not null,
 
   constraint fk_channels_category_id
@@ -102,6 +102,7 @@ create table articles (
   url text not null,
   title text not null,
   description text not null,
+  content text not null,
   author text not null,
 
   channel_id uuid not null,
