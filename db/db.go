@@ -4,6 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 	"io/ioutil"
+	"log"
+	"os"
 
 	"github.com/lchsk/rss/channel"
 	"github.com/lchsk/rss/user"
@@ -15,7 +17,31 @@ type DbAccess struct {
 	Channel *channel.ChannelAccess
 }
 
-var DBA *DbAccess
+func GetDBConnection() (*DbAccess, error) {
+	dbHost := os.Getenv("POSTGRES_HOST")
+	dbUser := os.Getenv("POSTGRES_USER")
+	dbPassword := os.Getenv("POSTGRES_PASSWORD")
+	dbName := os.Getenv("POSTGRES_DB")
+	dbPort := os.Getenv("POSTGRES_PORT")
+
+	log.Printf("Attempting to connect to Postgres on host=%s port=%s\n", dbHost, dbPort)
+
+	conn, err := GetDBConn(dbHost, dbUser, dbPassword, dbName, dbPort)
+
+	if err != nil {
+		return nil, fmt.Errorf("error connecting to DB: %s", err)
+	}
+
+	dba, err := InitDbAccess(conn)
+
+	if err != nil {
+		return nil, fmt.Errorf("error initiating db access: %s", err)
+	}
+
+	log.Printf("Connected to Postgres host=%s port=%s\n", dbHost, dbPort)
+
+	return dba, nil
+}
 
 func InitDbAccess(db *sql.DB) (*DbAccess, error) {
 	ua, err := user.InitUserAccess(db)
