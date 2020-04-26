@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/google/uuid"
+	"github.com/mmcdole/gofeed"
 
 	_ "github.com/lib/pq"
 )
@@ -44,6 +45,18 @@ left join categories cat on
 	cat.id = c.category_id
 where
     uc.user_id = $1
+`
+
+const sqlFetchChannelsToUpdate = `
+select
+	channel_url
+from
+	channels c
+where
+	now() at time zone 'utc' - c.last_successful_update >= c.refresh_interval
+order by
+	last_successful_update asc
+limit 1000
 `
 
 type Channel struct {
@@ -114,6 +127,31 @@ func (ca *ChannelAccess) FetchChannelByUrl(channelUrl string) (*Channel, error) 
 	return c, err
 }
 
+func (ca *ChannelAccess) FetchChannelsToUpdate() ([]string, error) {
+	stmt := ca.Queries["fetchChannelsToUpdate"]
+
+	rows, err := stmt.Query()
+	defer rows.Close()
+
+	if err != nil {
+		return nil, err
+	}
+
+	var urls []string
+
+	for rows.Next() {
+		var url string
+
+		if err := rows.Scan(&url); err != nil {
+			return nil, err
+		}
+
+		urls = append(urls, url)
+	}
+
+	return urls, nil
+}
+
 func (ca *ChannelAccess) FetchUserChannels(userId string) ([]UserChannel, error) {
 	userChannels := []UserChannel{}
 
@@ -154,15 +192,28 @@ func (ca *ChannelAccess) FetchUserChannels(userId string) ([]UserChannel, error)
 	return userChannels, err
 }
 
+func (ca *ChannelAccess) UpdateChannel(feed *gofeed.Feed) error {
+	// Load last article published for this channel
+	// Filter which articles we need to insert
+
+	// Insert new articles articles
+
+	// Update channel properties in channels
+	// Update last successful sync
+
+	return nil
+}
+
 func InitChannelAccess(db *sql.DB) (*ChannelAccess, error) {
 	queries := map[string]*sql.Stmt{}
 
 	queriesToPrepare := map[string]string{
-		"insertChannel":      sqlInsertChannel,
-		"insertUserChannel":  sqlInsertUserChannel,
-		"insertUserCategory": sqlInsertUserCategory,
-		"fetchChannelByUrl":  sqlFetchChannelByUrl,
-		"fetchUserChannels":  sqlFetchUserChannels,
+		"insertChannel":         sqlInsertChannel,
+		"insertUserChannel":     sqlInsertUserChannel,
+		"insertUserCategory":    sqlInsertUserCategory,
+		"fetchChannelByUrl":     sqlFetchChannelByUrl,
+		"fetchUserChannels":     sqlFetchUserChannels,
+		"fetchChannelsToUpdate": sqlFetchChannelsToUpdate,
 	}
 
 	for name, sql := range queriesToPrepare {
