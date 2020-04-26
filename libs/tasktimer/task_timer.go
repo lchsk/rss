@@ -23,7 +23,7 @@ func (mgr *TaskManager) Check() {
 
 		if diff > task.Every {
 			if task.Func != nil {
-				task.Func()
+				go task.Func()
 			}
 			task.LastExecution = current
 		}
