@@ -43,21 +43,21 @@ func init() {
 }
 
 func updateChannels() {
-	urls, err := DBA.Channel.FetchChannelsToUpdate()
+	channels, err := DBA.Channel.FetchChannelsToUpdate()
 
 	if err != nil {
 		log.Printf("Error in channel update: %s\n", err)
 		return
 	}
 
-	for _, url := range urls {
-		refreshMsg := comms.RefreshChannel{Url: url}
+	for _, channel := range channels {
+		refreshMsg := comms.RefreshChannel{Id: channel.ChannelId, Url: channel.ChannelUrl}
 
 		message, err := comms.BuildMessage(refreshMsg)
 
 		if err == nil {
 			queueConn.Publish("", "hello", message)
-			log.Printf("Published channel update message for url %s\n", url)
+			log.Printf("Published channel update message for channel id=%s\n", channel.ChannelId)
 		} else if err != nil {
 			log.Printf("Error building channel update message: %s\n", err)
 		}

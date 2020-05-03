@@ -24,6 +24,11 @@ type UserChannel struct {
 	DbCategoryTitle sql.NullString `json:"-"`
 }
 
+type ChannelToUpdate struct {
+	ChannelId  string
+	ChannelUrl string
+}
+
 type ChannelAccess struct {
 	Queries map[string]*sql.Stmt
 }
@@ -78,7 +83,7 @@ func (ca *ChannelAccess) FetchChannelByUrl(channelUrl string) (*Channel, error) 
 	return c, err
 }
 
-func (ca *ChannelAccess) FetchChannelsToUpdate() ([]string, error) {
+func (ca *ChannelAccess) FetchChannelsToUpdate() ([]*ChannelToUpdate, error) {
 	stmt := ca.Queries["fetchChannelsToUpdate"]
 
 	rows, err := stmt.Query()
@@ -88,19 +93,19 @@ func (ca *ChannelAccess) FetchChannelsToUpdate() ([]string, error) {
 		return nil, err
 	}
 
-	var urls []string
+	var channels []*ChannelToUpdate
 
 	for rows.Next() {
-		var url string
+		channel := &ChannelToUpdate{}
 
-		if err := rows.Scan(&url); err != nil {
+		if err := rows.Scan(&channel.ChannelId, &channel.ChannelUrl); err != nil {
 			return nil, err
 		}
 
-		urls = append(urls, url)
+		channels = append(channels, channel)
 	}
 
-	return urls, nil
+	return channels, nil
 }
 
 func (ca *ChannelAccess) FetchUserChannels(userId string) ([]UserChannel, error) {

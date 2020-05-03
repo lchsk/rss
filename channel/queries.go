@@ -39,6 +39,7 @@ where
 
 const sqlFetchChannelsToUpdate = `
 select
+    id,
 	channel_url
 from
 	channels c

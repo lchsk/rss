@@ -13,6 +13,7 @@ type Message struct {
 }
 
 type RefreshChannel struct {
+	Id  string
 	Url string
 }
 

@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"os"
 
@@ -19,18 +18,10 @@ func refreshChannelHandler(message *comms.Message, body []byte) {
 		return
 	}
 
-	var url string
-
-	debug := os.Getenv("DEBUG")
-
-	if debug == "false" {
-		url = data.Url
-	} else if debug == "true" {
-		// Host some channel locally
-		url = "https://lchsk.com/posts.xml"
-	}
+	url := data.Url
 
 	if url == "" {
+		debug := os.Getenv("DEBUG")
 		log.Printf("Url not provided for refresh channel message, debug: %s\n", debug)
 		return
 	}
@@ -47,6 +38,5 @@ func refreshChannelHandler(message *comms.Message, body []byte) {
 		return
 	}
 
-	// Call UpdateChannel(feed)
-	fmt.Println(feed.Title)
+	DBA.Channel.UpdateChannel(feed)
 }
