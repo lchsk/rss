@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Home page of Maciej Lechowski</title>
+    <link>https://lchsk.com</link>
+    <description>Home page of Maciej Lechowski; blog, open source projects; c++, python, go, emacs, linux</description>
+    <managingEditor> (Maciej Lechowski)</managingEditor>
+    <pubDate>Mon, 27 Apr 2020 22:40:03 +0100</pubDate>
+    <item>
+      <title>Building a video game in C for a weekend game jam</title>
+      <link>https://lchsk.com/building-a-video-game-in-c-for-a-weekend-game-jam.html</link>
+      <description>Summary of building a video game entry for Ludum Dare 46 game jam. Top-down survival shooter in C and SDL.</description>
+      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>How to use git submodules and CMake to install C++ libraries?</title>
+      <link>https://lchsk.com/how-to-use-git-submodules-and-cmake-to-install-c-libraries.html</link>
+      <description>Install a C++ header-only library with git submodules and CMake.</description>
+      <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Stay paranoid and trust no one. Overview of common security vulnerabilities in web applications</title>
+      <link>https://lchsk.com/stay-paranoid-and-trust-no-one-overview-of-common-security-vulnerabilities-in-web-applications.html</link>
+      <description>Stay paranoid and trust no one. Common security issues in web applications explained with Python and Django. Examples of SQL injection and command injection. Cross-site scripting, and other common vulnerabilities.</description>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Static websites in Golang and Rust</title>
+      <link>https://lchsk.com/static-websites-in-golang-and-rust.html</link>
+      <description>How to generate static page websites in go? </description>
+      <pubDate>Sun, 02 Feb 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>How to connect to a host Postgres database from a Docker container?</title>
+      <link>https://lchsk.com/how-to-connect-to-a-host-postgres-database-from-a-docker-container.html</link>
+      <description>Set up a Docker container running a web service that connects to a Postgres database running on the host system.</description>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Building a Postgres GUI client with C++ and GTK (SanchoSQL)</title>
+      <link>https://lchsk.com/building-a-postgres-gui-client-with-c-and-gtk-sanchosql.html</link>
+      <description>SanchoSQL - Postgres GUI client with C++ and GTK</description>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Setting up CI for a C++ application with Docker</title>
+      <link>https://lchsk.com/setting-up-ci-for-cpp-application-with-docker.html</link>
+      <description>How to set up continuous integration for a C++ application with Docker and open source CI service?</description>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Debugging with git bisect</title>
+      <link>https://lchsk.com/debugging-with-git-bisect.html</link>
+      <description>How to debug your code with git bisect</description>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Launching applications from Emacs</title>
+      <link>https://lchsk.com/launching-applications-from-emacs.html</link>
+      <description></description>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Making a turn-based strategy game in C++ in 72 hours</title>
+      <link>https://lchsk.com/making-a-turn-based-strategy-game-in-cpp-in-72-hours.html</link>
+      <description>A turn-based strategy game developed for Ludum Dare 42 game jam in C++ and SFML.</description>
+      <pubDate>Sat, 18 Aug 2018 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>When the compiler fixes your mistakes</title>
+      <link>https://lchsk.com/when-the-compiler-fixes-your-mistakes.html</link>
+      <description>I have been working on a new feature for my terminal-based application launcher. I want to be able to search for programs and run them from within Emacs using xstarter. In this post, I&#39;ll describe a strange experience I have had fixing a bug.</description>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>On the benefits of a text-based user interface</title>
+      <link>https://lchsk.com/on-the-benefits-of-a-text-based-user-interface.html</link>
+      <description>Modern user interfaces offer stunning graphic styles and impressive visual effects. However, there&#39;s a category of applications that is seemingly outdated but yet offers unparalleled productivity and unique experience in interaction with a computer.</description>
+      <pubDate>Mon, 28 May 2018 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>How to set up googletest library from source?</title>
+      <link>https://lchsk.com/how-to-set-up-googletest-library-from-source.html</link>
+      <description>The following guide provides instructions on how to compile and add googletest to a C++ project. It will use pkg-config to obtain compiler flags and can be used with a build system such as cmake.</description>
+      <pubDate>Fri, 18 May 2018 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

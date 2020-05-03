@@ -1,0 +1,962 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:nyt="http://www.nytimes.com/namespaces/rss/2.0" version="2.0">
+  <channel>
+    <title>NYT &gt; Science</title>
+    <link>https://www.nytimes.com/section/science</link>
+    <atom:link href="https://rss.nytimes.com/services/xml/rss/nyt/Science.xml" rel="self" type="application/rss+xml"></atom:link>
+    <description></description>
+    <language>en-us</language>
+    <copyright>Copyright 2020 The New York Times Company</copyright>
+    <lastBuildDate>Sun, 03 May 2020 16:42:50 +0000</lastBuildDate>
+    <pubDate>Sun, 03 May 2020 16:42:50 +0000</pubDate>
+    <image>
+      <title>NYT &gt; Science</title>
+      <url>https://static01.nyt.com/images/misc/NYT_logo_rss_250x40.png</url>
+      <link>https://www.nytimes.com/section/science</link>
+    </image>
+    <item>
+      <title>Antarctica vs. Science</title>
+      <link>https://www.nytimes.com/2020/05/02/science/antarctica-science-equipment.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/02/science/antarctica-science-equipment.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/02/science/antarctica-science-equipment.html" rel="standout"></atom:link>
+      <description>For researchers using delicate, one-of-a-kind equipment, the extreme conditions at the bottom of the planet pose special challenges.</description>
+      <dc:creator>Robin George Andrews</dc:creator>
+      <pubDate>Sat, 02 May 2020 09:00:18 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Antarctic Regions</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">South Pole</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Science and Technology</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Research</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Ice</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Accidents and Safety</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Meteors and Meteorites</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Engineering and Engineers</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">your-feed-science</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/24/science/00SCI-ANTARCTICWRECKAGE1/00SCI-ANTARCTICWRECKAGE1-moth.jpg" width="151"></media:content>
+      <media:credit>Geoff Evatt/University of Manchester</media:credit>
+      <media:description>A snowmobile towing sensitive equipment in Antarctica.</media:description>
+    </item>
+    <item>
+      <title>Your Chicken Is No Longer Pink. That Doesn’t Mean It’s Safe to Eat.</title>
+      <link>https://www.nytimes.com/2020/05/01/science/chicken-cooking-temperature-bacteria.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/science/chicken-cooking-temperature-bacteria.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/science/chicken-cooking-temperature-bacteria.html" rel="standout"></atom:link>
+      <description>Next time you cook chicken, don’t rely on the color of the meat to tell you if it’s cooked enough to avoid food poisoning.</description>
+      <dc:creator>JoAnna Klein</dc:creator>
+      <pubDate>Fri, 01 May 2020 22:31:30 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Poultry</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Cooking and Cookbooks</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Food Contamination and Poisoning</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Salmonella (Bacteria)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Thermometers</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Research</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">PLoS One (Journal)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Langsrud, Solveig</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Norwegian Institute of Food, Fisheries and Aquaculture Research</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">your-feed-science</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/science/01TB-CHICKEN/01TB-CHICKEN-moth.jpg" width="151"></media:content>
+      <media:credit>Tony Cenicola/The New York Times</media:credit>
+      <media:description>Chicken breasts turn from pink to white before reaching a temperature of 131 degrees, but aren’t considered safe until 158 degrees.</media:description>
+    </item>
+    <item>
+      <title>SpaceX to Bring Crew to Short-Staffed Space Station for Longer Stay</title>
+      <link>https://www.nytimes.com/2020/05/01/science/nasa-spacex-crew-dragon.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/science/nasa-spacex-crew-dragon.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/science/nasa-spacex-crew-dragon.html" rel="standout"></atom:link>
+      <description>Two NASA astronauts will now stay for more than a month and not two weeks during their first flight aboard the Crew Dragon capsule.</description>
+      <dc:creator>Kenneth Chang</dc:creator>
+      <pubDate>Fri, 01 May 2020 21:04:53 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Space and Astronomy</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Space Exploration Technologies Corp</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">National Aeronautics and Space Administration</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Behnken, Robert L</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Hurley, Douglas G</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/science/01NASA/01NASA-moth.jpg" width="151"></media:content>
+      <media:credit>SpaceX</media:credit>
+      <media:description>SpaceX’s Crew Dragon space capsule arriving at the launch site at NASA’s Kennedy Space Center in Florida in February.</media:description>
+    </item>
+    <item>
+      <title>3 Africans in Mexico City Grave Tell Stories of Slavery’s Toll</title>
+      <link>https://www.nytimes.com/2020/05/01/science/africans-slavery-mexico-grave.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/science/africans-slavery-mexico-grave.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/science/africans-slavery-mexico-grave.html" rel="standout"></atom:link>
+      <description>The men might have been among the earliest to be stolen from their homeland and brought to the Americas.</description>
+      <dc:creator>Nicholas St. Fleur</dc:creator>
+      <pubDate>Fri, 01 May 2020 15:50:50 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Archaeology and Anthropology</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Slavery (Historical)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Indigenous People</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Skeletons</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Mexico City (Mexico)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Genetics and Heredity</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Skull (Body Part)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Teeth and Dentistry</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Africa</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Current Biology (Journal)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Research</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">your-feed-science</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Mexico</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Barquera, Rodrigo</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Krause, Johannes</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Infections</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/science/01TB-SKELETONS1/01TB-SKELETONS1-moth-v5.jpg" width="151"></media:content>
+      <media:credit>R. Barquera &amp; N. Bernal</media:credit>
+      <media:description>The skulls and modified teeth of three people taken from Africa and buried hundreds of years ago in a mass grave in Mexico City.</media:description>
+    </item>
+    <item>
+      <title>The Sun Is a Bit Boring, Which May Make It Special</title>
+      <link>https://www.nytimes.com/2020/04/30/science/sun-magnetic-storms.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/30/science/sun-magnetic-storms.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/30/science/sun-magnetic-storms.html" rel="standout"></atom:link>
+      <description>The sun seems a little less active than hundreds of similar stars in our galaxy, which could play a role in why life exists in our solar system.</description>
+      <dc:creator>Adam Mann</dc:creator>
+      <pubDate>Thu, 30 Apr 2020 18:00:11 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Sun</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Solar System</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Stars and Galaxies</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Earth</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Radiation</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Space and Astronomy</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Science (Journal)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Research</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Reinhold, Timo</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Krivova, Natalie</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/30/science/30TB-BORINGSUN1/merlin_172064805_d476abdd-f4da-4015-8ca3-8c45c92c61fa-moth.jpg" width="151"></media:content>
+      <media:credit>NASA/GSFC/SDO</media:credit>
+      <media:description>YAWN.</media:description>
+    </item>
+    <item>
+      <title>NASA Picks Moon Lander Proposals by SpaceX, Blue Origin, Others</title>
+      <link>https://www.nytimes.com/2020/04/30/science/nasa-moon-lander.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/30/science/nasa-moon-lander.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/30/science/nasa-moon-lander.html" rel="standout"></atom:link>
+      <description>It seems unlikely the space agency will meet President Trump’s goal of a return to the lunar surface by the end of 2024.</description>
+      <dc:creator>Kenneth Chang</dc:creator>
+      <pubDate>Thu, 30 Apr 2020 20:38:30 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Moon</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Blue Origin</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Space Exploration Technologies Corp</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">National Aeronautics and Space Administration</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Boeing Company</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Rocket Science and Propulsion</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Government Contracts and Procurement</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Private Spaceflight</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Space and Astronomy</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Government Accountability Office</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Dynetics Inc</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/30/science/30MOONLANDER1/30MOONLANDER1-moth.jpg" width="151"></media:content>
+      <media:credit>Jude Guidry/NASA</media:credit>
+      <media:description>The core stage of NASA’s Artemis rocket, which would take astronauts to the moon, at the Michoud Assembly Facility in New Orleans in January.</media:description>
+    </item>
+    <item>
+      <title>A Strange Dinosaur May Have Swum the Rivers of Africa</title>
+      <link>https://www.nytimes.com/2020/04/29/science/spinosaurus-dinosaur-tail-swimming.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/29/science/spinosaurus-dinosaur-tail-swimming.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/29/science/spinosaurus-dinosaur-tail-swimming.html" rel="standout"></atom:link>
+      <description>The Spinosaurus possessed a long, powerful tail. Paleontologists think the dinosaur used that to propel itself through water.</description>
+      <dc:creator>Kenneth Chang</dc:creator>
+      <pubDate>Thu, 30 Apr 2020 03:23:55 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Dinosaurs</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Fossils</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Paleontology</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Swimming</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Africa</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Nature (Journal)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Research</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">your-feed-science</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Ibrahim, Nizar</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/05/science/29DINO3/29DINO3-moth-v3.jpg" width="151"></media:content>
+      <media:credit>Davide Bonadonna</media:credit>
+      <media:description>An artist’s illustration of what Spinosaurus, one of the largest predatory dinosaurs yet found, may have looked like. A large, powerful tail may have been used for swimming.</media:description>
+    </item>
+    <item>
+      <title>Coronavirus Disrupts Illegal Wildlife Trafficking, for Now</title>
+      <link>https://www.nytimes.com/2020/04/29/science/coronavirus-disrupts-illegal-wildlife-trafficking-for-now.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/29/science/coronavirus-disrupts-illegal-wildlife-trafficking-for-now.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/29/science/coronavirus-disrupts-illegal-wildlife-trafficking-for-now.html" rel="standout"></atom:link>
+      <description>Some conservationists see a chance to do lasting damage to criminal networks in the wake of the pandemic, but poaching may also rise.</description>
+      <dc:creator>Rachel Nuwer</dc:creator>
+      <pubDate>Wed, 29 Apr 2020 21:04:56 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Poaching (Wildlife)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Shutdowns (Institutional)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">International Trade and World Market</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Vietnam</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">China</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">your-feed-science</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/28/science/29VIRUS-POACHING/28VIRUS-POACHING-moth.jpg" width="151"></media:content>
+      <media:credit>Agence France-Presse — Getty Images</media:credit>
+      <media:description>A pangolin rescued from animal traffickers in Ha Tinh province, Vietnam, in July.</media:description>
+    </item>
+    <item>
+      <title>A Nest of Alien Asteroids Orbits Our Sun</title>
+      <link>https://www.nytimes.com/2020/04/28/science/alien-asteroids-orbits.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/28/science/alien-asteroids-orbits.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/28/science/alien-asteroids-orbits.html" rel="standout"></atom:link>
+      <description>Astronomers say they have found orphan rocks from another star, or stars, stashed in the outer solar system.</description>
+      <dc:creator>Dennis Overbye</dc:creator>
+      <pubDate>Tue, 28 Apr 2020 16:26:58 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Asteroids</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Solar System</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Stars and Galaxies</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Space and Astronomy</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Jupiter (Planet)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Neptune (Planet)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Research</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Monthly Notices of the Royal Astronomical Society (Journal)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Namouni, Fathi</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Morais, Maria Helena</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/28/science/28TB-ASTEROIDS1/28TB-ASTEROIDS1-moth.jpg" width="151"></media:content>
+      <media:credit>Namouni and Morais, NASA</media:credit>
+      <media:description>An illustration of the orbit of a Centaur asteroid.</media:description>
+    </item>
+    <item>
+      <title>Coronavirus Live Updates: Governors Grapple With Protests and Reopenings</title>
+      <link>https://www.nytimes.com/2020/05/03/us/coronavirus-updates.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/03/us/coronavirus-updates.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/03/us/coronavirus-updates.html" rel="standout"></atom:link>
+      <description>As scientists race to test a vaccine that may have to be taken annually, state officials are confronting growing impatience and ebbing respect for social distancing measures.</description>
+      <pubDate>Sun, 03 May 2020 16:22:19 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/03/business/03virus-cuomo-video/merlin_172130592_a4f17520-97d1-4748-83b9-0b877c179dbe-moth.jpg" width="151"></media:content>
+      <media:credit>Victor J. Blue for The New York Times</media:credit>
+    </item>
+    <item>
+      <title>The Covid-19 Riddle: Why Does the Virus Wallop Some Places and Spare Others?</title>
+      <link>https://www.nytimes.com/2020/05/03/world/asia/coronavirus-spread-where-why.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/03/world/asia/coronavirus-spread-where-why.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/03/world/asia/coronavirus-spread-where-why.html" rel="standout"></atom:link>
+      <description>Experts are trying to figure out why the coronavirus is so capricious. The answers could determine how to best protect ourselves and how long we have to.</description>
+      <dc:creator>Hannah Beech, Alissa J. Rubin, Anatoly Kurmanaev and Ruth Maclean</dc:creator>
+      <pubDate>Sun, 03 May 2020 15:28:37 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Quarantines</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Epidemics</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Genetics and Heredity</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Princess Cruises</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">World Health Organization</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Africa</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Bangkok (Thailand)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Brazil</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Cambodia</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">China</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Daegu (South Korea)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Dominican Republic</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Dubai (United Arab Emirates)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Ecuador</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Guyana</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Haiti</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">India</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Indonesia</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Iran</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Iraq</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/28/world/00virus-notspots/00virus-notspots-moth.jpg" width="151"></media:content>
+      <media:credit>Ivor Prickett for The New York Times</media:credit>
+      <media:description>Iraqi border agents at the Zurbatiya border crossing with Iran. On the other side lies the largest epicenter of the virus in the Middle East. On the Iraqi side, there are relatively few cases. </media:description>
+    </item>
+    <item>
+      <title>Boris Johnson, China, Pompeo: Coronavirus World Updates</title>
+      <link>https://www.nytimes.com/2020/05/03/world/coronavirus-news.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/03/world/coronavirus-news.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/03/world/coronavirus-news.html" rel="standout"></atom:link>
+      <description>A global backlash is building against China, while government plans for reopening have prompted protests and sown confusion.</description>
+      <pubDate>Sun, 03 May 2020 16:41:55 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/03/world/03virus-inr-briefing-rome/merlin_172055475_02874700-7cf9-43a1-986f-746f1bf4dbe2-moth.jpg" width="151"></media:content>
+      <media:credit>Nadia Shira Cohen for The New York Times</media:credit>
+      <media:description>The Trevi Fountain in Rome, normally packed with people day and night, is nearly empty save for the those passing by with groceries.</media:description>
+    </item>
+    <item>
+      <title>Profits and Pride at Stake, the Race for a Vaccine Intensifies</title>
+      <link>https://www.nytimes.com/2020/05/02/us/politics/vaccines-coronavirus-research.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/02/us/politics/vaccines-coronavirus-research.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/02/us/politics/vaccines-coronavirus-research.html" rel="standout"></atom:link>
+      <description>Governments, companies and academic labs are accelerating their efforts amid geopolitical crosscurrents, questions about safety and the challenges of producing enough doses for billions of people.</description>
+      <dc:creator>David E. Sanger, David D. Kirkpatrick, Carl Zimmer, Katie Thomas and Sui-Lee Wee</dc:creator>
+      <pubDate>Sun, 03 May 2020 15:10:35 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Vaccination and Immunization</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Clinical Trials</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Research</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Remdesivir (Drug)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Drugs (Pharmaceuticals)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Antibodies</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Laboratories and Scientific Equipment</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Factories and Manufacturing</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Food and Drug Administration</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Gates, Bill and Melinda, Foundation</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Johnson &amp; Johnson</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Moderna Inc</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">AstraZeneca PLC</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Ethics and Official Misconduct</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">China</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">India</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">International Relations</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States International Relations</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/03/us/politics/02dc-virus-vaccine/02dc-virus-vaccine-moth.jpg" width="151"></media:content>
+      <media:credit>Oliver Bunic/Bloomberg</media:credit>
+      <media:description>A laboratory technician in an isolation chamber testing a coronavirus vaccine in March in Belgrade, Serbia.</media:description>
+    </item>
+    <item>
+      <title>Coronavirus in the U.S.: Relaxed Rules and Warm Weather Test States</title>
+      <link>https://www.nytimes.com/2020/05/02/us/coronavirus-updates.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/02/us/coronavirus-updates.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/02/us/coronavirus-updates.html" rel="standout"></atom:link>
+      <description>Congress declined the administration’s offer of rapid testing, saying tests were needed more elsewhere. Former President George W. Bush urged unity in a video message.</description>
+      <pubDate>Sun, 03 May 2020 12:00:47 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/02/business/02virus-us-briefing-outside/merlin_172133154_176feaa1-f4fd-4657-b92b-4584a95c3040-moth.jpg" width="151"></media:content>
+      <media:credit>Hilary Swift for The New York Times</media:credit>
+      <media:description>Groups at Domino Park in Brooklyn on Saturday. Mayor Bill de Blasio pleaded with residents to resist the impulse to gather outdoors.</media:description>
+    </item>
+    <item>
+      <title>‘Murder Hornets’ in the U.S.: The Rush to Stop the Asian Giant Hornet</title>
+      <link>https://www.nytimes.com/2020/05/02/us/asian-giant-hornet-washington.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/02/us/asian-giant-hornet-washington.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/02/us/asian-giant-hornet-washington.html" rel="standout"></atom:link>
+      <description>Sightings of the Asian giant hornet have prompted fears that the vicious insect could establish itself in the United States and devastate bee populations.</description>
+      <dc:creator>Mike Baker</dc:creator>
+      <pubDate>Sun, 03 May 2020 00:05:55 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Hornets (Insects)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">British Columbia (Canada)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Washington (State)</category>
+      <category domain="">Asian giant hornet</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Bees</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/03/us/03ASIAN-HORNET-promo-hp/03ASIAN-HORNET-promo-hp-moth.jpg" width="151"></media:content>
+      <media:credit>Ruth Fremson/The New York Times</media:credit>
+      <media:description>A dead Asian giant hornet rests on entomologist Chris Looney’s jacket in Blaine, Wash. The queens can grow to two inches long, and the hornets can wipe out a honeybee hive in a matter of hours.</media:description>
+    </item>
+    <item>
+      <title>Coronavirus World Updates: Italy Reports 474 New Deaths</title>
+      <link>https://www.nytimes.com/2020/05/02/world/coronavirus-news.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/02/world/coronavirus-news.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/02/world/coronavirus-news.html" rel="standout"></atom:link>
+      <description>As lockdowns begin to ease for millions of Europeans, Italy reports a spike in deaths. Migrants face roundups in Malaysia and surging infections in Singapore’s dormitories.</description>
+      <pubDate>Sun, 03 May 2020 04:10:25 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/02/us/02virus-int-briefing-asia/02virus-int-briefing-asia-moth.jpg" width="151"></media:content>
+      <media:credit>Ashley Pon for The New York Times</media:credit>
+      <media:description>Students at a high school in Taipei, Taiwan, getting their temperature taken. Classes have been in session since late February.</media:description>
+    </item>
+    <item>
+      <title>Judge Vacates Oil and Gas Leases on 145,000 Acres in Montana</title>
+      <link>https://www.nytimes.com/2020/05/01/climate/oil-gas-leases-montana.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/climate/oil-gas-leases-montana.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/climate/oil-gas-leases-montana.html" rel="standout"></atom:link>
+      <description>A federal judge, rapping the Trump administration for its weak environmental assessments, has vacated hundreds of oil and gas leases across a large swath of Montana.</description>
+      <dc:creator>Coral Davenport</dc:creator>
+      <pubDate>Sat, 02 May 2020 03:43:21 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Global Warming</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Environment</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Greenhouse Gas Emissions</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Oil (Petroleum) and Gasoline</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Decisions and Verdicts</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Bureau of Land Management</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Montana</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Air Pollution</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Interior Department</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/climate/01cli-leases-image2/merlin_143425539_2043030e-ce3c-4fa0-922c-ffdc8892f7d4-moth.jpg" width="151"></media:content>
+      <media:credit>Kristina Barker for The New York Times</media:credit>
+      <media:description>Custer County in Montana is predominately covered by livestock grazing and agricultural use with drilling sites and resource extraction scattered throughout.</media:description>
+    </item>
+    <item>
+      <title>How Remdesivir, New Hope for Covid-19 Patients, Was Resurrected</title>
+      <link>https://www.nytimes.com/2020/05/01/health/coronavirus-remdesivir.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/health/coronavirus-remdesivir.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/health/coronavirus-remdesivir.html" rel="standout"></atom:link>
+      <description>The drug failed as a treatment for hepatitis and Ebola. With federal funding, scientists trained it on the coronavirus.</description>
+      <dc:creator>Gina Kolata</dc:creator>
+      <pubDate>Sat, 02 May 2020 15:19:54 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Remdesivir (Drug)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Drugs (Pharmaceuticals)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Tests (Medical)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Clinical Trials</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Food and Drug Administration</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Gilead Sciences Inc</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">National Institute of Allergy and Infectious Diseases</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Research</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">RNA (Ribonucleic Acid)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/science/01VIRUS-REMDESIVIR2/01VIRUS-REMDESIVIR2-moth.jpg" width="151"></media:content>
+      <media:credit>Gilead Sciences, via Reuters</media:credit>
+      <media:description>Vials of remdesivir at a Gilead Sciences facility in La Verne, Calif.</media:description>
+    </item>
+    <item>
+      <title>Takuo Aoyagi, an Inventor of the Pulse Oximeter, Dies at 84</title>
+      <link>https://www.nytimes.com/2020/05/01/science/takuo-aoyagi-an-inventor-of-the-pulse-oximeter-dies-at-84.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/science/takuo-aoyagi-an-inventor-of-the-pulse-oximeter-dies-at-84.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/science/takuo-aoyagi-an-inventor-of-the-pulse-oximeter-dies-at-84.html" rel="standout"></atom:link>
+      <description>The medical device, which clips onto a patient’s finger, has saved millions of lives and is a vital tool in the fight against the novel coronavirus.</description>
+      <dc:creator>John Schwartz and Hikari Hida</dc:creator>
+      <pubDate>Sat, 02 May 2020 13:34:45 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Pulse Oximetry</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Medical Devices</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Anesthesia and Anesthetics</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Deaths (Obituaries)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Inventions and Patents</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Aoyagi, Takuo</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/03/obituaries/03aoyagi-obit3/01aoyagi3-moth.jpg" width="151"></media:content>
+      <media:credit> Raphael Lafargue, via Associated Press</media:credit>
+      <media:description>Pulse oximeters are an &amp;rdquo;indispensable addition to medicine,&amp;rdquo; and especially for patients suffering from Covid-19.</media:description>
+    </item>
+    <item>
+      <title>Is It Safe to Come Out of Lockdown? Check the Sewer</title>
+      <link>https://www.nytimes.com/2020/05/01/science/coronavirus-sewage-monitoring-lockdown.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/science/coronavirus-sewage-monitoring-lockdown.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/science/coronavirus-sewage-monitoring-lockdown.html" rel="standout"></atom:link>
+      <description>Wastewater could provide early, painless and localized data about the rise or fall of coronavirus levels.</description>
+      <dc:creator>Carl Zimmer</dc:creator>
+      <pubDate>Fri, 01 May 2020 20:41:26 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">your-feed-science</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Tests (Medical)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Sewers and Sewage</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Quarantines</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/02/science/02VIRUS-SEWAGE1/02VIRUS-SEWAGE1-moth.jpg" width="151"></media:content>
+      <media:credit>Douglas Magno/Agence France-Presse &amp;mdash; Getty Images</media:credit>
+      <media:description>Researchers from Brazil&amp;rsquo;s National Institute of Science and Technology collected sewage samples to test for coronavirus in Belo Horizonte last month.</media:description>
+    </item>
+    <item>
+      <title>The Coronavirus Still Is a Global Health Emergency, W.H.O. Warns</title>
+      <link>https://www.nytimes.com/2020/05/01/health/coronavirus-who-emergency.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/health/coronavirus-who-emergency.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/health/coronavirus-who-emergency.html" rel="standout"></atom:link>
+      <description>Even as some governments contemplate reopening, the spread of the virus has accelerated in countries in Africa and South America.</description>
+      <dc:creator>Knvul Sheikh</dc:creator>
+      <pubDate>Fri, 01 May 2020 19:07:09 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">your-feed-science</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Epidemics</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Rumors and Misinformation</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">European Investment Bank</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">World Health Organization</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Tedros Adhanom Ghebreyesus</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">United States</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Quarantines</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/science/01VIRUS-WHO/01VIRUS-WHO-moth.jpg" width="151"></media:content>
+      <media:credit>Fabrice Coffrini/Agence France-Presse — Getty Images</media:credit>
+      <media:description>Tedros Adhanom Ghebreyesus, director-general of the W.H.O., during a coronavirus press briefing in Geneva in March.</media:description>
+    </item>
+    <item>
+      <title>An Eerily Prescient Pandemic Novel That’s Guaranteed to Terrify</title>
+      <link>https://www.nytimes.com/2020/05/01/books/review/lawrence-wright-end-of-october.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/books/review/lawrence-wright-end-of-october.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/books/review/lawrence-wright-end-of-october.html" rel="standout"></atom:link>
+      <description>In Lawrence Wright’s “The End of October,” a virulent flu races around the globe, killing millions and plunging society into disarray.</description>
+      <dc:creator>Douglas Preston</dc:creator>
+      <pubDate>Fri, 01 May 2020 16:44:32 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Books and Literature</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_ttl">The End of October (Book)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Wright, Lawrence</category>
+    </item>
+    <item>
+      <title>Blood Pressure Drugs Don’t Increase Coronavirus Risk, Studies Find</title>
+      <link>https://www.nytimes.com/2020/05/01/health/blood-pressure-drugs-coronavirus.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/health/blood-pressure-drugs-coronavirus.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/health/blood-pressure-drugs-coronavirus.html" rel="standout"></atom:link>
+      <description>People taking widely used medicines did not face higher rates of infection or more severe illness, new research indicates.</description>
+      <dc:creator>Denise Grady</dc:creator>
+      <pubDate>Fri, 01 May 2020 16:34:30 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Blood Pressure</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Quarantines</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">New England Journal of Medicine</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">New York University</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">University of California</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">your-feed-healthcare</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/science/01VIRUS-BLOODPRESSURE/01VIRUS-BLOODPRESSURE-moth.jpg" width="151"></media:content>
+      <media:credit>Chris Gallagher/Science Source</media:credit>
+      <media:description>A study published Friday found that ACE inhibitors, ARBs, beta blockers and other commonly used blood pressure drugs do not increase the risk of coronavirus infection, or severe illness as a result of infection.</media:description>
+    </item>
+    <item>
+      <title>Coronavirus News and Updates</title>
+      <link>https://www.nytimes.com/2020/05/01/us/coronavirus-updates.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/us/coronavirus-updates.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/us/coronavirus-updates.html" rel="standout"></atom:link>
+      <description>The F.D.A. issued emergency approval for an antiviral drug. High school seniors appear reluctant to commit to a college for the fall.</description>
+      <pubDate>Sat, 02 May 2020 17:37:57 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-moth-v369.png" width="151"></media:content>
+      <media:credit>The New York Times</media:credit>
+    </item>
+    <item>
+      <title>World Coronavirus Tracker: Britain, India, China</title>
+      <link>https://www.nytimes.com/2020/05/01/world/coronavirus-news.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/world/coronavirus-news.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/world/coronavirus-news.html" rel="standout"></atom:link>
+      <description>The W.H.O. extends the global health emergency as deaths near 240,000, and our New Delhi correspondent paints a portrait of a fearful city.</description>
+      <pubDate>Sat, 02 May 2020 04:11:00 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Airlines and Airplanes</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">China</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/30/world/01virus-int-briefing-virusblood-sub/01virus-int-briefing-virusblood-sub-moth-v2.jpg" width="151"></media:content>
+      <media:credit>Emile Ducke for The New York Times</media:credit>
+      <media:description>A Berlin laboratory testing samples sent by hospitals. Blood samples are critical in developing vaccines, cures, treatments and tests.</media:description>
+    </item>
+    <item>
+      <title>Labs Across U.S. Join Federal Initiative to Study Coronavirus Genome</title>
+      <link>https://www.nytimes.com/2020/04/30/science/coronavirus-genetic-sequencing.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/30/science/coronavirus-genetic-sequencing.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/30/science/coronavirus-genetic-sequencing.html" rel="standout"></atom:link>
+      <description>The project, announced by the C.D.C., will help trace patterns of transmission, investigate outbreaks and map how the virus is evolving, which can affect a cure.</description>
+      <dc:creator>Sheri Fink</dc:creator>
+      <pubDate>Fri, 01 May 2020 22:53:56 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Genetics and Heredity</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Medicine and Health</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Research</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Epidemics</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Vaccination and Immunization</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Centers for Disease Control and Prevention</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Laboratories and Scientific Equipment</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Redfield, Robert R</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">United States</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/30/multimedia/30Virus-sequencing3/30Virus-sequencing3-moth.jpg" width="151"></media:content>
+      <media:credit>C.D.C./E.P.A., via Shutterstock</media:credit>
+      <media:description>Virus particles, marked in blue, that were taken from an early Covid-19 patient in the U.S.</media:description>
+    </item>
+    <item>
+      <title>During Coronavirus, Trump Sits on Clean Energy Loans</title>
+      <link>https://www.nytimes.com/2020/04/30/climate/clean-energy-loans-coronavirus-trump.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/30/climate/clean-energy-loans-coronavirus-trump.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/30/climate/clean-energy-loans-coronavirus-trump.html" rel="standout"></atom:link>
+      <description>As Congress rushes out trillions of dollars to prop up businesses, the Energy Department is holding on to tens of billions in clean energy loans.</description>
+      <dc:creator>Lisa Friedman</dc:creator>
+      <pubDate>Thu, 30 Apr 2020 19:45:50 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Global Warming</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Environment</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Alternative and Renewable Energy</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Greenhouse Gas Emissions</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Carbon Capture and Sequestration</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Economy</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Stimulus (Economic)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/30/climate/30CLI-VIRUS-DOELOANS1/30CLI-VIRUS-DOELOANS1-moth.jpg" width="151"></media:content>
+      <media:credit>T.J. Kirkpatrick for The New York Times</media:credit>
+      <media:description>Energy Secretary Dan Brouillette on Capitol Hill in February.</media:description>
+    </item>
+    <item>
+      <title>Old Drugs May Find a New Purpose: Fighting the Coronavirus</title>
+      <link>https://www.nytimes.com/2020/04/30/health/coronavirus-antiviral-drugs.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/30/health/coronavirus-antiviral-drugs.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/30/health/coronavirus-antiviral-drugs.html" rel="standout"></atom:link>
+      <description>A “drug repurposing” strategy uncovers dozens of compounds that have the unexpected potential to combat the virus.</description>
+      <dc:creator>Carl Zimmer</dc:creator>
+      <pubDate>Fri, 01 May 2020 20:52:56 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">your-feed-science</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Drugs (Pharmaceuticals)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Viruses</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Chloroquine (Drug)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/22/science/00VIRUS-ANTIVIRALS1/00VIRUS-ANTIVIRALS1-moth.jpg" width="151"></media:content>
+      <media:credit>National Institute of Allergy and Infectious Diseases</media:credit>
+      <media:description>A scanning electron micrograph of a dying cell infected with coronavirus particles, in orange.</media:description>
+    </item>
+    <item>
+      <title>As Several States Loosen Rules, California Closes Some Beaches</title>
+      <link>https://www.nytimes.com/2020/04/30/us/coronavirus-tracker-live.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/30/us/coronavirus-tracker-live.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/30/us/coronavirus-tracker-live.html" rel="standout"></atom:link>
+      <description>New Jersey is now reporting more daily deaths than any other state. The federal government will increase inspections of nursing homes after a series of outbreaks.</description>
+      <pubDate>Fri, 01 May 2020 15:14:45 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-moth-v369.png" width="151"></media:content>
+      <media:credit>The New York Times</media:credit>
+    </item>
+    <item>
+      <title>As Georgia Reopens, Virus Study Shows Black Residents May Bear Brunt</title>
+      <link>https://www.nytimes.com/2020/04/30/health/coronavirus-georgia-african-americans.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/30/health/coronavirus-georgia-african-americans.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/30/health/coronavirus-georgia-african-americans.html" rel="standout"></atom:link>
+      <description>A C.D.C. report released Wednesday suggests that the African-American community in the state is especially vulnerable to infection.</description>
+      <dc:creator>David Waldstein</dc:creator>
+      <pubDate>Thu, 30 Apr 2020 09:00:23 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Black People</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Georgia</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Kemp, Brian P</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Centers for Disease Control and Prevention</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/29/science/29VIRUS-CDC-GA/29VIRUS-CDC-GA-moth.jpg" width="151"></media:content>
+      <media:credit>Kevin C. Cox/Getty Images</media:credit>
+      <media:description>Gov. Brian Kemp of Georgia has moved to restart the state’s economy.</media:description>
+    </item>
+    <item>
+      <title>Can Genetic Engineering Bring Back the American Chestnut?</title>
+      <link>https://www.nytimes.com/2020/04/30/magazine/american-chestnut.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/30/magazine/american-chestnut.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/30/magazine/american-chestnut.html" rel="standout"></atom:link>
+      <description>The tree helped build industrial America before disease wiped out an estimated three billion or more of them. To revive their lost glory, we may need to embrace tinkering with nature.</description>
+      <dc:creator>Gabriel Popkin</dc:creator>
+      <pubDate>Thu, 30 Apr 2020 09:00:06 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Trees and Shrubs</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Genetic Engineering</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Maynard, Charles A</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Powell, William A</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">State University of New York College of Environmental Science and Forestry</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">American Chestnut Foundation</category>
+      <category domain="">Chestnut Trees</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/03/magazine/03mag-Chestnut-image/03mag-Chestnut-image-moth.jpg" width="151"></media:content>
+      <media:credit>John Chiara for The New York Times</media:credit>
+      <media:description>An American chestnut near Rockport, Maine.</media:description>
+    </item>
+    <item>
+      <title>World Coronavirus Tracker: Live Coverage</title>
+      <link>https://www.nytimes.com/2020/04/30/world/coronavirus-news.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/30/world/coronavirus-news.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/30/world/coronavirus-news.html" rel="standout"></atom:link>
+      <description>The pandemic threatens to plunge half a billion people into poverty. The U.N. says it has raised just $1 billion of the $90 billion needed to aid poor regions.</description>
+      <pubDate>Fri, 01 May 2020 14:12:19 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/30/world/30virus-int-briefing-poverty/30virus-int-briefing-poverty-moth.jpg" width="151"></media:content>
+      <media:credit>Atul Loke for The New York Times</media:credit>
+      <media:description>A slum in Mumbai. South Asia is expected to have its worst economic performance in 40 years because of the pandemic.</media:description>
+    </item>
+    <item>
+      <title>Emissions Declines Will Set Records This Year. But It’s Not Good News.</title>
+      <link>https://www.nytimes.com/2020/04/30/climate/global-emissions-decline.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/30/climate/global-emissions-decline.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/30/climate/global-emissions-decline.html" rel="standout"></atom:link>
+      <description>An “unprecedented” fall in fossil fuel use, driven by the Covid-19 crisis, is likely to lead to a nearly 8 percent drop, according to new research.</description>
+      <dc:creator>Brad Plumer</dc:creator>
+      <pubDate>Thu, 30 Apr 2020 16:16:51 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Global Warming</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Environment</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Greenhouse Gas Emissions</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coal</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Alternative and Renewable Energy</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Economic Conditions and Trends</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">International Energy Agency</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/02/climate/30CLI-VIRUS-EMISSIONS-print/30CLI-VIRUS-EMISSIONS1-moth-v2.jpg" width="151"></media:content>
+      <media:credit>Alkis Konstantinidis/Reuters</media:credit>
+      <media:description>A coal-burning power plant in Megalopolis, Greece, in March.</media:description>
+    </item>
+    <item>
+      <title>New Coronavirus Test Offers Advantages: Just Spit and Wait</title>
+      <link>https://www.nytimes.com/2020/04/29/health/coronavirus-saliva-spit-tests.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/29/health/coronavirus-saliva-spit-tests.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/29/health/coronavirus-saliva-spit-tests.html" rel="standout"></atom:link>
+      <description>Saliva tests like the one developed by Rutgers are less painful for patients and less risky to medical workers.</description>
+      <dc:creator>Apoorva Mandavilli</dc:creator>
+      <pubDate>Fri, 01 May 2020 15:18:40 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">your-feed-science</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Tests (Medical)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Rutgers, The State University of New Jersey</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Yale University</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/29/science/29VIRUS-SPIT1/merlin_171619488_54442053-5de8-42f1-aff2-391278f08cad-moth.jpg" width="151"></media:content>
+      <media:credit>Eduardo Munoz/Reuters</media:credit>
+      <media:description>Health workers administered a new saliva-based test for coronavirus in Edison, N.J., on April 15. </media:description>
+    </item>
+    <item>
+      <title>Energy Use in the Coronavirus Era: N.Y.C. Is Waking Up Later</title>
+      <link>https://www.nytimes.com/2020/04/29/climate/energy-use-coronavirus.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/29/climate/energy-use-coronavirus.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/29/climate/energy-use-coronavirus.html" rel="standout"></atom:link>
+      <description>Some 400 special electric meters in New York apartments provide a shifting view of power use while people are stuck inside.</description>
+      <dc:creator>Henry Fountain</dc:creator>
+      <pubDate>Wed, 29 Apr 2020 16:46:00 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Greenhouse Gas Emissions</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Electric Light and Power</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Air Conditioning</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Quarantines</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Manhattan (NYC)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/28/climate/00CLI-VIRUS-ENERGY/00CLI-VIRUS-ENERGY-moth.jpg" width="151"></media:content>
+      <media:credit>Caitlin Ochs/Reuters</media:credit>
+      <media:description>Overall consumption of electricity is down since the pandemic hit, but energy use in Manhattan apartments has gone up.</media:description>
+    </item>
+    <item>
+      <title>Remdesivir Shows Modest Benefits in Coronavirus Trial</title>
+      <link>https://www.nytimes.com/2020/04/29/health/gilead-remdesivir-coronavirus.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/29/health/gilead-remdesivir-coronavirus.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/29/health/gilead-remdesivir-coronavirus.html" rel="standout"></atom:link>
+      <description>Hope soared nonetheless. The F.D.A. is likely to issue an emergency approval, a senior official said.</description>
+      <dc:creator>Gina Kolata, Peter Baker and Noah Weiland</dc:creator>
+      <pubDate>Wed, 29 Apr 2020 23:03:40 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Remdesivir (Drug)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Gilead Sciences Inc</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Clinical Trials</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Fauci, Anthony S</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">National Institute of Allergy and Infectious Diseases</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">your-feed-science</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/29/science/29VIRUS-REMDESIVIR/29VIRUS-REMDESIVIR-moth.jpg" width="151"></media:content>
+      <media:credit>Pool photo by Ulrich Perrey</media:credit>
+      <media:description>The antiviral drug remdesivir, developed to fight Ebola, is being evaluated as a treatment for Covid-19.</media:description>
+    </item>
+    <item>
+      <title>Coronavirus News and Updates</title>
+      <link>https://www.nytimes.com/2020/04/29/us/coronavirus-usa-cases-deaths.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/29/us/coronavirus-usa-cases-deaths.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/29/us/coronavirus-usa-cases-deaths.html" rel="standout"></atom:link>
+      <description>The early results of a trial of an experimental drug left White House officials hopeful. President Trump is pressing a crash vaccine program, but experts see risk in a rushed process.</description>
+      <pubDate>Thu, 30 Apr 2020 09:29:55 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-moth-v369.png" width="151"></media:content>
+      <media:credit>The New York Times</media:credit>
+    </item>
+    <item>
+      <title>‘Will You Help Save My Brother?’: The Scramble to Find Covid-19 Plasma Donors</title>
+      <link>https://www.nytimes.com/2020/04/29/us/coronavirus-plasma-donors.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/29/us/coronavirus-plasma-donors.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/29/us/coronavirus-plasma-donors.html" rel="standout"></atom:link>
+      <description>A doctor stricken with Covid-19 was running out of options. His family mounted a search for a donor whose plasma might help.</description>
+      <dc:creator>Audra D. S. Burch and Amy Harmon</dc:creator>
+      <pubDate>Thu, 30 Apr 2020 12:58:38 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Blood Donation</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Tests (Medical)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Food and Drug Administration</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/27/us/27VIRUS-PLASMA-1/27VIRUS-PLASMA-1-moth-v2.jpg" width="151"></media:content>
+      <media:credit>Saul Martinez for The New York Times</media:credit>
+      <media:description>Basil Binns II, who had recovered from the coronavirus, was asked to donate plasma to help a stranger battling the infection.</media:description>
+    </item>
+    <item>
+      <title>Coronavirus World News: Live Tracker  </title>
+      <link>https://www.nytimes.com/2020/04/29/world/coronavirus-news.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/29/world/coronavirus-news.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/29/world/coronavirus-news.html" rel="standout"></atom:link>
+      <description>Fighting fears and travel bans, countries and businesses are trying to rescue summer vacation. At Airbus, signs of trouble emerge.</description>
+      <pubDate>Fri, 01 May 2020 18:54:04 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Greece</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">China</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Russia</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/29/world/29virus-int-briefing-lede-sub/29virus-int-briefing-lede-sub-moth.jpg" width="151"></media:content>
+      <media:credit>Fernando Bizerra Jr/EPA, via Shutterstock</media:credit>
+      <media:description>A person who is suspected to have died of Covid-19 is buried on Wednesday in Sao Paulo, Brazil.</media:description>
+    </item>
+    <item>
+      <title>Airborne Coronavirus Detected in Wuhan Hospitals</title>
+      <link>https://www.nytimes.com/2020/04/28/health/coronavirus-hospital-aerosols.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/28/health/coronavirus-hospital-aerosols.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/28/health/coronavirus-hospital-aerosols.html" rel="standout"></atom:link>
+      <description>While the RNA of the virus was found in tiny droplets in China, scientists don’t know if it was capable of transmitting the virus.</description>
+      <dc:creator>Kenneth Chang</dc:creator>
+      <pubDate>Tue, 28 Apr 2020 23:43:37 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Wuhan (China)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">China</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Hospitals</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Air Conditioning</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Air Pollution</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Nature (Journal)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Research</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/28/science/28VIRUS-WUHANHOSPITAL/28VIRUS-WUHANHOSPITAL-moth.jpg" width="151"></media:content>
+      <media:credit>Agence France-Presse — Getty Images</media:credit>
+      <media:description>A health worker sprayed disinfectant on a room that held coronavirus patients at the Red Cross hospital in Wuhan in March.</media:description>
+    </item>
+    <item>
+      <title>Trump’s Response to Virus Reflects a Long Disregard for Science</title>
+      <link>https://www.nytimes.com/2020/04/28/climate/trump-coronavirus-climate-science.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/28/climate/trump-coronavirus-climate-science.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/28/climate/trump-coronavirus-climate-science.html" rel="standout"></atom:link>
+      <description>The president’s Covid-19 response has extended the administration’s longstanding practice of undermining scientific expertise for political purposes.</description>
+      <dc:creator>Lisa Friedman and Brad Plumer</dc:creator>
+      <pubDate>Tue, 28 Apr 2020 12:58:55 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Science and Technology</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Global Warming</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Environment</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Medicine and Health</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Greenhouse Gas Emissions</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Regulation and Deregulation of Industry</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Centers for Disease Control and Prevention</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Environmental Protection Agency</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">National Institutes of Health</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/24/climate/24CLI-VIRUSSCIENCE1/24CLI-VIRUSSCIENCE1-moth-v2.jpg" width="151"></media:content>
+      <media:credit>Al Drago for The New York Times</media:credit>
+      <media:description>President Trump arrived at the White House daily coronavirus briefing this month.</media:description>
+    </item>
+    <item>
+      <title>Coronavirus Live News Updates</title>
+      <link>https://www.nytimes.com/2020/04/28/us/coronavirus-updates.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/28/us/coronavirus-updates.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/28/us/coronavirus-updates.html" rel="standout"></atom:link>
+      <description>A mall operator plans to reopen shopping centers, government officials debate whether some pro sports could resume, and schools balk at spring reopenings.</description>
+      <pubDate>Wed, 29 Apr 2020 09:20:10 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-moth-v369.png" width="151"></media:content>
+      <media:credit>The New York Times</media:credit>
+    </item>
+    <item>
+      <title>Unified in Coronavirus Lockdown, India Splinters Over Reopening</title>
+      <link>https://www.nytimes.com/2020/04/28/world/asia/india-coronavirus-lockdown.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/28/world/asia/india-coronavirus-lockdown.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/28/world/asia/india-coronavirus-lockdown.html" rel="standout"></atom:link>
+      <description>As India starts loosening restrictions, a once-broad consensus among leaders on how to proceed has weakened — and many people are staying home anyway.</description>
+      <dc:creator>Kai Schultz and Sameer Yasir</dc:creator>
+      <pubDate>Tue, 28 Apr 2020 08:45:36 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">India</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Shutdowns (Institutional)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Rural Areas</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Twitter</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Modi, Narendra</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/28/world/28virus-india-top/28virus-india-top-moth.jpg" width="151"></media:content>
+      <media:credit>Rebecca Conway for The New York Times</media:credit>
+      <media:description>A checkpoint at the entrance to a market outside the Jama Masjid, a mosque  in New Delhi, on Friday evening.</media:description>
+    </item>
+    <item>
+      <title>Abortion by Telemedicine: A Growing Option as Access to Clinics Wanes</title>
+      <link>https://www.nytimes.com/2020/04/28/health/telabortion-abortion-telemedicine.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/28/health/telabortion-abortion-telemedicine.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/28/health/telabortion-abortion-telemedicine.html" rel="standout"></atom:link>
+      <description>The coronavirus has created a surge in demand for telemedicine of all types — including for a quietly expanding program for terminating pregnancies.</description>
+      <dc:creator>Pam Belluck</dc:creator>
+      <pubDate>Tue, 28 Apr 2020 06:59:11 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Telemedicine</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Abortion</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Pregnancy and Childbirth</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Women and Girls</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Mifeprex (RU-486)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">TelAbortion Project</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/28/science/00TELEBORTION1/00TELEBORTION1-moth.jpg" width="151"></media:content>
+      <media:credit>Michelle Mishina-Kunz for The New York Times</media:credit>
+      <media:description>Ashley Dale taking medications that were mailed to her through an abortion telemedicine service.</media:description>
+    </item>
+    <item>
+      <title>Spain, France, Greece: Coronavirus World News Live Updates</title>
+      <link>https://www.nytimes.com/2020/04/28/world/coronavirus-news.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/28/world/coronavirus-news.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/28/world/coronavirus-news.html" rel="standout"></atom:link>
+      <description>Even when governments don’t force people to stay home, fear does. Spain, France and Greece have announced plans to restart daily life, with caveats.</description>
+      <pubDate>Fri, 01 May 2020 11:57:11 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/28/world/28virus-int-briefing-olympics/28virus-int-briefing-olympics-moth.jpg" width="151"></media:content>
+      <media:credit>Philip Fong/Agence France-Presse — Getty Images</media:credit>
+      <media:description>Walking past posters of the Tokyo 2020 Olympic Games in a subway station in Tokyo last week.</media:description>
+    </item>
+    <item>
+      <title>‘Quarantine Fatigue’ Has More People Going Outside</title>
+      <link>https://www.nytimes.com/2020/04/27/us/coronavirus-social-distancing-lockdown.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/27/us/coronavirus-social-distancing-lockdown.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/27/us/coronavirus-social-distancing-lockdown.html" rel="standout"></atom:link>
+      <description>New research shows that people are venturing out more frequently, and traveling farther from home.</description>
+      <dc:creator>Mihir Zaveri</dc:creator>
+      <pubDate>Mon, 27 Apr 2020 22:10:46 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">States (US)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Research</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Quarantines</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Polls and Public Opinion</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">University of Maryland</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/27/multimedia/27xp-virus-fatigue/27xp-virus-fatigue-moth.jpg" width="151"></media:content>
+      <media:credit>Andrew Seng for The New York Times</media:credit>
+      <media:description>Fort Greene Park in Brooklyn on Saturday.</media:description>
+    </item>
+    <item>
+      <title>In Race for a Coronavirus Vaccine, an Oxford Group Leaps Ahead</title>
+      <link>https://www.nytimes.com/2020/04/27/world/europe/coronavirus-vaccine-update-oxford.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/27/world/europe/coronavirus-vaccine-update-oxford.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/27/world/europe/coronavirus-vaccine-update-oxford.html" rel="standout"></atom:link>
+      <description>As scientists at the Jenner Institute prepare for mass clinical trials, new tests show their vaccine to be effective in monkeys.</description>
+      <dc:creator>David D. Kirkpatrick</dc:creator>
+      <pubDate>Sat, 02 May 2020 19:46:59 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Tests (Medical)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Vaccination and Immunization</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Oxford University</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Great Britain</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Drugs (Pharmaceuticals)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Clinical Trials</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Epidemics</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Laboratories and Scientific Equipment</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Gilbert, Sarah C</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Hill, Adrian (1958- )</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Jenner Institute (Oxford University)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/03/world/27virus-vaccine/27virus-vaccine-moth-v2.jpg" width="151"></media:content>
+      <media:credit>Mary Turner for The New York Times</media:credit>
+      <media:description>Prof. Adrian Hill, the Jenner Institute’s director, in Oxford on Friday. His team is working to produce a coronavirus vaccine.</media:description>
+    </item>
+    <item>
+      <title>Live Coronavirus in the US Updates</title>
+      <link>https://www.nytimes.com/2020/04/27/us/coronavirus-live.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/27/us/coronavirus-live.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/27/us/coronavirus-live.html" rel="standout"></atom:link>
+      <description>More states gradually lift restrictions on some businesses even as cases remain high. A new testing plan falls short of what public health experts say is necessary.</description>
+      <pubDate>Tue, 28 Apr 2020 09:26:22 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/03/03/world/coronavirus-map-promo/coronavirus-map-promo-moth-v369.png" width="151"></media:content>
+      <media:credit>The New York Times</media:credit>
+    </item>
+    <item>
+      <title>Can Estrogen and Other Sex Hormones Help Men Survive Covid-19?</title>
+      <link>https://www.nytimes.com/2020/04/27/health/coronavirus-estrogen-men.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/27/health/coronavirus-estrogen-men.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/27/health/coronavirus-estrogen-men.html" rel="standout"></atom:link>
+      <description>Men are more likely than women to die of the coronavirus, so scientists are treating them with something women have more of: female sex hormones.</description>
+      <dc:creator>Roni Caryn Rabin</dc:creator>
+      <pubDate>Mon, 27 Apr 2020 19:39:54 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Estrogen</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Men and Boys</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Hormones</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Progesterone</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Women and Girls</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Menopause</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Clinical Trials</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">China</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">New York City</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Italy</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Research</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Cedars-Sinai Medical Center</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Renaissance School of Medicine at Stony Brook University</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">your-feed-science</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/27/science/27virus-estrogen1/27virus-estrogen1-moth.jpg" width="151"></media:content>
+      <media:credit>Jake Michaels for The New York Times</media:credit>
+      <media:description>Cedars-Sinai Medical Center in Los Angeles, where doctors will give a sex hormone to men sick with Covid-19.</media:description>
+    </item>
+    <item>
+      <title>Live Updates: Global Coronavirus Pandemic </title>
+      <link>https://www.nytimes.com/2020/04/27/world/coronavirus-world-pandemic.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/27/world/coronavirus-world-pandemic.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/27/world/coronavirus-world-pandemic.html" rel="standout"></atom:link>
+      <description>Even as the global death toll passed 200,000, countries are mapping out a return to public life. Health care workers in Mexico, India and other countries are facing attacks.</description>
+      <pubDate>Fri, 01 May 2020 11:57:07 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/27/world/27virus-int-briefing-boris/27virus-int-briefing-boris-moth.jpg" width="151"></media:content>
+      <media:credit>Neil Hall/EPA, via Shutterstock</media:credit>
+      <media:description>Prime Minister Boris Johnson of Britain made his first public appearance since his hospitalization outside 10 Downing Street on Monday. </media:description>
+    </item>
+    <item>
+      <title>Can Antibody Tests Help End the Coronavirus Pandemic?</title>
+      <link>https://www.nytimes.com/2020/04/26/health/can-antibody-tests-help-end-the-coronavirus-pandemic.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/26/health/can-antibody-tests-help-end-the-coronavirus-pandemic.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/26/health/can-antibody-tests-help-end-the-coronavirus-pandemic.html" rel="standout"></atom:link>
+      <description>The tests are not reliable enough to guide policy on lockdowns and reopenings, experts said. But they can help model the spread of the virus.</description>
+      <dc:creator>Apoorva Mandavilli</dc:creator>
+      <pubDate>Mon, 27 Apr 2020 00:21:11 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">your-feed-science</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Tests (Medical)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Epidemics</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Antibodies</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Deaths (Fatalities)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Centers for Disease Control and Prevention</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">National Institutes of Health</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">World Health Organization</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Cuomo, Andrew M</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Hanage, William P</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">New York City</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">New York State</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Santa Clara County (Calif)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Los Angeles (Calif)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/26/science/26virus-antibodies1/26virus-antibodies1-moth.jpg" width="151"></media:content>
+      <media:credit>Lucas Jackson/Reuters</media:credit>
+      <media:description>A health care worker labels a blood sample for coronavirus antibody testing at Mount Sinai Hospital in New York.</media:description>
+    </item>
+  </channel>
+</rss>

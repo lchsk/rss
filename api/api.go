@@ -51,6 +51,11 @@ func getRouter() *mux.Router {
 	router.HandleFunc(fetchCurrentUserChannelsUrl, checkValidToken(handlerFetchCurrentUserChannels)).Methods(http.MethodGet)
 	router.HandleFunc(addNewChannelUrl, checkValidToken(handlerAddNewChannelUrl)).Methods(http.MethodPost)
 
+	if DEBUG {
+		const serveTestChannels = "/api/debug/channels/{channel}"
+		router.HandleFunc(serveTestChannels, handlerServeTestChannels).Methods(http.MethodGet)
+	}
+
 	return router
 }
 
@@ -71,7 +76,7 @@ func setupCache() error {
 	redisHost := os.Getenv("REDIS_HOST")
 	redisPort := os.Getenv("REDIS_PORT")
 
-	logDebug(fmt.Sprintf("Attempting to connect to Redis on %s:%s", redisHost, redisPort))
+	log.Print(fmt.Sprintf("Attempting to connect to Redis on %s:%s", redisHost, redisPort))
 
 	redis, err := cache.GetRedisConn(redisHost, redisPort)
 
@@ -101,15 +106,9 @@ func runAPI() {
 
 	apiPort := os.Getenv("API_PORT")
 
-	logDebug("Running in DEBUG mode")
+	log.Print(fmt.Sprintf("DEBUG mode: %v\n", DEBUG))
 	log.Print(fmt.Sprintf("Running API on port %s", apiPort))
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", apiPort), api.CommonMiddleware(router)))
-}
-
-func logDebug(msg string) {
-	if DEBUG {
-		log.Println("DEBUG", msg)
-	}
 }
 
 func init() {

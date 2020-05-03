@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:nyt="http://www.nytimes.com/namespaces/rss/2.0" version="2.0">
+  <channel>
+    <title>NYT &gt; U.S. &gt; Politics</title>
+    <link>https://www.nytimes.com/section/politics</link>
+    <atom:link href="https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml" rel="self" type="application/rss+xml"></atom:link>
+    <description></description>
+    <language>en-us</language>
+    <copyright>Copyright 2020 The New York Times Company</copyright>
+    <lastBuildDate>Sun, 03 May 2020 16:40:23 +0000</lastBuildDate>
+    <pubDate>Sun, 03 May 2020 16:40:23 +0000</pubDate>
+    <image>
+      <title>NYT &gt; U.S. &gt; Politics</title>
+      <url>https://static01.nyt.com/images/misc/NYT_logo_rss_250x40.png</url>
+      <link>https://www.nytimes.com/section/politics</link>
+    </image>
+    <item>
+      <title>Biden Denies Tara Reade’s Assault Allegation: ‘It Never Happened’</title>
+      <link>https://www.nytimes.com/2020/05/01/us/politics/joe-biden-tara-reade-morning-joe.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/us/politics/joe-biden-tara-reade-morning-joe.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/us/politics/joe-biden-tara-reade-morning-joe.html" rel="standout"></atom:link>
+      <description>Joseph R. Biden Jr., in his first public address of a former Senate aide’s accusation that he sexually assaulted her in 1993, called on the National Archives to release any document related to the allegation.</description>
+      <dc:creator>Katie Glueck, Lisa Lerer and Sydney Ember</dc:creator>
+      <pubDate>Sat, 02 May 2020 00:12:01 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Biden, Joseph R Jr</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Reade, Tara</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Sexual Harassment</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Sex Crimes</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Presidential Election of 2020</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">#MeToo Movement</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Democratic Party</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">MSNBC</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">National Archives and Records Administration</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/us/politics/01BIDEN2/01BIDEN2-moth.jpg" width="151"></media:content>
+      <media:credit>Todd Heisler/The New York Times</media:credit>
+      <media:description>Joseph R. Biden Jr.’s campaign has denied the allegation by Tara Reade, but Mr. Biden did not address it publicly for weeks.</media:description>
+    </item>
+    <item>
+      <title>Trump Attacks Flynn Inquiry Amid New Revelations on F.B.I.</title>
+      <link>https://www.nytimes.com/2020/04/30/us/politics/trump-flynn-stone.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/30/us/politics/trump-flynn-stone.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/30/us/politics/trump-flynn-stone.html" rel="standout"></atom:link>
+      <description>The bureau was on the verge of closing its investigation into Michael Flynn in early 2017 when new evidence prompted agents to keep it open, newly disclosed court papers showed.</description>
+      <dc:creator>Adam Goldman</dc:creator>
+      <pubDate>Thu, 30 Apr 2020 22:52:47 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Flynn, Michael T</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Stone, Roger J Jr</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Russian Interference in 2016 US Elections and Ties to Trump Associates</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Ethics and Official Misconduct</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Federal Bureau of Investigation</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Justice Department</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/30/us/politics/30dc-flynn/30dc-flynn-moth.jpg" width="151"></media:content>
+      <media:credit>Samuel Corum for The New York Times</media:credit>
+      <media:description>Michael T. Flynn, President Trump’s onetime national security adviser, has backtracked on his guilty plea to the F.B.I. and fought the criminal case against him.</media:description>
+    </item>
+    <item>
+      <title>National Security Surveillance on U.S. Soil Fell Amid Scrutiny of Russia Inquiry</title>
+      <link>https://www.nytimes.com/2020/04/30/us/politics/fbi-wiretaps-fisa-privacy.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/30/us/politics/fbi-wiretaps-fisa-privacy.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/30/us/politics/fbi-wiretaps-fisa-privacy.html" rel="standout"></atom:link>
+      <description>But overseas targets of the government’s warrantless surveillance program continued to soar in 2019, a new report disclosed.</description>
+      <dc:creator>Charlie Savage</dc:creator>
+      <pubDate>Thu, 30 Apr 2020 21:18:38 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Surveillance of Citizens by Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Wiretapping and Other Eavesdropping Devices and Methods</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Foreign Intelligence Surveillance Act (FISA)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Classified Information and State Secrets</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Privacy</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Espionage and Intelligence Services</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Russian Interference in 2016 US Elections and Ties to Trump Associates</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Federal Bureau of Investigation</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">National Security Agency</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Office of the Director of National Intelligence</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Page, Carter</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">United States</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/30/us/politics/30dc-surveillance/30dc-surveillance-moth.jpg" width="151"></media:content>
+      <media:credit>Anna Moneymaker/The New York Times</media:credit>
+      <media:description>The F.B.I.’s national security surveillance wiretap program has recently come under scrutiny.</media:description>
+    </item>
+    <item>
+      <title>Justin Amash, Third-Party Spoiler? Michigan Experts Are Skeptical</title>
+      <link>https://www.nytimes.com/2020/04/30/us/politics/justin-amash-president-trump.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/04/30/us/politics/justin-amash-president-trump.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/04/30/us/politics/justin-amash-president-trump.html" rel="standout"></atom:link>
+      <description>Democrats worry that if the congressman runs for president, he could siphon votes in a state Donald Trump narrowly won four years ago. But strategists say this election is much different.</description>
+      <dc:creator>Trip Gabriel and Jonathan Martin</dc:creator>
+      <pubDate>Thu, 30 Apr 2020 09:00:23 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Amash, Justin (1980- )</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Presidential Election of 2020</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Biden, Joseph R Jr</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Michigan</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Democratic Party</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Republican Party</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Libertarianism (US Politics)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Third-Party Politics (US)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Voting and Voters</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Polls and Public Opinion</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Presidential Election of 2016</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Clinton, Hillary Rodham</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/29/us/politics/29amash/29amash-moth.jpg" width="151"></media:content>
+      <media:credit>Bill Pugliano/Getty Images</media:credit>
+      <media:description>Representative Justin Amash of Michigan, a frequent critic of President Trump, left the Republican Party last year to become an independent. </media:description>
+    </item>
+    <item>
+      <title>Trump Nominee Is Among Judges Opposed to Banning Membership in Conservative Group</title>
+      <link>https://www.nytimes.com/2020/05/03/us/politics/judges-federalist-society.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/03/us/politics/judges-federalist-society.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/03/us/politics/judges-federalist-society.html" rel="standout"></atom:link>
+      <description>Judge Justin Walker joined a bevy of judges, many appointees of the president, in railing against an ethics proposal on the Federalist Society.</description>
+      <dc:creator>Rebecca R. Ruiz and Ben Protess</dc:creator>
+      <pubDate>Sun, 03 May 2020 14:24:57 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Federal Courts (US)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Conservatism (US Politics)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">American Bar Assn</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">American Constitution Society for Law and Policy</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Federalist Society</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">McConnell, Mitch</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Whitehouse, Sheldon</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/03/multimedia/03judges/03judges-moth.jpg" width="151"></media:content>
+      <media:credit>Caroline Brehman/CQ Roll Call, via Getty Images</media:credit>
+      <media:description>Judge Justin Walker has been nominated by President Trump to the U.S. Court of Appeals.</media:description>
+    </item>
+    <item>
+      <title>George W. Bush Calls for End to Pandemic Partisanship</title>
+      <link>https://www.nytimes.com/2020/05/03/us/politics/george-w-bush-coronavirus-unity.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/03/us/politics/george-w-bush-coronavirus-unity.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/03/us/politics/george-w-bush-coronavirus-unity.html" rel="standout"></atom:link>
+      <description>In a video, the former president, who generally avoids speaking out on current affairs, urged Americans to “remember how small our differences are” in a time of crisis. President Trump swiped at him in response.</description>
+      <dc:creator>Peter Baker</dc:creator>
+      <pubDate>Sun, 03 May 2020 16:32:38 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Bush, George W</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Clinton, Bill</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">September 11 (2001)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/02/world/02dc-virus-bush-2/merlin_171999921_e857a690-fb9b-462d-a20c-28c8161107c9-moth.jpg" width="151"></media:content>
+      <media:credit>Doug Mills/Associated Press</media:credit>
+      <media:description>Three days after the Sept. 11 attacks, President George W. Bush met with emergency workers at the World Trade Center site.</media:description>
+    </item>
+    <item>
+      <title>Masked or Not, Mike Pence Keeps the Peace With a Poker Face</title>
+      <link>https://www.nytimes.com/2020/05/02/us/politics/coronavirus-mike-pence.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/02/us/politics/coronavirus-mike-pence.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/02/us/politics/coronavirus-mike-pence.html" rel="standout"></atom:link>
+      <description>“Task forces and vice presidents don’t get to decide things,” said Tim Pawlenty, the former Minnesota governor.</description>
+      <dc:creator>Peter Baker and Maggie Haberman</dc:creator>
+      <pubDate>Sun, 03 May 2020 04:30:23 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Pence, Mike</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Federal-State Relations (US)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Vice Presidents and Vice Presidency (US)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/03/us/03dc-virus-pence-image1/03dc-virus-pence-image1-moth.jpg" width="151"></media:content>
+      <media:credit>Doug Mills/The New York Times</media:credit>
+      <media:description>Vice President Mike Pence has stood at the side of President Trump for the past weeks.</media:description>
+    </item>
+    <item>
+      <title>Profits and Pride at Stake, the Race for a Vaccine Intensifies</title>
+      <link>https://www.nytimes.com/2020/05/02/us/politics/vaccines-coronavirus-research.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/02/us/politics/vaccines-coronavirus-research.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/02/us/politics/vaccines-coronavirus-research.html" rel="standout"></atom:link>
+      <description>Governments, companies and academic labs are accelerating their efforts amid geopolitical crosscurrents, questions about safety and the challenges of producing enough doses for billions of people.</description>
+      <dc:creator>David E. Sanger, David D. Kirkpatrick, Carl Zimmer, Katie Thomas and Sui-Lee Wee</dc:creator>
+      <pubDate>Sun, 03 May 2020 15:10:35 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Vaccination and Immunization</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Clinical Trials</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Research</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Remdesivir (Drug)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Drugs (Pharmaceuticals)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Antibodies</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Laboratories and Scientific Equipment</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Factories and Manufacturing</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Food and Drug Administration</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Gates, Bill and Melinda, Foundation</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Johnson &amp; Johnson</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Moderna Inc</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">AstraZeneca PLC</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Ethics and Official Misconduct</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">China</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">India</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">International Relations</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States International Relations</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/03/us/politics/02dc-virus-vaccine/02dc-virus-vaccine-moth.jpg" width="151"></media:content>
+      <media:credit>Oliver Bunic/Bloomberg</media:credit>
+      <media:description>A laboratory technician in an isolation chamber testing a coronavirus vaccine in March in Belgrade, Serbia.</media:description>
+    </item>
+    <item>
+      <title>Tara Reade&#39;s Allegation Is Against Biden, but the Burden Is on Women </title>
+      <link>https://www.nytimes.com/2020/05/02/us/politics/tara-reade-joe-biden-metoo.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/02/us/politics/tara-reade-joe-biden-metoo.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/02/us/politics/tara-reade-joe-biden-metoo.html" rel="standout"></atom:link>
+      <description>Even with the progress of #MeToo, women are called upon to defend their male colleagues. In the 2020 election, that can mean putting the movement itself on the line.</description>
+      <dc:creator>Jessica Bennett and Lisa Lerer</dc:creator>
+      <pubDate>Sun, 03 May 2020 02:07:12 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Biden, Joseph R Jr</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Reade, Tara</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Sexual Harassment</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Presidential Election of 2020</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Democratic Party</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Women and Girls</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">#MeToo Movement</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/us/politics/00feminist-response1/00feminist-response1-moth.jpg" width="151"></media:content>
+      <media:credit>Maddie McGarvey for The New York Times</media:credit>
+      <media:description>Former Vice President Joseph R. Biden Jr. is accused of assaulting a former Senate aide in the early 1990s.</media:description>
+    </item>
+    <item>
+      <title>Representative Max Rose&#39;s Son Was Born Amid the Coronavirus Pandemic.</title>
+      <link>https://www.nytimes.com/2020/05/02/us/politics/max-rose-coronavirus-newborn-son.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/02/us/politics/max-rose-coronavirus-newborn-son.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/02/us/politics/max-rose-coronavirus-newborn-son.html" rel="standout"></atom:link>
+      <description>Representative Max Rose of New York and his wife welcomed a son and are now juggling parenthood and Congress during the age of coronavirus.</description>
+      <dc:creator>Emily Cochrane</dc:creator>
+      <pubDate>Sat, 02 May 2020 16:12:33 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Adoptions</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus Aid, Relief, and Economic Security Act (2020)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">House of Representatives</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Rose, Max (1986- )</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Staten Island (NYC)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Parenting</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/us/politics/00dc-rose/00dc-rose-moth-v2.jpg" width="151"></media:content>
+      <media:credit>Leigh Rose</media:credit>
+      <media:description>Representative Max Rose holds his newborn son.</media:description>
+    </item>
+    <item>
+      <title>Republicans Edge Away From Trump on Coronavirus Response</title>
+      <link>https://www.nytimes.com/2020/05/02/us/politics/coronavirus-trump-republicans.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/02/us/politics/coronavirus-trump-republicans.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/02/us/politics/coronavirus-trump-republicans.html" rel="standout"></atom:link>
+      <description>Moderate Republicans in competitive districts are navigating a careful balance in addressing the coronavirus crisis, eager to put some distance between themselves and a president whose response has been criticized.</description>
+      <dc:creator>Catie Edmondson and Rebecca R. Ruiz</dc:creator>
+      <pubDate>Sun, 03 May 2020 13:19:25 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Republican Party</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">House of Representatives</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Polls and Public Opinion</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Voting and Voters</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Katko, John (1962- )</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Upton, Fred</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/04/30/us/politics/00dc-moderates1/00dc-moderates1-moth.jpg" width="151"></media:content>
+      <media:credit>Anna Moneymaker/The New York Times</media:credit>
+      <media:description>“It does make it difficult at times,” Representative John Katko, Republican of New York, said of the president’s news briefings.</media:description>
+    </item>
+    <item>
+      <title>9/11 Prisoners May Get Video Chats to Bridge the Coronavirus Divide</title>
+      <link>https://www.nytimes.com/2020/05/02/us/politics/guantanamo-september-11-coronavirus.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/02/us/politics/guantanamo-september-11-coronavirus.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/02/us/politics/guantanamo-september-11-coronavirus.html" rel="standout"></atom:link>
+      <description>With the Sept. 11 hearings delayed, prosecutors and defenders are looking for ways to let lawyers talk with the prisoners at Guantánamo Bay.</description>
+      <dc:creator>Carol Rosenberg</dc:creator>
+      <pubDate>Sat, 02 May 2020 09:00:14 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Guantanamo Bay Naval Base (Cuba)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Detainees</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Mohammed, Khalid Shaikh</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Videophones and Videoconferencing</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Legal Profession</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Military Tribunals</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Terrorism</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Al Qaeda</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">September 11 (2001)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Shutdowns (Institutional)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/us/politics/01dc-gitmo1/gary-sowards1-moth.jpg" width="151"></media:content>
+      <media:credit>Doug Mills/The New York Times</media:credit>
+      <media:description>A prisoner at Guant&amp;aacute;namo Bay&amp;rsquo;s Camp 6 detention center. Prisoners have been increasingly isolated at Guant&amp;aacute;namo during the coronavirus pandemic.</media:description>
+    </item>
+    <item>
+      <title>Trump Moves to Replace Watchdog Who Identified Critical Medical Shortages</title>
+      <link>https://www.nytimes.com/2020/05/01/us/politics/trump-health-department-watchdog.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/us/politics/trump-health-department-watchdog.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/us/politics/trump-health-department-watchdog.html" rel="standout"></atom:link>
+      <description>The president announced the nomination of an inspector general for the Department of Health and Human Services, who, if confirmed, would replace an acting official whose report embarrassed Mr. Trump.</description>
+      <dc:creator>Peter Baker</dc:creator>
+      <pubDate>Sat, 02 May 2020 21:11:23 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Grimm, Christi A</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Weida, Jason C</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Inspectors General</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Health and Human Services Department</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Ventilators (Medical)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Medical Devices</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Tests (Medical)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Protective Clothing and Gear</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Shortages</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Appointments and Executive Changes</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Trump-Ukraine Whistle-Blower Complaint and Impeachment Inquiry</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Ukraine</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Yovanovitch, Marie L</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Dayton, Keith W</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/multimedia/01dc-prexy1-promo/01dc-prexy1-promo-moth-v3.jpg" width="151"></media:content>
+      <media:credit>U.S. Department of Health and Human Services</media:credit>
+      <media:description>Christi A. Grimm, the principal deputy inspector general at the Department of Health and Human Services, released a report outlining hospital equipment shortages.</media:description>
+    </item>
+    <item>
+      <title>Native American Tribes Sue Over Coronavirus Stimulus Aid</title>
+      <link>https://www.nytimes.com/2020/05/01/us/politics/coronavirus-native-american-tribes-treasury-stimulus.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/us/politics/coronavirus-native-american-tribes-treasury-stimulus.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/us/politics/coronavirus-native-american-tribes-treasury-stimulus.html" rel="standout"></atom:link>
+      <description>A dispute among native populations over $8 billion in federal coronavirus relief has delayed aid to tribes that are among the hardest-hit by Covid-19.</description>
+      <dc:creator>Mark Walker and Emily Cochrane</dc:creator>
+      <pubDate>Sat, 02 May 2020 01:04:59 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus Aid, Relief, and Economic Security Act (2020)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Native Americans</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Federal Aid (US)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Alaska Natives</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Economy</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Murkowski, Lisa</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Sullivan, Daniel Scott (1964- )</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Alaska</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/us/politics/01dc-virus-tribes/01dc-virus-tribes-moth.jpg" width="151"></media:content>
+      <media:credit>Kristin Murphy/The Deseret News, via Associated Press</media:credit>
+      <media:description>People lined up in cars to get tested for the coronavirus in Utah’s Oljato-Monument Valley, part of the Navajo Nation.</media:description>
+    </item>
+    <item>
+      <title>Trump Gets Coronavirus Tests While Senators Wait</title>
+      <link>https://www.nytimes.com/2020/05/01/us/politics/coronavirus-testing-senate-white-house.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/us/politics/coronavirus-testing-senate-white-house.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/us/politics/coronavirus-testing-senate-white-house.html" rel="standout"></atom:link>
+      <description>As senators prepare to return on Monday, Congress’s doctor warned that he does not have the capacity to test all 100 for coronavirus. At the White House, the president and many of his aides are tested repeatedly.</description>
+      <dc:creator>Sheryl Gay Stolberg, Nicholas Fandos and Katie Rogers</dc:creator>
+      <pubDate>Sat, 02 May 2020 14:16:06 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Tests (Medical)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">McConnell, Mitch</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Senate</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">House of Representatives</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Republican Party</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Democratic Party</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Quarantines</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Epidemics</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/us/politics/01dc-virus-testing1/merlin_171652068_8c98087f-a330-4095-81f7-5835630e94bc-moth.jpg" width="151"></media:content>
+      <media:credit>Erin Schaff/The New York Times</media:credit>
+      <media:description>A Senate doorkeeper waiting for Senator Mitch McConnell, the majority leader, last month in the Capitol.</media:description>
+    </item>
+    <item>
+      <title>‘I Will Never Lie to You,’ McEnany Says in First White House Briefing</title>
+      <link>https://www.nytimes.com/2020/05/01/us/politics/kayleigh-mcenany-white-house-briefing.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/us/politics/kayleigh-mcenany-white-house-briefing.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/us/politics/kayleigh-mcenany-white-house-briefing.html" rel="standout"></atom:link>
+      <description>But Kayleigh McEnany, the president’s fourth press secretary, found that vow tested almost immediately.</description>
+      <dc:creator>Annie Karni</dc:creator>
+      <pubDate>Sat, 02 May 2020 03:50:13 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">McEnany, Kayleigh</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">News and News Media</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Rumors and Misinformation</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Presidential Election of 2020</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/us/politics/01dc-whbriefing/01dc-whbriefing-moth.jpg" width="151"></media:content>
+      <media:credit>Erin Schaff/The New York Times</media:credit>
+      <media:description>Kayleigh McEnany, the White House press secretary, on Friday during her first news conference at the White House.</media:description>
+    </item>
+    <item>
+      <title>Some Trump Officials Take Harder Actions on China During Pandemic</title>
+      <link>https://www.nytimes.com/2020/05/01/us/politics/coronavirus-china-trump.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/us/politics/coronavirus-china-trump.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/us/politics/coronavirus-china-trump.html" rel="standout"></atom:link>
+      <description>Since the coronavirus spread from a metropolis on the Yangtze River across the globe, hard-liners in both Washington and Beijing have accelerated efforts to decouple elements of the relationship.</description>
+      <dc:creator>Edward Wong and Ana Swanson</dc:creator>
+      <pubDate>Sat, 02 May 2020 00:10:11 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States International Relations</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">International Trade and World Market</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">5G (Wireless Communications)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Pensions and Retirement Plans</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">China Telecom</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Federal Communications Commission</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Huawei Technologies Co Ltd</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Justice Department</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">State Department</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Kudlow, Lawrence A</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Kushner, Jared</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Mnuchin, Steven T</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Navarro, Peter</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Pillsbury, Michael (1945- )</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Pompeo, Mike</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Pottinger, Matthew</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Trump, Donald J</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Xi Jinping</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/us/politics/01dc-virus-uschina1/merlin_172087041_c0c67ad6-76b8-4665-ad5b-45938b02b55a-moth.jpg" width="151"></media:content>
+      <media:credit>Kevin Frayer/Getty Images</media:credit>
+      <media:description>Chinese paramilitary police guarding the entrance to Beijing’s Forbidden City as it reopened on Friday to a limited number of visitors.</media:description>
+    </item>
+    <item>
+      <title>Barr Defends Response to Virus in Stormy Twitter Session</title>
+      <link>https://www.nytimes.com/2020/05/01/us/politics/barr-twitter.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/us/politics/barr-twitter.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/us/politics/barr-twitter.html" rel="standout"></atom:link>
+      <description>Given a chance to ask questions of the attorney general, many users opted for insults or accusations.</description>
+      <dc:creator>Katie Benner</dc:creator>
+      <pubDate>Sat, 02 May 2020 03:51:22 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Coronavirus (2019-nCoV)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Prisons and Prisoners</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Frauds and Swindling</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Attorneys General</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Civil Rights and Liberties</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Federal Bureau of Prisons</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Justice Department</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Twitter</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Barr, William P</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/us/politics/01dc-barr/01dc-barr-moth.jpg" width="151"></media:content>
+      <media:credit>Michael Reynolds/EPA, via Shutterstock</media:credit>
+      <media:description>Attorney General William P. Barr was one of two dozen law enforcement officials participating in a forum hosted by Twitter to field questions about public safety.</media:description>
+    </item>
+    <item>
+      <title>The Best Part of the Campaign Trail (the Food!) Comes Home</title>
+      <link>https://www.nytimes.com/2020/05/01/dining/mail-order-food-coronavirus.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/dining/mail-order-food-coronavirus.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/dining/mail-order-food-coronavirus.html" rel="standout"></atom:link>
+      <description>By ordering in, a political reporter continues to enjoy his favorite dishes from around the country.</description>
+      <dc:creator>Jonathan Martin</dc:creator>
+      <pubDate>Sat, 02 May 2020 09:47:12 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Delivery Services</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Restaurants</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">United States</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Quarantine (Life and Culture)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Food</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Goldbelly Inc</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/06/dining/06Virus-Deliver-Revised/06Virus-Deliver-Revised-moth.jpg" width="151"></media:content>
+      <media:credit>Jason Raish</media:credit>
+    </item>
+    <item>
+      <title>Full Transcript: Joe Biden Addresses Tara Reade Allegations on ‘Morning Joe’</title>
+      <link>https://www.nytimes.com/2020/05/01/us/politics/joe-biden-tara-reade-msnbc.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2020/05/01/us/politics/joe-biden-tara-reade-msnbc.html</guid>
+      <atom:link href="https://www.nytimes.com/2020/05/01/us/politics/joe-biden-tara-reade-msnbc.html" rel="standout"></atom:link>
+      <description>The former vice president was interviewed about the allegation made by his former Senate aide that he sexually assaulted her in 1993.</description>
+      <dc:creator>Maggie Astor and Isabella Grullón Paz</dc:creator>
+      <pubDate>Fri, 01 May 2020 15:18:33 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Archives and Records</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">United States Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Presidential Election of 2020</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Sex Crimes</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">MSNBC</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">University of Delaware</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Biden, Joseph R Jr</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Brzezinski, Mika</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Reade, Tara</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2020/05/01/us/politics/01biden-transcript/merlin_172094907_b608afc5-a842-422c-80e1-52d94c5185f4-moth.jpg" width="151"></media:content>
+      <media:credit>MSNBC&#39;s Morning Joe, via Associated Press</media:credit>
+      <media:description>Former Vice President Joseph R. Biden Jr. spoke with Mika Brzezinski on MSNBC on Friday.</media:description>
+    </item>
+  </channel>
+</rss>
