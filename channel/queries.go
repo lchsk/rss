@@ -49,3 +49,55 @@ order by
 	last_successful_update asc
 limit 1000
 `
+
+const sqlFetchLastArticleDate = `
+select
+    pub_at
+from
+    articles
+where
+    channel_id = $1
+order by
+    pub_at desc
+limit 1
+`
+
+const sqlFetchChannelUsers = `
+select
+    user_id
+from
+    user_channels
+where
+   channel_id = $1
+`
+
+const sqlUpdateLastSuccessfulUpdate = `
+update channels
+set last_successful_update = $1
+where id = $2
+`
+
+const sqlInsertArticle = `
+insert into articles (
+    id,
+	pub_at,
+	url,
+	title,
+	description,
+	content,
+	author_name,
+	author_email,
+	channel_id
+)
+values (
+    $1,
+	$2,
+	$3,
+    $4,
+    $5,
+    $6,
+    $7,
+    $8,
+	$9
+)
+`

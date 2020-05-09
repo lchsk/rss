@@ -103,21 +103,14 @@ create table articles (
   title text not null,
   description text not null,
   content text not null,
-  author text not null,
+  author_name text not null,
+  author_email text not null,
 
   channel_id uuid not null,
-  user_id uuid not null,
-  category_id uuid not null,
 
   constraint fk_articles_channel_id
      foreign key (channel_id)
-     references channels (id),
-  constraint fk_articles_user_id
-     foreign key (user_id)
-     references users (id),
-  constraint fk_articles_category_id
-     foreign key (category_id)
-     references categories (id)
+     references channels (id)
 );
 
 -- Add indexes / unique

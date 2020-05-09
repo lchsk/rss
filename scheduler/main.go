@@ -42,28 +42,6 @@ func init() {
 	}
 }
 
-func updateChannels() {
-	channels, err := DBA.Channel.FetchChannelsToUpdate()
-
-	if err != nil {
-		log.Printf("Error in channel update: %s\n", err)
-		return
-	}
-
-	for _, channel := range channels {
-		refreshMsg := comms.RefreshChannel{Id: channel.ChannelId, Url: channel.ChannelUrl}
-
-		message, err := comms.BuildMessage(refreshMsg)
-
-		if err == nil {
-			queueConn.Publish("", "hello", message)
-			log.Printf("Published channel update message for channel id=%s\n", channel.ChannelId)
-		} else if err != nil {
-			log.Printf("Error building channel update message: %s\n", err)
-		}
-	}
-}
-
 func main() {
 	c := make(chan os.Signal, 2)
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)

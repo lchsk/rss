@@ -5,11 +5,12 @@ import (
 	"log"
 
 	"github.com/lchsk/rss/db"
+	"github.com/lchsk/rss/demo"
 )
 
 func init() {
 	var install = flag.Bool("install", false, "Install new db")
-	var demo = flag.Bool("demo", false, "Install demo")
+	var demoFlag = flag.Bool("demo", false, "Install demo")
 
 	flag.Parse()
 
@@ -38,8 +39,8 @@ func init() {
 		return
 	}
 
-	if *demo {
-		installDemo(DBA)
+	if *demoFlag {
+		demo.InstallDemo(DBA)
 
 		log.Println("installed demo")
 	}

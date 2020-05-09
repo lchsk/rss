@@ -18,13 +18,27 @@ type DbAccess struct {
 }
 
 func GetDBConnection() (*DbAccess, error) {
-	dbHost := os.Getenv("POSTGRES_HOST")
-	dbUser := os.Getenv("POSTGRES_USER")
-	dbPassword := os.Getenv("POSTGRES_PASSWORD")
-	dbName := os.Getenv("POSTGRES_DB")
-	dbPort := os.Getenv("POSTGRES_PORT")
+	dbHostVar := "POSTGRES_HOST"
+	dbUserVar := "POSTGRES_USER"
+	dbPasswordVar := "POSTGRES_PASSWORD"
+	dbNameVar := "POSTGRES_DB"
+	dbPortVar := "POSTGRES_PORT"
 
-	log.Printf("Attempting to connect to Postgres on host=%s port=%s\n", dbHost, dbPort)
+	if os.Getenv("INTEGRATION_TEST") != "" {
+		dbHostVar = "POSTGRES_TEST_HOST"
+		dbUserVar = "POSTGRES_TEST_USER"
+		dbPasswordVar = "POSTGRES_TEST_PASSWORD"
+		dbNameVar = "POSTGRES_TEST_DB"
+		dbPortVar = "POSTGRES_TEST_PORT"
+	}
+
+	dbHost := os.Getenv(dbHostVar)
+	dbUser := os.Getenv(dbUserVar)
+	dbPassword := os.Getenv(dbPasswordVar)
+	dbName := os.Getenv(dbNameVar)
+	dbPort := os.Getenv(dbPortVar)
+
+	log.Printf("Attempting to connect to Postgres on host=%s db=%s port=%s\n", dbHost, dbName, dbPort)
 
 	conn, err := GetDBConn(dbHost, dbUser, dbPassword, dbName, dbPort)
 

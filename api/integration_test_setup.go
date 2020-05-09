@@ -5,6 +5,7 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/joho/godotenv"
@@ -13,6 +14,7 @@ import (
 )
 
 func setupSchema(conn *sql.DB) error {
+	log.Println("Setting up schema")
 	err := db.InstallSchema(conn, "../sql/schema.sql")
 
 	if err != nil {
@@ -23,6 +25,7 @@ func setupSchema(conn *sql.DB) error {
 }
 
 func setupIntegrationTests() error {
+	log.Println("Setting up integration tests")
 	err := godotenv.Load("../.env")
 
 	if err != nil {

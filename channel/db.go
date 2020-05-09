@@ -2,9 +2,13 @@ package channel
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
+	"strings"
+	"time"
 
 	"github.com/google/uuid"
+	"github.com/lchsk/rss/comms"
 	"github.com/mmcdole/gofeed"
 
 	_ "github.com/lib/pq"
@@ -30,7 +34,66 @@ type ChannelToUpdate struct {
 }
 
 type ChannelAccess struct {
+	Db      *sql.DB
 	Queries map[string]*sql.Stmt
+}
+
+var QueueConn *comms.Connection
+
+func (ca *ChannelAccess) UpdateChannels() error {
+	channels, err := ca.FetchChannelsToUpdate()
+
+	if err != nil {
+		log.Printf("Error in channel update: %s\n", err)
+		return err
+	}
+
+	for _, channel := range channels {
+		refreshMsg := comms.RefreshChannel{Id: channel.ChannelId, Url: channel.ChannelUrl}
+
+		message, err := comms.BuildMessage(refreshMsg)
+
+		if err == nil {
+			QueueConn.Publish("", "hello", message)
+			log.Printf("Published channel update message for channel id=%s\n", channel.ChannelId)
+			return nil
+		} else if err != nil {
+			log.Printf("Error building channel update message: %s\n", err)
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (ca *ChannelAccess) InsertArticle(id string,
+	pubAt *time.Time,
+	url string,
+	title string,
+	description string,
+	content string,
+	authorName string,
+	authorEmail string,
+	channelId string) error {
+	stmt := ca.Queries["insertArticle"]
+
+	_, err := stmt.Exec(id, pubAt, url, title, description, content, authorName, authorEmail, channelId)
+
+	if err != nil {
+		log.Printf("Error on InsertArticle: %s", err)
+	}
+
+	// TODO: Log postgres error
+
+	return err
+}
+
+func (ca *ChannelAccess) UpdateLastSuccessfulUpdateToNow(channelId string) error {
+	stmt := ca.Queries["updateLastSuccessfulUpdate"]
+
+	_, err := stmt.Exec(time.Now().UTC(), channelId)
+
+	return err
 }
 
 func (ca *ChannelAccess) InsertChannel(channelUrl string, categoryId *string) (*Channel, error) {
@@ -108,6 +171,48 @@ func (ca *ChannelAccess) FetchChannelsToUpdate() ([]*ChannelToUpdate, error) {
 	return channels, nil
 }
 
+func (ca *ChannelAccess) InsertUserArticles(channelId string, articleIds []string) {
+	stmt := ca.Queries["fetchChannelUsers"]
+
+	rows, err := stmt.Query(channelId)
+
+	if err != nil {
+		log.Printf("Error getting user articles: %s", err)
+		return
+	}
+
+	defer rows.Close()
+
+	var userId string
+	for rows.Next() {
+		if err := rows.Scan(&userId); err != nil {
+			log.Printf("Could not read userId: %s", err)
+			continue
+		}
+
+		valueStrings := make([]string, 0, len(articleIds))
+		valueArgs := make([]interface{}, 0, len(articleIds)*3)
+
+		for i, articleId := range articleIds {
+			valueStrings = append(valueStrings,
+				fmt.Sprintf("($%d, $%d, $%d)", i*3+1, i*3+2, i*3+3))
+			valueArgs = append(valueArgs, uuid.New().String())
+			valueArgs = append(valueArgs, userId)
+			valueArgs = append(valueArgs, articleId)
+		}
+
+		stmt := fmt.Sprintf(`
+		insert into user_articles (id, user_id, article_id) values %s
+		`, strings.Join(valueStrings, ","))
+		_, err := ca.Db.Exec(stmt, valueArgs...)
+
+		if err != nil {
+			log.Printf("Error inserting user articles user_id=%s channel_id=%s", userId, channelId)
+		}
+	}
+
+}
+
 func (ca *ChannelAccess) FetchUserChannels(userId string) ([]UserChannel, error) {
 	userChannels := []UserChannel{}
 
@@ -148,15 +253,66 @@ func (ca *ChannelAccess) FetchUserChannels(userId string) ([]UserChannel, error)
 	return userChannels, err
 }
 
-func (ca *ChannelAccess) UpdateChannel(feed *gofeed.Feed) error {
+func (ca *ChannelAccess) UpdateChannel(channelId string, feed *gofeed.Feed) error {
+	log.Printf("Updating channel_id=%s", channelId)
+
 	// Load last article published for this channel
-	// Filter which articles we need to insert
+	stmt := ca.Queries["fetchLastArticleDate"]
 
-	// Insert new articles articles
+	var date time.Time
+	err := stmt.QueryRow(channelId).Scan(&date)
 
-	// Update channel properties in channels
-	// Update last successful sync
+	var minPubTime time.Time
 
+	if err == sql.ErrNoRows {
+		minPubTime = time.Unix(0, 0)
+	} else {
+		minPubTime = date
+	}
+
+	var articleIds []string
+
+	for _, item := range feed.Items {
+		var pubAt *time.Time
+
+		if item.PublishedParsed == nil {
+			current := time.Now().UTC()
+			pubAt = &current
+		} else {
+			pubAt = item.PublishedParsed
+		}
+
+		if pubAt.Before(minPubTime) || pubAt.Equal(minPubTime) {
+			continue
+		}
+
+		authorName := ""
+		authorEmail := ""
+
+		if item.Author != nil {
+			authorName = item.Author.Name
+			authorEmail = item.Author.Email
+		}
+
+		// TODO: Escape title, description, content, and other strings
+		articleId := uuid.New().String()
+
+		err := ca.InsertArticle(articleId, pubAt,
+			item.Link, item.Title, item.Description, item.Content,
+			authorName, authorEmail, channelId,
+		)
+
+		if err == nil {
+			articleIds = append(articleIds, articleId)
+		} else {
+			log.Printf("Could not insert article to channel id=%s url=%s", channelId, item.Link)
+		}
+	}
+
+	ca.UpdateLastSuccessfulUpdateToNow(channelId)
+	ca.InsertUserArticles(channelId, articleIds)
+
+	log.Printf("Channel channel_id=%s updated", channelId)
 	return nil
 }
 
@@ -164,12 +320,16 @@ func InitChannelAccess(db *sql.DB) (*ChannelAccess, error) {
 	queries := map[string]*sql.Stmt{}
 
 	queriesToPrepare := map[string]string{
-		"insertChannel":         sqlInsertChannel,
-		"insertUserChannel":     sqlInsertUserChannel,
-		"insertUserCategory":    sqlInsertUserCategory,
-		"fetchChannelByUrl":     sqlFetchChannelByUrl,
-		"fetchUserChannels":     sqlFetchUserChannels,
-		"fetchChannelsToUpdate": sqlFetchChannelsToUpdate,
+		"insertChannel":              sqlInsertChannel,
+		"insertUserChannel":          sqlInsertUserChannel,
+		"insertUserCategory":         sqlInsertUserCategory,
+		"insertArticle":              sqlInsertArticle,
+		"fetchChannelByUrl":          sqlFetchChannelByUrl,
+		"fetchUserChannels":          sqlFetchUserChannels,
+		"fetchChannelsToUpdate":      sqlFetchChannelsToUpdate,
+		"fetchLastArticleDate":       sqlFetchLastArticleDate,
+		"fetchChannelUsers":          sqlFetchChannelUsers,
+		"updateLastSuccessfulUpdate": sqlUpdateLastSuccessfulUpdate,
 	}
 
 	for name, sql := range queriesToPrepare {
@@ -182,7 +342,7 @@ func InitChannelAccess(db *sql.DB) (*ChannelAccess, error) {
 		queries[name] = stmt
 	}
 
-	ca := &ChannelAccess{Queries: queries}
+	ca := &ChannelAccess{Db: db, Queries: queries}
 
 	return ca, nil
 }

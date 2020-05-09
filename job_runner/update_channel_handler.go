@@ -38,5 +38,5 @@ func refreshChannelHandler(message *comms.Message, body []byte) {
 		return
 	}
 
-	DBA.Channel.UpdateChannel(feed)
+	DBA.Channel.UpdateChannel(data.Id, feed)
 }

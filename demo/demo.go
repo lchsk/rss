@@ -1,4 +1,4 @@
-package main
+package demo
 
 import (
 	"github.com/lchsk/rss/db"
@@ -23,7 +23,7 @@ type UserData struct {
 
 var bugs UserData
 
-func installDemo(dba *db.DbAccess) {
+func InstallDemo(dba *db.DbAccess) {
 	installUsers(dba)
 	installCategories(dba)
 	installChannels(dba)
