@@ -11,6 +11,7 @@ import (
 func init() {
 	var install = flag.Bool("install", false, "Install new db")
 	var demoFlag = flag.Bool("demo", false, "Install demo")
+	var migrate = flag.Bool("migrate", false, "Migrate SQL")
 
 	flag.Parse()
 
@@ -37,6 +38,12 @@ func init() {
 	if err != nil {
 		log.Println("cannot init db access: %s\n", err)
 		return
+	}
+
+	if *migrate {
+		log.Println("running migrations")
+		Migrate(DBA)
+		log.Println("migrations finished")
 	}
 
 	if *demoFlag {

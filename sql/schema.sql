@@ -1,10 +1,19 @@
 drop extension if exists pgcrypto;
 create extension pgcrypto;
 
+-- migrations
+
+drop table if exists migrations cascade;
+create table migrations (
+  id uuid not null primary key,
+  filename text not null,
+  created_at timestamp without time zone default (now() at time zone 'utc') not null
+);
+
 -- users
 
 drop table if exists users cascade;
-CREATE TABLE users (
+create table users (
   id uuid not null primary key,
   username text not null,
   email text not null,
