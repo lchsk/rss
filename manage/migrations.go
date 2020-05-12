@@ -1,16 +1,76 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"sort"
+	"strconv"
+	"strings"
 
 	"github.com/google/uuid"
 	"github.com/lchsk/rss/db"
 )
 
 const MigrationsPath = "../sql/migrations"
+
+func sortMigrationFiles(filenames []string) []string {
+	sort.Slice(filenames, func(i, j int) bool {
+		firstSplit := strings.Split(filenames[i], "_")
+		secondSplit := strings.Split(filenames[j], "_")
+
+		firstNumber, _ := strconv.Atoi(firstSplit[0])
+		secondNumber, _ := strconv.Atoi(secondSplit[0])
+
+		return firstNumber < secondNumber
+
+	})
+	return filenames
+}
+
+func validateFilenames(filenames []string) error {
+	for _, f := range filenames {
+		split := strings.Split(f, "_")
+
+		if len(split) < 2 {
+			return errors.New("Filenames should be in format <number>_<name>.sql")
+		}
+
+		_, err := strconv.Atoi(split[0])
+
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func getSortedMigrationFiles(path string) ([]string, error) {
+	files, err := ioutil.ReadDir(path)
+	if err != nil {
+		log.Printf("Error loading migration files: %s", err)
+		return []string{}, err
+	}
+
+	var filenames []string
+
+	for _, f := range files {
+		name := f.Name()
+		ext := f.Name()[len(name)-3:]
+
+		if ext == "sql" {
+			filenames = append(filenames, name)
+		}
+	}
+
+	if err := validateFilenames(filenames); err != nil {
+		return []string{}, err
+	}
+
+	return sortMigrationFiles(filenames), nil
+}
 
 func Migrate(dba *db.DbAccess) {
 	rows, err := dba.DB.Query("select filename from migrations")
@@ -35,24 +95,12 @@ func Migrate(dba *db.DbAccess) {
 		migrationsRan[filename] = struct{}{}
 	}
 
-	files, err := ioutil.ReadDir(MigrationsPath)
+	filenames, err := getSortedMigrationFiles(MigrationsPath)
+
 	if err != nil {
-		log.Printf("Error loading migration files: %s", err)
+		log.Printf("Error preparing sorted migration filenames: %s", err)
 		return
 	}
-
-	var filenames []string
-
-	for _, f := range files {
-		name := f.Name()
-		ext := f.Name()[len(name)-3:]
-
-		if ext == "sql" {
-			filenames = append(filenames, name)
-		}
-	}
-
-	sort.Strings(filenames)
 
 	for _, filename := range filenames {
 		data, err := ioutil.ReadFile(fmt.Sprintf("%s/%s", MigrationsPath, filename))

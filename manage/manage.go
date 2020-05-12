@@ -8,7 +8,7 @@ import (
 	"github.com/lchsk/rss/demo"
 )
 
-func init() {
+func main() {
 	var install = flag.Bool("install", false, "Install new db")
 	var demoFlag = flag.Bool("demo", false, "Install demo")
 	var migrate = flag.Bool("migrate", false, "Migrate SQL")
@@ -18,7 +18,7 @@ func init() {
 	conn, err := db.GetDBConn("localhost", "rss", "rss", "rss_db", "5432")
 
 	if err != nil {
-		log.Println("cannot get connection: %s\n", err)
+		log.Printf("cannot get connection: %s\n", err)
 		return
 	}
 
@@ -36,7 +36,7 @@ func init() {
 	DBA, err := db.InitDbAccess(conn)
 
 	if err != nil {
-		log.Println("cannot init db access: %s\n", err)
+		log.Printf("cannot init db access: %s\n", err)
 		return
 	}
 
@@ -51,8 +51,4 @@ func init() {
 
 		log.Println("installed demo")
 	}
-}
-
-func main() {
-
 }
