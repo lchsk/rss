@@ -7,7 +7,7 @@ import (
 	"net/http"
 
 	"github.com/lchsk/rss/libs/api"
-	"github.com/lchsk/rss/user"
+	"github.com/lchsk/rss/libs/user"
 )
 
 type UserRegistrationInput struct {

@@ -1,7 +1,7 @@
 package demo
 
 import (
-	"github.com/lchsk/rss/db"
+	"github.com/lchsk/rss/libs/db"
 )
 
 type UserData struct {

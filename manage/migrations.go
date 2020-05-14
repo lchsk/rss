@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"github.com/google/uuid"
-	"github.com/lchsk/rss/db"
+	"github.com/lchsk/rss/libs/db"
 )
 
 const MigrationsPath = "../sql/migrations"

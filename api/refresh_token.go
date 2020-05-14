@@ -7,7 +7,7 @@ import (
 	"os"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/lchsk/rss/user"
+	"github.com/lchsk/rss/libs/user"
 )
 
 type RefreshTokenInput struct {

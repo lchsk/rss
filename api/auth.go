@@ -9,7 +9,7 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/google/uuid"
-	"github.com/lchsk/rss/user"
+	"github.com/lchsk/rss/libs/user"
 )
 
 type AccessDetails struct {
