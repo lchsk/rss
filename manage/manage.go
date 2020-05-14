@@ -4,8 +4,8 @@ import (
 	"flag"
 	"log"
 
-	"github.com/lchsk/rss/demo"
 	"github.com/lchsk/rss/libs/db"
+	"github.com/lchsk/rss/libs/demo"
 )
 
 func main() {
