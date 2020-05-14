@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/joho/godotenv"
-	"github.com/lchsk/rss/db"
 	"github.com/lchsk/rss/libs/comms"
+	"github.com/lchsk/rss/libs/db"
 	"github.com/lchsk/rss/libs/tasktimer"
 )
 
