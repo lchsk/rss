@@ -1,4 +1,4 @@
-package main
+package email
 
 import (
 	"fmt"
@@ -21,7 +21,7 @@ func TestValidateEmail(t *testing.T) {
 
 	for i, tt := range cases {
 		t.Run(fmt.Sprintf("case %d: '%s'", i, tt.email), func(t *testing.T) {
-			assert.Equal(t, tt.expected, isEmailValid(tt.email))
+			assert.Equal(t, tt.expected, IsEmailValid(tt.email))
 		})
 	}
 }

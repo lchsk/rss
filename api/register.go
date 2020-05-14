@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/lchsk/rss/libs/api"
+	"github.com/lchsk/rss/libs/email"
 	"github.com/lchsk/rss/libs/user"
 )
 
@@ -33,7 +34,7 @@ func validateRegisterUser(input *UserRegistrationInput) error {
 		return errors.New(errInvalidEmailLen)
 	}
 
-	if !isEmailValid(input.Email) {
+	if !email.IsEmailValid(input.Email) {
 		return errors.New(errInvalidEmail)
 	}
 

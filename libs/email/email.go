@@ -1,4 +1,4 @@
-package main
+package email
 
 import (
 	"regexp"
@@ -8,7 +8,7 @@ const strEmailRegex = "^[a-zA-Z0-9.!#$%&'*+\\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z
 
 var regexEmail = regexp.MustCompile(strEmailRegex)
 
-func isEmailValid(email string) bool {
+func IsEmailValid(email string) bool {
 	if len(email) > 254 || !regexEmail.MatchString(email) {
 		return false
 	}

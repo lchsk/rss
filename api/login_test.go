@@ -1,4 +1,4 @@
-// +build integration
+// +build database
 
 package main
 
@@ -12,7 +12,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestLoginUser__success(t *testing.T) {
+func TestLoginUser(t *testing.T) {
 	setupSchema(DBA.DB)
 
 	type Input struct {
