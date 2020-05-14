@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/lchsk/rss/channel"
+	"github.com/lchsk/rss/libs/channel"
 	"github.com/lchsk/rss/user"
 )
 

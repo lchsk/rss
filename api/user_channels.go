@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/lchsk/rss/channel"
+	"github.com/lchsk/rss/libs/channel"
 )
 
 type UserChannelsResponse struct {

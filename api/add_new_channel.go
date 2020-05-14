@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/lchsk/rss/channel"
 	"github.com/lchsk/rss/libs/api"
+	"github.com/lchsk/rss/libs/channel"
 )
 
 type AddNewChannelInput struct {
