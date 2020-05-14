@@ -3,7 +3,7 @@ version: "3.7"
 services:
   rss_db:
     container_name: rss_db
-    image: postgres:11
+    image: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -19,7 +19,7 @@ services:
 
   rss_testdb:
     container_name: rss_testdb
-    image: postgres:11
+    image: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_TEST_USER}
       POSTGRES_PASSWORD: ${POSTGRES_TEST_PASSWORD}

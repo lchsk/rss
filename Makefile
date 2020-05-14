@@ -1,25 +1,22 @@
+build:
+	+$(MAKE) -C api
+	+$(MAKE) -C job_runner
+	+$(MAKE) -C manage
+	+$(MAKE) -C scheduler
 
+unittest:
+	+$(MAKE) unittest -C api
+	+$(MAKE) unittest -C job_runner
+	+$(MAKE) unittest -C manage
+	+$(MAKE) unittest -C scheduler
 
-all: demo api job_runner manage scheduler
+dbtest:
+	+$(MAKE) dbtest -C api
+	+$(MAKE) dbtest -C job_runner
+	+$(MAKE) dbtest -C manage
+	+$(MAKE) dbtest -C scheduler
 
-demo:
-	@echo "Building demo..."
-	@(cd demo && go build)
+integrationtest:
+	+$(MAKE) -C integration_test
 
-api:
-	@echo "Building api..."
-	@(cd api && go build)
-
-job_runner:
-	@echo "Building job_runner..."
-	@(cd job_runner && go build)
-
-manage:
-	@echo "Building manage..."
-	@(cd manage && go build)
-
-scheduler:
-	@echo "Building scheduler..."
-	@(cd scheduler && go build)
-
-.PHONY: demo api job_runner manage scheduler
+.PHONY: build unittest dbtest integrationtest

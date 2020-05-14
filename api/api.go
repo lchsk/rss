@@ -112,6 +112,7 @@ func runAPI() {
 }
 
 func init() {
+	log.Println("Api init")
 	err := setupEnv()
 
 	if err != nil {
@@ -135,6 +136,8 @@ func init() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	log.Println("Api init finished")
 }
 
 func main() {
