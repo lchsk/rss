@@ -1,4 +1,4 @@
-// +build integration
+// +build database
 
 package main
 
@@ -12,7 +12,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestLogout__success(t *testing.T) {
+func TestLogout(t *testing.T) {
 	setupSchema(DBA.DB)
 
 	type Input struct {
@@ -69,7 +69,7 @@ func TestLogout__success(t *testing.T) {
 	assert.Nil(t, err)
 
 	rr = httptest.NewRecorder()
-	handler = http.HandlerFunc(handlerFetchUser)
+	handler = http.HandlerFunc(handlerFetchCurrentUser)
 
 	handler.ServeHTTP(rr, req)
 
@@ -104,7 +104,7 @@ func TestLogout__success(t *testing.T) {
 	assert.Nil(t, err)
 
 	rr = httptest.NewRecorder()
-	handler = http.HandlerFunc(handlerFetchUser)
+	handler = http.HandlerFunc(handlerFetchCurrentUser)
 
 	handler.ServeHTTP(rr, req)
 
