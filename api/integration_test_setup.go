@@ -9,8 +9,8 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
-	"github.com/lchsk/rss/cache"
 	"github.com/lchsk/rss/db"
+	"github.com/lchsk/rss/libs/cache"
 )
 
 func setupSchema(conn *sql.DB) error {

@@ -10,9 +10,9 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
-	"github.com/lchsk/rss/cache"
 	"github.com/lchsk/rss/db"
 	"github.com/lchsk/rss/libs/api"
+	"github.com/lchsk/rss/libs/cache"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
