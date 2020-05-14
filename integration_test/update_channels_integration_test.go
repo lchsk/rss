@@ -3,20 +3,45 @@
 package main
 
 import (
+	"log"
+	"os"
 	"testing"
 	"time"
 
-	"github.com/lchsk/rss/demo"
+	"github.com/joho/godotenv"
 	"github.com/lchsk/rss/libs/channel"
 	"github.com/lchsk/rss/libs/comms"
+	"github.com/lchsk/rss/libs/db"
+	"github.com/lchsk/rss/libs/demo"
 	"github.com/stretchr/testify/assert"
 )
 
-func TestUpdateChannels__success(t *testing.T) {
-	demo.InstallDemo(DBA)
-	var cnt int
+var DBA *db.DbAccess
+var queue *comms.Connection
 
+func setupIntegrationTests() {
+	log.Println("Setting up integration tests")
+
+	os.Setenv("INTEGRATION_TEST", "true")
+	godotenv.Load("../.env")
+
+	queue, _ = comms.ConnectionInit("amqp://guest:guest@localhost:5672/")
+
+	DBA, _ = db.GetDBConnection()
+	db.InstallSchema(DBA.DB, "../sql/schema.sql")
+	demo.InstallDemo(DBA)
+}
+
+func TestMain(m *testing.M) {
+	setupIntegrationTests()
+
+	os.Exit(m.Run())
+}
+
+func TestUpdateChannels(t *testing.T) {
 	channels, err := DBA.Channel.FetchChannelsToUpdate()
+
+	var cnt int
 
 	DBA.DB.QueryRow(`select count(id) from articles`).Scan(&cnt)
 	assert.Equal(t, cnt, 0)
@@ -35,8 +60,7 @@ where channel_url = 'http://localhost:8000/api/debug/channels/538_nate'
 	assert.Nil(t, err)
 	assert.Equal(t, len(channels), 1)
 
-	conn, _ := comms.ConnectionInit("amqp://guest:guest@localhost:5672/")
-	channel.QueueConn = conn
+	channel.QueueConn = queue
 
 	updateChannelsTime := time.Now().UTC()
 	err = DBA.Channel.UpdateChannels()
@@ -45,7 +69,7 @@ where channel_url = 'http://localhost:8000/api/debug/channels/538_nate'
 	time.Sleep(100 * time.Millisecond)
 	DBA.DB.QueryRow(`select count(id) from articles`).Scan(&cnt)
 
-	assert.Equal(t, cnt, 20)
+	assert.Equal(t, 20, cnt)
 
 	var updateTime time.Time
 	DBA.DB.QueryRow(`
