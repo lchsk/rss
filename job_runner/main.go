@@ -9,8 +9,8 @@ import (
 	"syscall"
 
 	"github.com/joho/godotenv"
-	"github.com/lchsk/rss/comms"
 	"github.com/lchsk/rss/db"
+	"github.com/lchsk/rss/libs/comms"
 )
 
 var queueConn *comms.Connection

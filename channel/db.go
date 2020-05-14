@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/lchsk/rss/comms"
+	"github.com/lchsk/rss/libs/comms"
 	"github.com/mmcdole/gofeed"
 
 	_ "github.com/lib/pq"

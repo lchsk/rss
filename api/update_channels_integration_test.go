@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/lchsk/rss/channel"
-	"github.com/lchsk/rss/comms"
 	"github.com/lchsk/rss/demo"
+	"github.com/lchsk/rss/libs/comms"
 	"github.com/stretchr/testify/assert"
 )
 

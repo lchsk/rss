@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/lchsk/rss/comms"
+	"github.com/lchsk/rss/libs/comms"
 	"github.com/mmcdole/gofeed"
 )
 

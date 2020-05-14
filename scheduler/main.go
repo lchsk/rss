@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/joho/godotenv"
-	"github.com/lchsk/rss/comms"
 	"github.com/lchsk/rss/db"
+	"github.com/lchsk/rss/libs/comms"
 	"github.com/lchsk/rss/libs/tasktimer"
 )
 
@@ -60,7 +60,15 @@ func main() {
 	mgr.Tasks = append(mgr.Tasks, &tasktimer.Task{
 		Every:         400 * time.Millisecond,
 		LastExecution: time.Now().UTC(),
-		Func:          updateChannels,
+		Func: func() {
+			err := DBA.Channel.UpdateChannels()
+
+			if err == nil {
+				log.Println("UpdateChannels finished successfully")
+			} else {
+				log.Printf("Error updating channels: %s", err)
+			}
+		},
 	})
 
 	mgr.Wait()
