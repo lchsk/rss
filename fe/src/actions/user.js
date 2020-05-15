@@ -1,5 +1,7 @@
 var m = require("mithril");
 
+const Config = require("../config");
+
 const UserAuthState = {
   UNKNOWN: "unknown",
   SIGNED_IN: "signed_in",
@@ -17,7 +19,7 @@ var User = {
     return m
       .request({
         method: "GET",
-        url: "http://localhost:8000/api/users/current/channels",
+        url: Config.api_url + "/users/current/channels",
         withCredentials: true
       })
       .then(result => {
@@ -47,7 +49,7 @@ var User = {
 
     m.request({
       method: "GET",
-      url: "http://localhost:8000/api/users/current",
+      url: Config.api_url + "/users/current",
       withCredentials: true
     })
       .then(result => {

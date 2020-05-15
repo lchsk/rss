@@ -1,6 +1,8 @@
 var m = require("mithril");
 var { getErrorMessage, getSingleError } = require("../common/error");
 
+const Config = require("../config");
+
 const User = require("./user");
 // const getLoadingView = require("./loading");
 
@@ -13,7 +15,7 @@ var Login = {
     return m
       .request({
         method: "POST",
-        url: "http://localhost:8000/api/authentication",
+        url: Config.api_url + "/authentication",
         data: Login.current,
         withCredentials: true
       })

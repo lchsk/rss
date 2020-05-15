@@ -3,6 +3,8 @@ var { getErrorMessage, getSingleError } = require("../common/error");
 const User = require("../actions/user");
 const getLoadingView = require("./loading");
 
+const Config = require("../config");
+
 var SignUp = {
   current: {},
   setError: function(error) {
@@ -22,7 +24,7 @@ var SignUp = {
       return m
         .request({
           method: "POST",
-          url: "http://localhost:8000/api/users",
+          url: Config.api_url + "/users",
           data: {
             email: SignUp.current.email,
             username: SignUp.current.username,

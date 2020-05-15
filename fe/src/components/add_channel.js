@@ -2,6 +2,8 @@ var m = require("mithril");
 var { getErrorMessage, getSingleError } = require("../common/error");
 const getLoadingView = require("./loading");
 
+const Config = require("../config");
+
 var AddChannel = {
   current: {},
   state: "ready",
@@ -14,7 +16,7 @@ var AddChannel = {
     return m
       .request({
         method: "POST",
-        url: "http://localhost:8000/api/channels",
+        url: Config.api_url + "/channels",
         data: AddChannel.current,
         withCredentials: true
       })

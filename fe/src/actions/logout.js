@@ -1,10 +1,12 @@
 var m = require("mithril");
 
+const Config = require("../config");
+
 var Logout = {
   view: node => {
     m.request({
       method: "POST",
-      url: "http://localhost:8000/api/logout",
+      url: Config.api_url + "/logout",
       withCredentials: true
     })
       .then(result => {})
