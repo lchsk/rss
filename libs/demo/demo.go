@@ -1,6 +1,9 @@
 package demo
 
 import (
+	"time"
+
+	"github.com/google/uuid"
 	"github.com/lchsk/rss/libs/db"
 )
 
@@ -19,6 +22,12 @@ type UserData struct {
 	Channel538NateId       string
 	ChannelNYTUSPoliticsId string
 	ChannelNYTScienceId    string
+
+	Article1 string
+	Article2 string
+	Article3 string
+	Article4 string
+	Article5 string
 }
 
 var bugs UserData
@@ -28,6 +37,8 @@ func InstallDemo(dba *db.DbAccess) {
 	installCategories(dba)
 	installChannels(dba)
 	installUserChannels(dba)
+	installPosts(dba)
+	installUserPosts(dba)
 }
 
 func installUsers(dba *db.DbAccess) {
@@ -36,6 +47,46 @@ func installUsers(dba *db.DbAccess) {
 	u, _ := ua.InsertUser("bugs", "bugs@bunny.com", "bunny")
 
 	bugs.UserId = u.ID
+}
+
+func installPosts(dba *db.DbAccess) {
+	ca := dba.Channel
+
+	now1 := time.Now().UTC()
+	now2 := time.Now().UTC().Add(time.Minute)
+	now3 := time.Now().UTC().Add(time.Minute * 2)
+	now4 := time.Now().UTC().Add(time.Minute * 3)
+	now5 := time.Now().UTC().Add(time.Minute * 4)
+
+	bugs.Article1 = uuid.New().String()
+	bugs.Article2 = uuid.New().String()
+	bugs.Article3 = uuid.New().String()
+	bugs.Article4 = uuid.New().String()
+	bugs.Article5 = uuid.New().String()
+
+	ca.InsertArticle(bugs.Article1, &now1, "url", "Article 1", "description", "content",
+		"authorName", "authorEmail", bugs.Channel538FeedId,
+	)
+	ca.InsertArticle(bugs.Article2, &now2, "url", "Article 2", "description", "content",
+		"authorName", "authorEmail", bugs.Channel538FeedId,
+	)
+	ca.InsertArticle(bugs.Article3, &now3, "url", "Article 3", "description", "content",
+		"authorName", "authorEmail", bugs.Channel538FeedId,
+	)
+	ca.InsertArticle(bugs.Article4, &now4, "url", "Article 4", "description", "content",
+		"authorName", "authorEmail", bugs.Channel538FeedId,
+	)
+	ca.InsertArticle(bugs.Article5, &now5, "url", "Article 5", "description", "content",
+		"authorName", "authorEmail", bugs.Channel538FeedId,
+	)
+}
+
+func installUserPosts(dba *db.DbAccess) {
+	ca := dba.Channel
+
+	articles := []string{bugs.Article1, bugs.Article2, bugs.Article3, bugs.Article4, bugs.Article5}
+
+	ca.InsertUserArticles(bugs.Channel538FeedId, articles)
 }
 
 func installChannels(dba *db.DbAccess) {

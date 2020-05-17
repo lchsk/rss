@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/lchsk/rss/libs/channel"
+	"github.com/lchsk/rss/libs/posts"
 	"github.com/lchsk/rss/libs/user"
 )
 
@@ -15,6 +16,7 @@ type DbAccess struct {
 	DB      *sql.DB
 	User    *user.UserAccess
 	Channel *channel.ChannelAccess
+	Posts   *posts.PostsAccess
 }
 
 func GetDBConnection() (*DbAccess, error) {
@@ -70,7 +72,13 @@ func InitDbAccess(db *sql.DB) (*DbAccess, error) {
 		return nil, err
 	}
 
-	return &DbAccess{DB: db, User: ua, Channel: ca}, nil
+	pa, err := posts.InitPostsAccess(db)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &DbAccess{DB: db, User: ua, Channel: ca, Posts: pa}, nil
 }
 
 func GetDBConn(host, user, password, dbname, port string) (*sql.DB, error) {
