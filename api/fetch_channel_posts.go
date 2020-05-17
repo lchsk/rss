@@ -6,15 +6,22 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/gorilla/mux"
 	"github.com/lchsk/rss/libs/posts"
 )
 
-var perPage int = 20
-
-func handlerFetchInboxPosts(w http.ResponseWriter, req *http.Request) {
+func handlerFetchChannelPosts(w http.ResponseWriter, req *http.Request) {
 	tokenAuth, errToken := ExtractTokenMetadata(req)
 	if errToken != nil {
 		w.WriteHeader(401)
+		return
+	}
+
+	vars := mux.Vars(req)
+	channelId, ok := vars["channel"]
+
+	if !ok {
+		w.WriteHeader(400)
 		return
 	}
 
@@ -25,13 +32,14 @@ func handlerFetchInboxPosts(w http.ResponseWriter, req *http.Request) {
 	}
 
 	options := posts.FetchPostsOptions{
-		FetchPostsMode: posts.FetchPostsModeInbox,
+		FetchPostsMode: posts.FetchPostsModeChannel,
+		ChannelId:      channelId,
 	}
 
 	inboxPosts, err := DBA.Posts.FetchInboxPosts(options, tokenAuth.UserId, page, perPage)
 
 	if err != nil {
-		log.Printf("Error fetching inbox posts: %s", err)
+		log.Printf("Error fetching channel posts: %s", err)
 		w.WriteHeader(400)
 	}
 

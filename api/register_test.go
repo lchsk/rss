@@ -28,13 +28,13 @@ func TestRegisterUser(t *testing.T) {
 	}
 
 	inputJson, _ := json.Marshal(input)
-	req, err := http.NewRequest("POST", "/users", bytes.NewBuffer(inputJson))
+	req, err := http.NewRequest("POST", "/api/users", bytes.NewBuffer(inputJson))
 
 	assert.Nil(t, err)
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(handlerRegisterUser)
-	handler.ServeHTTP(rr, req)
+	router := getRouter()
+	router.ServeHTTP(rr, req)
 
 	assert.Equal(t, 201, rr.Code)
 

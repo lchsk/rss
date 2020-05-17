@@ -13,7 +13,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestFetchInboxPosts(t *testing.T) {
+func TestFetchChannelPosts(t *testing.T) {
 	setupSchema(DBA.DB)
 	demo.InstallDemo(DBA)
 
@@ -21,7 +21,8 @@ func TestFetchInboxPosts(t *testing.T) {
 
 	userTokens := authUser("bugs@bunny.com", "bunny")
 
-	req, err := http.NewRequest("GET", "/api/posts/inbox", nil)
+	channelId := demo.Bugs.Channel538NateId
+	req, err := http.NewRequest("GET", "/api/posts/channels/"+channelId, nil)
 	req.AddCookie(getCookie("token", userTokens.AccessToken, AccessCookieDuration))
 
 	assert.Nil(t, err)
@@ -41,12 +42,12 @@ func TestFetchInboxPosts(t *testing.T) {
 	post2 := resp.Posts[1]
 	pagination := resp.Pagination
 
-	assert.Equal(t, "Article 1", post1.Title)
-	assert.Equal(t, "Article 2", post2.Title)
+	assert.Equal(t, "Article 6", post1.Title)
+	assert.Equal(t, "Article 7", post2.Title)
 	assert.Equal(t, posts.Pagination{
 		CurrentPage: 1,
-		LastPage:    4,
-		Next:        2,
+		LastPage:    1,
+		Next:        -1,
 		Prev:        -1,
 	}, pagination)
 }

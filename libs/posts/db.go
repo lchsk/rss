@@ -34,9 +34,46 @@ type PostsAccess struct {
 	Queries map[string]*sql.Stmt
 }
 
-func (ca *PostsAccess) FetchInboxPosts(userId string, page int, perPage int) (*InboxPosts, error) {
+const (
+	FetchPostsModeInbox = iota
+	FetchPostsModeChannel
+)
+
+type FetchPostsOptions struct {
+	ChannelId      string
+	FetchPostsMode int
+}
+
+func (ca *PostsAccess) getPostsCount(options FetchPostsOptions, userId string) (int, error) {
 	var postsCount int
-	err := ca.Db.QueryRow(sqlFetchUserPostsInboxCount, userId).Scan(&postsCount)
+	var err error
+
+	if options.FetchPostsMode == FetchPostsModeChannel {
+		err = ca.Db.QueryRow(sqlFetchUserPostsChannelCount, userId, options.ChannelId).Scan(&postsCount)
+	} else if options.FetchPostsMode == FetchPostsModeInbox {
+		err = ca.Db.QueryRow(sqlFetchUserPostsInboxCount, userId).Scan(&postsCount)
+	}
+
+	return postsCount, err
+}
+
+func (ca *PostsAccess) getPosts(options FetchPostsOptions, userId string,
+	paginationValues *pagination.PaginationValues,
+) (*sql.Rows, error) {
+	var rows *sql.Rows
+	var err error
+
+	if options.FetchPostsMode == FetchPostsModeChannel {
+		rows, err = ca.Db.Query(sqlFetchUserPostsChannel, userId, options.ChannelId, paginationValues.Limit, paginationValues.Offset)
+	} else if options.FetchPostsMode == FetchPostsModeInbox {
+		rows, err = ca.Db.Query(sqlFetchUserPostsInbox, userId, paginationValues.Limit, paginationValues.Offset)
+	}
+
+	return rows, err
+}
+
+func (ca *PostsAccess) FetchInboxPosts(options FetchPostsOptions, userId string, page int, perPage int) (*InboxPosts, error) {
+	postsCount, err := ca.getPostsCount(options, userId)
 
 	if err != nil {
 		return nil, err
@@ -48,7 +85,7 @@ func (ca *PostsAccess) FetchInboxPosts(userId string, page int, perPage int) (*I
 		return nil, err
 	}
 
-	rows, err := ca.Db.Query(sqlFetchUserPostsInbox, userId, paginationValues.Limit, paginationValues.Offset)
+	rows, err := ca.getPosts(options, userId, paginationValues)
 
 	if err != nil {
 		return nil, err

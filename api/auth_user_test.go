@@ -26,12 +26,11 @@ func authUser(email string, password string) UserTokens {
 	}
 
 	inputJson, _ := json.Marshal(input)
-	req, _ := http.NewRequest("POST", "/authentication", bytes.NewBuffer(inputJson))
+	req, _ := http.NewRequest("POST", "/api/authentication", bytes.NewBuffer(inputJson))
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(handlerAuthentication)
-
-	handler.ServeHTTP(rr, req)
+	router := getRouter()
+	router.ServeHTTP(rr, req)
 
 	var resp UserTokens
 	json.Unmarshal(rr.Body.Bytes(), &resp)

@@ -28,9 +28,13 @@ type UserData struct {
 	Article3 string
 	Article4 string
 	Article5 string
+	Article6 string
+	Article7 string
 }
 
 var bugs UserData
+
+var Bugs *UserData = &bugs
 
 func InstallDemo(dba *db.DbAccess) {
 	installUsers(dba)
@@ -63,6 +67,8 @@ func installPosts(dba *db.DbAccess) {
 	bugs.Article3 = uuid.New().String()
 	bugs.Article4 = uuid.New().String()
 	bugs.Article5 = uuid.New().String()
+	bugs.Article6 = uuid.New().String()
+	bugs.Article7 = uuid.New().String()
 
 	ca.InsertArticle(bugs.Article1, &now1, "url", "Article 1", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538FeedId,
@@ -79,14 +85,24 @@ func installPosts(dba *db.DbAccess) {
 	ca.InsertArticle(bugs.Article5, &now5, "url", "Article 5", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538FeedId,
 	)
+
+	ca.InsertArticle(bugs.Article6, &now4, "url", "Article 6", "description", "content",
+		"authorName", "authorEmail", bugs.Channel538NateId,
+	)
+	ca.InsertArticle(bugs.Article7, &now5, "url", "Article 7", "description", "content",
+		"authorName", "authorEmail", bugs.Channel538NateId,
+	)
 }
 
 func installUserPosts(dba *db.DbAccess) {
 	ca := dba.Channel
 
 	articles := []string{bugs.Article1, bugs.Article2, bugs.Article3, bugs.Article4, bugs.Article5}
-
 	ca.InsertUserArticles(bugs.Channel538FeedId, articles)
+
+	articlesNate := []string{bugs.Article6, bugs.Article7}
+	ca.InsertUserArticles(bugs.Channel538NateId, articlesNate)
+
 }
 
 func installChannels(dba *db.DbAccess) {

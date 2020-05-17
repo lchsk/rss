@@ -28,14 +28,13 @@ func TestFetchUser(t *testing.T) {
 	}
 
 	inputJson, _ := json.Marshal(input)
-	req, err := http.NewRequest("POST", "/authentication", bytes.NewBuffer(inputJson))
+	req, err := http.NewRequest("POST", "/api/authentication", bytes.NewBuffer(inputJson))
 
 	assert.Nil(t, err)
 
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(handlerAuthentication)
-
-	handler.ServeHTTP(rr, req)
+	router := getRouter()
+	router.ServeHTTP(rr, req)
 
 	assert.Equal(t, 200, rr.Code)
 
@@ -51,28 +50,20 @@ func TestFetchUser(t *testing.T) {
 	assert.Equal(t, true, len(resp.RefreshToken) != 0)
 
 	// Fetch user without the access token
-	req, err = http.NewRequest("GET", "/users/1", nil)
-
+	req, err = http.NewRequest("GET", "/api/users/current", nil)
 	assert.Nil(t, err)
 
 	rr = httptest.NewRecorder()
-	handler = http.HandlerFunc(handlerFetchCurrentUser)
-
-	handler.ServeHTTP(rr, req)
-
+	router.ServeHTTP(rr, req)
 	assert.Equal(t, 401, rr.Code)
 
 	// Fetch user with the access token
-	req, err = http.NewRequest("GET", "/users/1", nil)
-
+	req, err = http.NewRequest("GET", "/api/users/current", nil)
 	req.AddCookie(getCookie("token", resp.AccessToken, AccessCookieDuration))
-
 	assert.Nil(t, err)
 
 	rr = httptest.NewRecorder()
-	handler = http.HandlerFunc(handlerFetchCurrentUser)
-
-	handler.ServeHTTP(rr, req)
+	router.ServeHTTP(rr, req)
 
 	assert.Equal(t, 200, rr.Code)
 }
