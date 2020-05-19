@@ -7,6 +7,8 @@ import (
 	"log"
 	"os"
 
+	sq "github.com/Masterminds/squirrel"
+
 	"github.com/lchsk/rss/libs/channel"
 	"github.com/lchsk/rss/libs/posts"
 	"github.com/lchsk/rss/libs/user"
@@ -14,6 +16,7 @@ import (
 
 type DbAccess struct {
 	DB      *sql.DB
+	SQ      *sq.StatementBuilderType
 	User    *user.UserAccess
 	Channel *channel.ChannelAccess
 	Posts   *posts.PostsAccess
@@ -72,13 +75,15 @@ func InitDbAccess(db *sql.DB) (*DbAccess, error) {
 		return nil, err
 	}
 
-	pa, err := posts.InitPostsAccess(db)
+	psql := sq.StatementBuilder.PlaceholderFormat(sq.Dollar)
+
+	pa, err := posts.InitPostsAccess(db, &psql)
 
 	if err != nil {
 		return nil, err
 	}
 
-	return &DbAccess{DB: db, User: ua, Channel: ca, Posts: pa}, nil
+	return &DbAccess{DB: db, SQ: &psql, User: ua, Channel: ca, Posts: pa}, nil
 }
 
 func GetDBConn(host, user, password, dbname, port string) (*sql.DB, error) {

@@ -101,3 +101,29 @@ values (
 	$9
 )
 `
+
+const SqlFetchChannelsWithinCategoryTree = `
+with recursive subcategories as (
+select
+	id,
+	title,
+	parent_id
+from
+	categories c
+where
+	id = $1
+union
+select
+	c.id,
+	c.title,
+	c.parent_id
+from
+	categories c
+inner join subcategories s on
+	s.id = c.parent_id ) select
+	c.id
+from
+	subcategories s
+join channels c on
+	c.category_id = s.id
+`

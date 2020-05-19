@@ -6,6 +6,7 @@ import (
 
 	"github.com/lchsk/rss/libs/pagination"
 
+	sq "github.com/Masterminds/squirrel"
 	_ "github.com/lib/pq"
 )
 
@@ -31,16 +32,19 @@ type InboxPosts struct {
 
 type PostsAccess struct {
 	Db      *sql.DB
+	SQ      *sq.StatementBuilderType
 	Queries map[string]*sql.Stmt
 }
 
 const (
 	FetchPostsModeInbox = iota
 	FetchPostsModeChannel
+	FetchPostsModeChannels
 )
 
 type FetchPostsOptions struct {
 	ChannelId      string
+	ChannelIds     []string
 	FetchPostsMode int
 }
 
@@ -52,6 +56,13 @@ func (ca *PostsAccess) getPostsCount(options FetchPostsOptions, userId string) (
 		err = ca.Db.QueryRow(sqlFetchUserPostsChannelCount, userId, options.ChannelId).Scan(&postsCount)
 	} else if options.FetchPostsMode == FetchPostsModeInbox {
 		err = ca.Db.QueryRow(sqlFetchUserPostsInboxCount, userId).Scan(&postsCount)
+	} else if options.FetchPostsMode == FetchPostsModeChannels {
+		users := ca.SQ.Select("count(a.id)").From("articles a").Join(
+			"user_articles ua on ua.article_id = a.id",
+		).Where(sq.Eq{
+			"a.channel_id": options.ChannelIds,
+			"ua.user_id":   userId})
+		err = users.RunWith(ca.Db).Scan(&postsCount)
 	}
 
 	return postsCount, err
@@ -67,6 +78,14 @@ func (ca *PostsAccess) getPosts(options FetchPostsOptions, userId string,
 		rows, err = ca.Db.Query(sqlFetchUserPostsChannel, userId, options.ChannelId, paginationValues.Limit, paginationValues.Offset)
 	} else if options.FetchPostsMode == FetchPostsModeInbox {
 		rows, err = ca.Db.Query(sqlFetchUserPostsInbox, userId, paginationValues.Limit, paginationValues.Offset)
+	} else if options.FetchPostsMode == FetchPostsModeChannels {
+		users := ca.SQ.Select("a.id, a.pub_at, a.title, a.channel_id, ua.status").From("articles a").Join(
+			"user_articles ua on ua.article_id = a.id",
+		).Where(sq.Eq{
+			"a.channel_id": options.ChannelIds,
+			"ua.user_id":   userId}).OrderBy("a.pub_at ASC").Limit(uint64(paginationValues.Limit)).Offset(uint64(paginationValues.Offset))
+
+		rows, err = users.RunWith(ca.Db).Query()
 	}
 
 	return rows, err
@@ -121,7 +140,7 @@ func (ca *PostsAccess) FetchInboxPosts(options FetchPostsOptions, userId string,
 	return inboxPosts, nil
 }
 
-func InitPostsAccess(db *sql.DB) (*PostsAccess, error) {
+func InitPostsAccess(db *sql.DB, psql *sq.StatementBuilderType) (*PostsAccess, error) {
 	queries := map[string]*sql.Stmt{}
 
 	queriesToPrepare := map[string]string{
@@ -139,7 +158,7 @@ func InitPostsAccess(db *sql.DB) (*PostsAccess, error) {
 		queries[name] = stmt
 	}
 
-	ca := &PostsAccess{Db: db, Queries: queries}
+	ca := &PostsAccess{Db: db, SQ: psql, Queries: queries}
 
 	return ca, nil
 }
