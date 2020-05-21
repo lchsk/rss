@@ -9,7 +9,7 @@ import (
 	"github.com/lchsk/rss/libs/posts"
 )
 
-var perPage int = 20
+var perPage int = 2
 
 func handlerFetchInboxPosts(w http.ResponseWriter, req *http.Request) {
 	tokenAuth, errToken := ExtractTokenMetadata(req)

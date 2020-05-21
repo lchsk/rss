@@ -25,21 +25,20 @@ const UserChannels = {
     var channelsHtml = [];
 
     for (const [categoryId, c1] of Object.entries(channels.dict)) {
-      console.log(categoryId);
       channelsHtml.push(
         getLink(
           ".list-group-item .list-group-item-action .active",
-          "/user",
+          "/categories/" + categoryId,
           categories.dict[categoryId]["categoryTitle"]
         )
       );
 
       for (const channel of c1) {
-        console.log("\t" + channel["channel_url"]);
+
         channelsHtml.push(
           getLink(
             ".list-group-item .list-group-item-action",
-            "/user",
+            "/channels/" + channel["channel_id"],
             channel["channel_url"]
           )
         );
