@@ -1,6 +1,9 @@
 var m = require("mithril");
 
 const Config = require("../config");
+const User = require("./user");
+
+const { checkAuthAndExtract } = require("./request");
 
 const PostsSource = {
   page: 1,
@@ -17,7 +20,11 @@ const Posts = {
     page = page || 1;
     id = id || "";
 
-    return (page !== Posts.source.page || type !== Posts.source.type || id !== Posts.source.id);
+    return (
+      page !== Posts.source.page ||
+      type !== Posts.source.type ||
+      id !== Posts.source.id
+    );
   },
 
   loadChannels: (type, page, id) => {
@@ -30,28 +37,46 @@ const Posts = {
 
     let url;
 
-    if (type === 'inbox') {
+    if (type === "inbox") {
       url = Config.api_url + "/posts/inbox?page=" + page;
-    } else if (type === 'channel') {
-      url = Config.api_url + "/posts/channels/" + Posts.source.id + "?page=" + page;
-    } else if (type === 'category') {
-      url = Config.api_url + "/posts/categories/" + Posts.source.id + "?page=" + page;
+    } else if (type === "channel") {
+      url =
+        Config.api_url + "/posts/channels/" + Posts.source.id + "?page=" + page;
+    } else if (type === "category") {
+      url =
+        Config.api_url +
+        "/posts/categories/" +
+        Posts.source.id +
+        "?page=" +
+        page;
     }
 
     return m
       .request({
         method: "GET",
         url: url,
-        withCredentials: true
+        withCredentials: true,
+        responseType: "json",
+        extract: checkAuthAndExtract
       })
       .then(result => {
-        Posts.data = result.posts;
-        Posts.pagination = result.pagination;
-      })
-      .catch(e => {
-        console.log(e);
+        // console.log("result", result);
+        // User.defaultSuccess();
+
+        const { response } = result;
+
+        console.log(response);
+
+        Posts.data = response.posts;
+        Posts.pagination = response.pagination;
       });
-  },
+    // , (error) => {
+    // console.log("yo error", error, error.code);
+    // })
+    // .catch(function(e) {
+    // console.log("errrr", e, e.code, Object.keys(e));
+    // });
+  }
 };
 
 module.exports = Posts;

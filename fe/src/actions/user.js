@@ -1,6 +1,7 @@
 var m = require("mithril");
 
 const Config = require("../config");
+const { checkAuthAndExtract } = require("./request");
 
 const UserAuthState = {
   UNKNOWN: "unknown",
@@ -15,48 +16,64 @@ var User = {
   channelsByCategory: {},
   authState: UserAuthState.UNKNOWN,
 
+  defaultSuccess: () => {
+    User.authState = User.AuthState.SIGNED_IN;
+  },
   loadChannels: () => {
     return m
       .request({
         method: "GET",
         url: Config.api_url + "/users/current/channels",
-        withCredentials: true
+        withCredentials: true,
+        responseType: "json",
+        extract: checkAuthAndExtract
       })
       .then(result => {
-        User.channels = result["user_channels"];
+        User.defaultSuccess();
+
+        const { response } = result;
+        console.log(response);
+        User.channels = response["user_channels"];
 
         for (let i = 0; i < User.channels.length; i++) {
           const channel = User.channels[i];
           User.channelsByCategory[channel.category_id] = {
-            categoryTitle: channel.category_title,
+            categoryTitle: channel.category_title
           };
         }
       })
-      .catch(e => {
-        console.log(e);
-      });
+      .catch(e => {});
   },
   load: () => {
-    if (User.authState === UserAuthState.SIGNED_OUT) {
-      return;
-    } else if (User.authState === UserAuthState.SIGNED_IN) {
-      return;
-    }
+    // if (User.authState === UserAuthState.SIGNED_OUT) {
+    // return;
+    // }
+    // else if (User.authState === UserAuthState.SIGNED_IN) {
+    //   return;
+    // }
 
-    m.request({
-      method: "GET",
-      url: Config.api_url + "/users/current",
-      withCredentials: true
-    })
+    return m
+      .request({
+        method: "GET",
+        url: Config.api_url + "/users/current",
+        withCredentials: true,
+        responseType: "json",
+        extract: function(xhr, options) {
+          if (xhr.status === 401) {
+            return false;
+          }
+
+          return true;
+        }
+      })
       .then(result => {
-        User.data = { u: result };
-        User.authState = User.AuthState.SIGNED_IN;
+        // User.defaultSuccess();
+
+        const { response } = result;
+        User.data = { u: response };
       })
       .catch(e => {
         User.data = { error: e };
-        // TODO: Check for status
-        User.authState = User.AuthState.SIGNED_OUT;
-        // m.route.set("/login");
       });
   }
 };

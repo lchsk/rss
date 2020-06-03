@@ -20,14 +20,12 @@ m.route(document.body, "/", {
   "/": {
     render: function() {
       return (
-          <App>
+        <App>
           <MainViewWithChannelsList>
-          <PostsList type="inbox">
-          </PostsList>
-
-        </MainViewWithChannelsList>
+            <PostsList type="inbox"></PostsList>
+          </MainViewWithChannelsList>
         </App>
-      )
+      );
     }
   },
   "/channels/new": {
@@ -36,30 +34,26 @@ m.route(document.body, "/", {
     }
   },
   "/channels/:id": {
-	render: function() {
+    render: function() {
       return (
-          <App>
+        <App>
           <MainViewWithChannelsList>
-          <PostsList type="channel">
-          </PostsList>
-
-        </MainViewWithChannelsList>
+            <PostsList type="channel"></PostsList>
+          </MainViewWithChannelsList>
         </App>
-      )
-	}
+      );
+    }
   },
   "/categories/:id": {
-	render: function() {
+    render: function() {
       return (
-          <App>
+        <App>
           <MainViewWithChannelsList>
-          <PostsList type="category">
-          </PostsList>
-
-        </MainViewWithChannelsList>
+            <PostsList type="category"></PostsList>
+          </MainViewWithChannelsList>
         </App>
-      )
-	}
+      );
+    }
   },
   "/login": {
     render: function() {

@@ -2,9 +2,9 @@ var m = require("mithril");
 var { getErrorMessage, getSingleError } = require("../common/error");
 
 const Config = require("../config");
+const { checkAuthAndExtract } = require("./request");
 
 const User = require("./user");
-// const getLoadingView = require("./loading");
 
 var Login = {
   current: {},
@@ -20,10 +20,12 @@ var Login = {
         withCredentials: true
       })
       .then(result => {
+        User.authState = User.AuthState.SIGNED_IN;
         this.setError("");
-        m.route.set("/index");
+        m.route.set("/");
       })
       .catch(e => {
+        User.authState = User.AuthState.SIGNED_OUT;
         this.setError(getSingleError(e.message));
       });
   }

@@ -24,8 +24,8 @@ const PostsList = {
 
     const pagination = Posts.pagination;
 
-    let prevButtonCls = ""
-    let nextButtonCls = ""
+    let prevButtonCls = "";
+    let nextButtonCls = "";
 
     if (pagination.next === -1) {
       nextButtonCls = ".disabled";
@@ -35,12 +35,12 @@ const PostsList = {
       prevButtonCls = ".disabled";
     }
 
-    let base_url = '';
-    let title = '';
+    let base_url = "";
+    let title = "";
 
     if (node.attrs.type === "inbox") {
       base_url = "/";
-      title = 'Inbox';
+      title = "Inbox";
     } else if (node.attrs.type === "channel") {
       const id = m.route.param("id");
       base_url = "/channels/" + id;
@@ -52,32 +52,39 @@ const PostsList = {
       }
     }
 
-    let prev = getLink(".btn .btn-primary" + prevButtonCls, base_url + "/?page=" + pagination.prev, "Prev")
-    let next = getLink(".btn .btn-primary" + nextButtonCls, base_url + "/?page=" + pagination.next, "Next");
+    let prev = getLink(
+      ".btn .btn-primary" + prevButtonCls,
+      base_url + "/?page=" + pagination.prev,
+      "Prev"
+    );
+    let next = getLink(
+      ".btn .btn-primary" + nextButtonCls,
+      base_url + "/?page=" + pagination.next,
+      "Next"
+    );
 
     for (let i = 0; i < Posts.data.length; i++) {
       const post = Posts.data[i];
 
       rows.push(
-          <tr>
+        <tr>
           <td>{post.title}</td>
-          </tr>
-      )
+        </tr>
+      );
     }
 
     return (
-        <div class="container-fluid">
+      <div class="container-fluid">
         <h1>{title}</h1>
         <div class="row">
-        {prev}{next}
+          {prev}
+          {next}
         </div>
         <div class="row">
-        <table>
-        {rows}
-      </table>
+          <table>{rows}</table>
         </div>
       </div>
-    )
+    );
   }
 };
 

@@ -3,17 +3,37 @@ var m = require("mithril");
 const User = require("../actions/user");
 const Login = require("../actions/login");
 const getLoadingView = require("./loading");
+const Config = require("../config");
 
 const LoginComponent = {
   oninit: node => {
-    User.load();
+    m.request({
+      method: "GET",
+      url: Config.api_url + "/users/current",
+      withCredentials: true,
+      responseType: "json",
+      extract: function(xhr, options) {
+        if (xhr.status === 401) {
+          LoginComponent.signedIn = false;
+          return false;
+        }
+
+        LoginComponent.signedIn = true;
+        return true;
+      }
+    }).then(function(signedIn) {
+      console.log("signed-in", signedIn);
+    });
   },
   view: node => {
-    if (User.authState === User.AuthState.SIGNED_IN) {
-      m.route.set("/index");
-    } else if (User.authState === User.AuthState.UNKNOWN) {
-      return m("div", getLoadingView());
-    } else if (User.authState === User.AuthState.SIGNED_OUT) {
+    console.log("LoginComponent.signedIn", LoginComponent.signedIn);
+
+    if (LoginComponent.signedIn === true) {
+      m.route.set("/");
+      return;
+    }
+
+    if (LoginComponent.signedIn === false) {
       return m(
         "form.form-major",
         {

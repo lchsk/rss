@@ -34,7 +34,6 @@ const UserChannels = {
       );
 
       for (const channel of c1) {
-
         channelsHtml.push(
           getLink(
             ".list-group-item .list-group-item-action",
