@@ -90,7 +90,6 @@ func VerifyToken(r *http.Request) (*jwt.Token, error) {
 			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
 		}
 		return []byte(os.Getenv("API_ACCESS_SECRET")), nil
-		return nil, nil
 	})
 
 	if err != nil {

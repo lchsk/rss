@@ -48,6 +48,35 @@ type FetchPostsOptions struct {
 	FetchPostsMode int
 }
 
+type PostData struct {
+	Id          string `json:"id"`
+	CreatedAt   string `json:"created_at"`
+	PubAt       string `json:"pub_at"`
+	Title       string `json:"title"`
+	Url         string `json:"url"`
+	Description string `json:"description"`
+	Content     string `json:"content"`
+	AuthorName  string `json:"author_name"`
+	AuthorEmail string `json:"author_email"`
+}
+
+func (ca *PostsAccess) FetchPost(postId string) (*PostData, error) {
+	post := &PostData{}
+
+	postQuery := ca.SQ.Select("id, created_at, pub_at, title, url, description, content, author_name, author_email").From("articles").Where(sq.Eq{
+		"id": postId,
+	}).Limit(1)
+
+	err := postQuery.RunWith(ca.Db).Scan(&post.Id, &post.CreatedAt, &post.PubAt, &post.Title, &post.Url, &post.Description,
+		&post.Content, &post.AuthorName, &post.AuthorEmail)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return post, nil
+}
+
 func (ca *PostsAccess) getPostsCount(options FetchPostsOptions, userId string) (int, error) {
 	var postsCount int
 	var err error
