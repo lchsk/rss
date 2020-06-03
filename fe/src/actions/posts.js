@@ -38,7 +38,7 @@ const Posts = {
     let url;
 
     if (type === "inbox") {
-      url = Config.api_url + "/posts/inbox?page=" + page;
+      url = Config.api_url + "/posts-inbox?page=" + page;
     } else if (type === "channel") {
       url =
         Config.api_url + "/posts/channels/" + Posts.source.id + "?page=" + page;
