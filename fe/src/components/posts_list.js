@@ -22,7 +22,12 @@ const PostsList = {
   view: function(node) {
     let rows = [];
 
+    console.log("posts", Posts);
     const pagination = Posts.pagination;
+
+    if (pagination === null) {
+      return;
+    }
 
     let prevButtonCls = "";
     let nextButtonCls = "";

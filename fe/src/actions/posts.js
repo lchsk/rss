@@ -69,13 +69,15 @@ const Posts = {
 
         Posts.data = response.posts;
         Posts.pagination = response.pagination;
-      });
+      })
     // , (error) => {
     // console.log("yo error", error, error.code);
     // })
-    // .catch(function(e) {
+      .catch(function(e) {
+        Posts.data = null;
+        Posts.pagination = null;
     // console.log("errrr", e, e.code, Object.keys(e));
-    // });
+    });
   }
 };
 

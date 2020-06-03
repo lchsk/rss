@@ -41,6 +41,7 @@ func handlerFetchChannelPosts(w http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		log.Printf("Error fetching channel posts: %s", err)
 		w.WriteHeader(400)
+		return
 	}
 
 	w.WriteHeader(200)

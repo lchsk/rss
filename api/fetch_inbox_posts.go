@@ -33,6 +33,7 @@ func handlerFetchInboxPosts(w http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		log.Printf("Error fetching inbox posts: %s", err)
 		w.WriteHeader(400)
+		return
 	}
 
 	w.WriteHeader(200)

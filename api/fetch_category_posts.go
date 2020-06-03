@@ -58,8 +58,9 @@ func handlerFetchCategoryPosts(w http.ResponseWriter, req *http.Request) {
 	inboxPosts, err := DBA.Posts.FetchInboxPosts(options, tokenAuth.UserId, page, perPage)
 
 	if err != nil {
-		log.Printf("Error fetching channel posts: %s", err)
+		log.Printf("Error fetching category posts: %s", err)
 		w.WriteHeader(400)
+		return
 	}
 
 	w.WriteHeader(200)
