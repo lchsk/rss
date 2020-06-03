@@ -12,8 +12,6 @@ const LoginComponent = require("./components/login");
 const AddNewChannelComponent = require("./components/add_channel");
 const { getErrorMessage, getSingleError } = require("./common/error");
 
-User.loadChannels();
-
 m.route.prefix("#!");
 
 m.route(document.body, "/", {

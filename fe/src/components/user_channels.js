@@ -5,6 +5,14 @@ const defDict = require("../common/data_structures");
 const User = require("../actions/user");
 
 const UserChannels = {
+  oninit: function(node) {
+    console.log("user channels oninit")
+    User.loadChannels();
+  },
+  onupdate: function(node) {
+    // Detect when channels might have been changed and force refresh
+    // User.loadChannels();
+  },
   view: node => {
     var channels = defDict([]);
     var categories = defDict({});
