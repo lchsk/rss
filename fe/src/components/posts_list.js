@@ -73,7 +73,7 @@ const PostsList = {
 
       rows.push(
         <tr>
-          <td>{post.title}</td>
+          <td>{getLink("", "/posts/" + post.id, post.title)}</td>
         </tr>
       );
     }

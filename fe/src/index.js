@@ -9,6 +9,7 @@ const PostsList = require("./components/posts_list");
 const User = require("./actions/user");
 const Posts = require("./actions/posts");
 const LoginComponent = require("./components/login");
+const PostView = require("./components/post_view");
 const AddNewChannelComponent = require("./components/add_channel");
 const { getErrorMessage, getSingleError } = require("./common/error");
 
@@ -48,6 +49,17 @@ m.route(document.body, "/", {
         <App>
           <MainViewWithChannelsList>
             <PostsList type="category"></PostsList>
+          </MainViewWithChannelsList>
+        </App>
+      );
+    }
+  },
+  "/posts/:id": {
+    render: function() {
+      return (
+        <App>
+          <MainViewWithChannelsList>
+            <PostView></PostView>
           </MainViewWithChannelsList>
         </App>
       );
