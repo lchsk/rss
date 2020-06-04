@@ -13,19 +13,21 @@ const PostView = {
       withCredentials: true,
       responseType: "json",
       extract: checkAuthAndExtract
-      // extract: function(xhr, options) {
-      //   if (xhr.status === 401) {
-      //     LoginComponent.signedIn = false;
-      //     return false;
-      //   }
-
-      //   LoginComponent.signedIn = true;
-      //   return true;
-      // }
     }).then(function(result) {
       console.log(result);
       PostView.postData = result.response;
-      // console.log("signed-in", signedIn);
+
+      // TODO: This request should be conditioned on the current status of the post (need to pull that status)
+        m.request({
+            method: "PATCH",
+            url: Config.api_url + "/posts/" + postId,
+            withCredentials: true,
+            responseType: "json",
+            data: {'status': 'read'},
+            extract: checkAuthAndExtract
+        }).then(function(result) {
+            console.log(result);
+        });
     });
   },
   view: () => {
