@@ -60,6 +60,14 @@ type PostData struct {
 	AuthorEmail string `json:"author_email"`
 }
 
+func (ca *PostsAccess) UpdatePostStatusForUser(postId string, userId string, status string) error {
+	query := ca.SQ.Update("user_articles").Set("status", status).Where(sq.Eq{"user_id": userId, "article_id": postId})
+
+	_, err := query.RunWith(ca.Db).Exec()
+
+	return err
+}
+
 func (ca *PostsAccess) FetchPost(postId string) (*PostData, error) {
 	post := &PostData{}
 

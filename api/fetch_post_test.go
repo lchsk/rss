@@ -3,16 +3,54 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
-	"net/http"
-	"net/http/httptest"
-	"testing"
-
+	sq "github.com/Masterminds/squirrel"
 	"github.com/lchsk/rss/libs/demo"
 	"github.com/lchsk/rss/libs/posts"
 	"github.com/stretchr/testify/assert"
+	"net/http"
+	"net/http/httptest"
+	"testing"
 )
+
+func TestMarkPostAsRead(t *testing.T) {
+	setupSchema(DBA.DB)
+	demo.InstallDemo(DBA)
+
+	userTokens := authUser("bugs@bunny.com", "bunny")
+
+	type Input struct {
+		Status string `json:"status"`
+	}
+	input := Input{
+		Status: "read",
+	}
+
+	inputJson, _ := json.Marshal(input)
+	req, err := http.NewRequest("PATCH", fmt.Sprintf("/api/posts/%s", demo.Bugs.Article1), bytes.NewBuffer(inputJson))
+	req.AddCookie(getCookie("token", userTokens.AccessToken, AccessCookieDuration))
+
+	assert.Nil(t, err)
+
+	rr := httptest.NewRecorder()
+	router := getRouter()
+	router.ServeHTTP(rr, req)
+
+	assert.Equal(t, 200, rr.Code)
+
+	query := DBA.SQ.Select("status").From("user_articles").Where(sq.Eq{
+		"article_id": demo.Bugs.Article1,
+		"user_id":    demo.Bugs.UserId,
+	}).Limit(1)
+
+	var status string
+	err = query.RunWith(DBA.DB).Scan(&status)
+
+	assert.Nil(t, err)
+	assert.Equal(t, "read", status)
+}
 
 func TestFetchPost(t *testing.T) {
 	setupSchema(DBA.DB)

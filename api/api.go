@@ -28,7 +28,7 @@ const (
 	fetchInboxPostsUrl          = "/api/posts-inbox"
 	fetchChannelPostsUrl        = "/api/posts/channels/{channel}"
 	fetchCategoryPostsUrl       = "/api/posts/categories/{category}"
-	fetchPostUrl                = "/api/posts/{id}"
+	PostsUrl                    = "/api/posts/{id}"
 
 	// API Errors
 	errInvalidUsernameLen = "invalid_username_len"
@@ -57,7 +57,7 @@ func getRouter() *mux.Router {
 	router.HandleFunc(fetchInboxPostsUrl, checkValidToken(handlerFetchInboxPosts)).Methods(http.MethodGet)
 	router.HandleFunc(fetchChannelPostsUrl, checkValidToken(handlerFetchChannelPosts)).Methods(http.MethodGet)
 	router.HandleFunc(fetchCategoryPostsUrl, checkValidToken(handlerFetchCategoryPosts)).Methods(http.MethodGet)
-	router.HandleFunc(fetchPostUrl, checkValidToken(handlerFetchPost)).Methods(http.MethodGet)
+	router.HandleFunc(PostsUrl, checkValidToken(handlerPosts)).Methods(http.MethodGet, http.MethodPatch)
 
 	if DEBUG {
 		const serveTestChannels = "/api/debug/channels/{channel}"
