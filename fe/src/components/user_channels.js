@@ -6,7 +6,7 @@ const User = require("../actions/user");
 
 const UserChannels = {
   oninit: function(node) {
-    console.log("user channels oninit")
+    console.log("user channels oninit");
     User.loadChannels();
   },
   onupdate: function(node) {
