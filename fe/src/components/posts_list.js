@@ -71,8 +71,13 @@ const PostsList = {
     for (let i = 0; i < Posts.data.length; i++) {
       const post = Posts.data[i];
 
+      let postCls = "";
+
+      if (post.status === "unread") {
+        postCls = "unread-post";
+      }
       rows.push(
-        <tr>
+        <tr class={postCls}>
           <td>{getLink("", "/posts/" + post.id, post.title)}</td>
         </tr>
       );

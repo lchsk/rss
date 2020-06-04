@@ -63,3 +63,10 @@ body {
 .top-bar {
     background-color: gray;
 }
+
+
+/*Post List*/
+.unread-post {
+  font-weight: bold;
+  background-color: #efefef;
+}
