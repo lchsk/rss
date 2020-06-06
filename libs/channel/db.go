@@ -40,6 +40,28 @@ type ChannelAccess struct {
 
 var QueueConn *comms.Connection
 
+func (ca *ChannelAccess) UpdateChannelsDirectly() error {
+	channels, err := ca.FetchChannelsToUpdate()
+
+	if err != nil {
+		log.Printf("Error in channel update: %s\n", err)
+		return err
+	}
+
+	for _, channel := range channels {
+		fp := gofeed.NewParser()
+		feed, err := fp.ParseURL(channel.ChannelUrl)
+
+		if err != nil {
+			log.Printf("Error getting channel data for %s: %s\n", channel.ChannelUrl, err)
+			return err
+		}
+		ca.UpdateChannel(channel.ChannelId, feed)
+	}
+
+	return nil
+}
+
 func (ca *ChannelAccess) UpdateChannels() error {
 	channels, err := ca.FetchChannelsToUpdate()
 
@@ -207,7 +229,7 @@ func (ca *ChannelAccess) InsertUserArticles(channelId string, articleIds []strin
 		_, err := ca.Db.Exec(stmt, valueArgs...)
 
 		if err != nil {
-			log.Printf("Error inserting user articles user_id=%s channel_id=%s", userId, channelId)
+			log.Printf("Error inserting user articles user_id=%s channel_id=%s: %s", userId, channelId, err)
 		}
 	}
 
@@ -310,7 +332,10 @@ func (ca *ChannelAccess) UpdateChannel(channelId string, feed *gofeed.Feed) erro
 	}
 
 	ca.UpdateLastSuccessfulUpdateToNow(channelId)
-	ca.InsertUserArticles(channelId, articleIds)
+
+	if len(articleIds) > 0 {
+		ca.InsertUserArticles(channelId, articleIds)
+	}
 
 	log.Printf("Channel channel_id=%s updated", channelId)
 	return nil

@@ -2,10 +2,12 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"log"
 	"os"
 	"os/signal"
+	"strings"
 	"syscall"
 
 	"github.com/joho/godotenv"
@@ -15,6 +17,13 @@ import (
 
 var queueConn *comms.Connection
 var DBA *db.DbAccess
+
+type Args struct {
+	Task   *string
+	Listen *bool
+
+	ChannelIds []string
+}
 
 func init() {
 	if err := godotenv.Load("../.env"); err != nil {
@@ -76,7 +85,20 @@ func waitForMessages() {
 	<-forever
 }
 
-func main() {
+func readArgs() *Args {
+	args := &Args{}
+	args.Task = flag.String("task", "", "Task to perform")
+	args.Listen = flag.Bool("listen", false, "Listen to messages")
+	var channelIdsStr *string
+	channelIdsStr = flag.String("channel_ids", "", "List of channel ids to refresh")
+	flag.Parse()
+
+	args.ChannelIds = strings.Split(*channelIdsStr, " ")
+
+	return args
+}
+
+func listen() {
 	c := make(chan os.Signal, 2)
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 
@@ -89,4 +111,28 @@ func main() {
 	}()
 
 	waitForMessages()
+}
+
+func runTask(task string, args *Args) {
+	if task == "force_refresh_channels" {
+		log.Printf("Force refreshing channels: %s", args.ChannelIds)
+
+		for _, channelId := range args.ChannelIds {
+			refreshChannel(channelId)
+		}
+	} else if task == "refresh_channels" {
+		DBA.Channel.UpdateChannelsDirectly()
+	}
+}
+
+func main() {
+	args := readArgs()
+
+	if *args.Listen {
+		listen()
+	}
+
+	if *args.Task != "" {
+		runTask(*args.Task, args)
+	}
 }
