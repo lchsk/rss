@@ -3,6 +3,7 @@ package channel
 import (
 	"database/sql"
 	"fmt"
+	sq "github.com/Masterminds/squirrel"
 	"log"
 	"strings"
 	"time"
@@ -35,6 +36,7 @@ type ChannelToUpdate struct {
 
 type ChannelAccess struct {
 	Db      *sql.DB
+	SQ      *sq.StatementBuilderType
 	Queries map[string]*sql.Stmt
 }
 
@@ -110,10 +112,19 @@ func (ca *ChannelAccess) InsertArticle(id string,
 	return err
 }
 
-func (ca *ChannelAccess) UpdateLastSuccessfulUpdateToNow(channelId string) error {
-	stmt := ca.Queries["updateLastSuccessfulUpdate"]
+func (ca *ChannelAccess) UpdateLastSuccessfulUpdateToNow(channelId string, title string, description string, link string, editor string) error {
+	values := map[string]interface{}{
+		"last_successful_update": time.Now().UTC(),
+		"title":                  title,
+		"description":            description,
+		"website_url":            link,
+		"managing_editor":        editor,
+	}
+	query := ca.SQ.Update("channels").SetMap(
+		values,
+	).Where(sq.Eq{"id": channelId})
 
-	_, err := stmt.Exec(time.Now().UTC(), channelId)
+	_, err := query.RunWith(ca.Db).Exec()
 
 	return err
 }
@@ -331,7 +342,18 @@ func (ca *ChannelAccess) UpdateChannel(channelId string, feed *gofeed.Feed) erro
 		}
 	}
 
-	ca.UpdateLastSuccessfulUpdateToNow(channelId)
+	editor := ""
+
+	if feed.Author != nil {
+		editor = feed.Author.Name
+	}
+
+	err = ca.UpdateLastSuccessfulUpdateToNow(channelId, feed.Title, feed.Description, feed.Link, editor)
+
+	if err != nil {
+		log.Printf("Error updating channel=%s data: %s", channelId, err)
+		return err
+	}
 
 	if len(articleIds) > 0 {
 		ca.InsertUserArticles(channelId, articleIds)
@@ -341,7 +363,7 @@ func (ca *ChannelAccess) UpdateChannel(channelId string, feed *gofeed.Feed) erro
 	return nil
 }
 
-func InitChannelAccess(db *sql.DB) (*ChannelAccess, error) {
+func InitChannelAccess(db *sql.DB, psql *sq.StatementBuilderType) (*ChannelAccess, error) {
 	queries := map[string]*sql.Stmt{}
 
 	queriesToPrepare := map[string]string{
@@ -367,7 +389,7 @@ func InitChannelAccess(db *sql.DB) (*ChannelAccess, error) {
 		queries[name] = stmt
 	}
 
-	ca := &ChannelAccess{Db: db, Queries: queries}
+	ca := &ChannelAccess{Db: db, SQ: psql, Queries: queries}
 
 	return ca, nil
 }
