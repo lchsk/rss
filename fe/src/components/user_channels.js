@@ -46,7 +46,7 @@ const UserChannels = {
           getLink(
             ".list-group-item .list-group-item-action",
             "/channels/" + channel["channel_id"],
-            channel["channel_url"]
+            channel["channel_title"]
           )
         );
       }

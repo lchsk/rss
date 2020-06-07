@@ -24,6 +24,7 @@ const sqlFetchChannelByUrl = `
 const sqlFetchUserChannels = `
 select
 	c.ID as channel_id,
+	c.title as channel_title,
 	c.channel_url as channel_url,
 	cat.id as category_id,
 	cat.title as category_title

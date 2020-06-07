@@ -21,6 +21,7 @@ type Channel struct {
 
 type UserChannel struct {
 	ChannelId     string  `json:"channel_id"`
+	ChannelTitle  string  `json:"channel_title"`
 	ChannelUrl    string  `json:"channel_url"`
 	CategoryId    *string `json:"category_id"`
 	CategoryTitle *string `json:"category_title"`
@@ -264,6 +265,7 @@ func (ca *ChannelAccess) FetchUserChannels(userId string) ([]UserChannel, error)
 
 		if err := rows.Scan(
 			&uc.ChannelId,
+			&uc.ChannelTitle,
 			&uc.ChannelUrl,
 			&uc.DbCategoryId,
 			&uc.DbCategoryTitle,
