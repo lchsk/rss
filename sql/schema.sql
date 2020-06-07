@@ -48,6 +48,8 @@ create table categories (
      foreign key (parent_id)
      references categories (id)
 );
+create index idx_categories_user_id on categories (user_id);
+create index idx_categories_parent_id on categories (parent_id);
 
 -- channels
 
@@ -77,6 +79,7 @@ create table channels (
 
 drop index if exists idx_channels_channel_url;
 create unique index idx_channels_channel_url on channels(channel_url);
+create index channels_category_id on channels(category_id);
 
 -- user_channels
 
@@ -121,10 +124,7 @@ create table articles (
      foreign key (channel_id)
      references channels (id)
 );
-
--- Add indexes / unique
--- drop index if exists idx_articles__channel_id_user_id;
--- create unique index idx_articles_channel_id_user_id on articles(channel_id, user_id);
+create index idx_articles_channel_id on articles(channel_id);
 
 -- user_articles
 
@@ -149,3 +149,5 @@ create table user_articles (
      foreign key (article_id)
      references articles (id)
 );
+create index idx_user_articles_user_id on user_articles(user_id);
+create index ids_user_articles_article_id on user_articles(article_id);
