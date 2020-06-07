@@ -2,6 +2,7 @@ var m = require("mithril");
 var { getErrorMessage, getSingleError } = require("../common/error");
 const User = require("../actions/user");
 const getLoadingView = require("./loading");
+const LoginComponent = require("./login");
 
 const Config = require("../config");
 
@@ -44,15 +45,31 @@ var SignUp = {
 
 var SignUpComponent = {
   oninit: node => {
-    SignUp.setError("");
-    User.load();
+    m.request({
+      method: "GET",
+      url: Config.api_url + "/users/current",
+      withCredentials: true,
+      responseType: "json",
+      extract: function(xhr, options) {
+        if (xhr.status === 401) {
+          LoginComponent.signedIn = false;
+          return false;
+        }
+
+        LoginComponent.signedIn = true;
+        return true;
+      }
+    }).then(function(signedIn) {
+      console.log("signed-in", signedIn);
+    });
   },
   view: node => {
-    if (User.authState === User.AuthState.SIGNED_IN) {
-      m.route.set("/index");
-    } else if (User.authState === User.AuthState.UNKNOWN) {
-      return m("div", getLoadingView());
-    } else if (User.authState === User.AuthState.SIGNED_OUT) {
+    if (LoginComponent.signedIn === true) {
+      m.route.set("/");
+      return;
+    }
+
+    if (LoginComponent.signedIn === false) {
       return m(
         "form.form-major",
         {
