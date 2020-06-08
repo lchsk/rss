@@ -51,6 +51,11 @@ func (ca *ChannelAccess) UpdateChannelsDirectly() error {
 		return err
 	}
 
+	if channels == nil {
+		log.Printf("No channels to update")
+		return nil
+	}
+
 	for _, channel := range channels {
 		fp := gofeed.NewParser()
 		feed, err := fp.ParseURL(channel.ChannelUrl)
