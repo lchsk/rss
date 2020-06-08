@@ -78,6 +78,11 @@ func (ca *ChannelAccess) UpdateChannels() error {
 		return err
 	}
 
+	if channels == nil {
+		log.Printf("No channels to update")
+		return nil
+	}
+
 	for _, channel := range channels {
 		refreshMsg := comms.RefreshChannel{Id: channel.ChannelId, Url: channel.ChannelUrl}
 

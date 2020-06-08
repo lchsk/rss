@@ -9,6 +9,7 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/lchsk/rss/libs/comms"
+	"github.com/lchsk/rss/libs/channel"
 	"github.com/lchsk/rss/libs/db"
 	"github.com/lchsk/rss/libs/tasktimer"
 )
@@ -36,6 +37,7 @@ func init() {
 	}
 
 	queueConn = conn
+	channel.QueueConn = conn
 
 	if err := comms.DeclareQueues(queueConn.Channel); err != nil {
 		log.Fatalf("Error declaring queues: %s\n", err)
@@ -58,7 +60,7 @@ func main() {
 	// TODO: Improve the interface for adding a task
 	mgr.Interval = 1 * time.Second
 	mgr.Tasks = append(mgr.Tasks, &tasktimer.Task{
-		Every:         400 * time.Millisecond,
+		Every:         2000 * time.Millisecond,
 		LastExecution: time.Now().UTC(),
 		Func: func() {
 			err := DBA.Channel.UpdateChannels()
