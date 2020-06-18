@@ -15,7 +15,7 @@ const NavBar = {
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="collapse navbar-collapse" id="navbarToggler">
         <a class="navbar-brand" href="#">
-          RSS
+          <img src="data/text2011.png" alt="rss"/>
         </a>
         <div class="mr-auto mt-2 mt-lg-0"></div>
         <ul class="navbar-nav mt-2 mt-lg-0">
