@@ -52,6 +52,21 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.form-major .together-both {
+margin-bottom: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+   border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.together-left {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.together-right {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
 
 /* End of Sign In stuff */
 
@@ -68,5 +83,5 @@ body {
 /*Post List*/
 .unread-post {
   font-weight: bold;
-  background-color: #efefef;
+//   background-color: #efefef;
 }

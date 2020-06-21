@@ -15,12 +15,15 @@ $my-color-4: #ebebd3;
 // jet
 $my-color-5: #3c3c3b;
 
-$primary: #BA1B1D;
+$primary: $my-color-1;
+$light: $my-color-4;
+$dark: $my-color-5;
 
 $btn-padding-y: 4px;
 $btn-padding-x: 8px;
-$btn-border-radius: 1px;
+$btn-border-radius: 2px;
 $btn-border-width: 0;
+$input-btn-focus-width: 0;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
