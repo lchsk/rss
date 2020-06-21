@@ -79,7 +79,7 @@ const PostsList = {
       rows.push(
         <tr class={postCls}>
           <td class="p-0">{getLink(".text-dark", "/posts/" + post.id, post.title)}</td>
-          <td class="text-muted">{post.pub_at}</td>
+          <td class="text-muted">{new Date(post.pub_at).toLocaleString()}</td>
         </tr>
       );
     }

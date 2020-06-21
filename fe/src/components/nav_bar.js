@@ -19,9 +19,19 @@ function logoutInfo() {
   return '';
 }
 
+function toggleNavbar() {
+  const navbar = document.getElementById("navbarToggler");
+
+  navbar.classList.toggle('collapse');
+}
+
 const NavBar = {
   view: () => (
-    <nav class="navbar navbar-expand-lg navbar-light mb-2">
+    <nav class="navbar navbar-expand-md navbar-light mb-2">
+      <button id="toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarToggler"
+              aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation" onclick={toggleNavbar}>
+        <span className="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarToggler">
         <a class="navbar-brand" href="#">
           <img src="data/text2011.png" alt="rss"/>

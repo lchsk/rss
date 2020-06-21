@@ -30,10 +30,21 @@ const UserChannels = {
       channels.get(categoryId).push(User.channels[i]);
     }
 
-    var channelsHtml = [];
+    let channelsHtml = [];
+
+    const link = (
+        <p class="m-0">
+          {getLink(
+              ".text-dark",
+              "/",
+              "Inbox"
+          )}
+        </p>
+    );
+    channelsHtml.push(link);
 
     for (const [categoryId, c1] of Object.entries(channels.dict)) {
-      let link = (
+      const link = (
           <p class="m-0">
             {getLink(
                  ".text-dark",

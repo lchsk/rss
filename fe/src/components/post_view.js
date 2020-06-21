@@ -40,7 +40,7 @@ const PostView = {
         </div>
         <div>{new Date(post.pub_at).toLocaleString()}</div>
         <div>
-          <a href="{post.url}">{post.url}</a>
+          <a href={post.url}>{post.url}</a>
         </div>
         <div>{post.description}</div>
         <div>{post.content}</div>
