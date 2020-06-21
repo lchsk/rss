@@ -40,8 +40,8 @@ func TestFetchCategoryPosts(t *testing.T) {
 	pagination := resp.Pagination
 	assert.Equal(t, 2, len(postsData))
 
-	assert.Equal(t, "Article 1", postsData[0].Title)
-	assert.Equal(t, "Article 2", postsData[1].Title)
+	assert.Equal(t, "Post 1", postsData[0].Title)
+	assert.Equal(t, "Post 2", postsData[1].Title)
 	assert.Equal(t, posts.Pagination{
 		CurrentPage: 1,
 		LastPage:    3,

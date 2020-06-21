@@ -41,8 +41,8 @@ func TestFetchInboxPosts(t *testing.T) {
 	post2 := resp.Posts[1]
 	pagination := resp.Pagination
 
-	assert.Equal(t, "Article 1", post1.Title)
-	assert.Equal(t, "Article 2", post2.Title)
+	assert.Equal(t, "Post 1", post1.Title)
+	assert.Equal(t, "Post 2", post2.Title)
 	assert.Equal(t, posts.Pagination{
 		CurrentPage: 1,
 		LastPage:    4,

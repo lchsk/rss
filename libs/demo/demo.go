@@ -23,13 +23,13 @@ type UserData struct {
 	ChannelNYTUSPoliticsId string
 	ChannelNYTScienceId    string
 
-	Article1 string
-	Article2 string
-	Article3 string
-	Article4 string
-	Article5 string
-	Article6 string
-	Article7 string
+	Post1 string
+	Post2 string
+	Post3 string
+	Post4 string
+	Post5 string
+	Post6 string
+	Post7 string
 }
 
 var bugs UserData
@@ -62,34 +62,34 @@ func installPosts(dba *db.DbAccess) {
 	now4 := time.Now().UTC().Add(time.Minute * 3)
 	now5 := time.Now().UTC().Add(time.Minute * 4)
 
-	bugs.Article1 = uuid.New().String()
-	bugs.Article2 = uuid.New().String()
-	bugs.Article3 = uuid.New().String()
-	bugs.Article4 = uuid.New().String()
-	bugs.Article5 = uuid.New().String()
-	bugs.Article6 = uuid.New().String()
-	bugs.Article7 = uuid.New().String()
+	bugs.Post1 = uuid.New().String()
+	bugs.Post2 = uuid.New().String()
+	bugs.Post3 = uuid.New().String()
+	bugs.Post4 = uuid.New().String()
+	bugs.Post5 = uuid.New().String()
+	bugs.Post6 = uuid.New().String()
+	bugs.Post7 = uuid.New().String()
 
-	ca.InsertArticle(bugs.Article1, &now1, "url", "Article 1", "description", "content",
+	ca.InsertPost(bugs.Post1, &now1, "url", "Post 1", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538FeedId,
 	)
-	ca.InsertArticle(bugs.Article2, &now2, "url", "Article 2", "description", "content",
+	ca.InsertPost(bugs.Post2, &now2, "url", "Post 2", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538FeedId,
 	)
-	ca.InsertArticle(bugs.Article3, &now3, "url", "Article 3", "description", "content",
+	ca.InsertPost(bugs.Post3, &now3, "url", "Post 3", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538FeedId,
 	)
-	ca.InsertArticle(bugs.Article4, &now4, "url", "Article 4", "description", "content",
+	ca.InsertPost(bugs.Post4, &now4, "url", "Post 4", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538FeedId,
 	)
-	ca.InsertArticle(bugs.Article5, &now5, "url", "Article 5", "description", "content",
+	ca.InsertPost(bugs.Post5, &now5, "url", "Post 5", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538FeedId,
 	)
 
-	ca.InsertArticle(bugs.Article6, &now4, "url", "Article 6", "description", "content",
+	ca.InsertPost(bugs.Post6, &now4, "url", "Post 6", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538NateId,
 	)
-	ca.InsertArticle(bugs.Article7, &now5, "url", "Article 7", "description", "content",
+	ca.InsertPost(bugs.Post7, &now5, "url", "Post 7", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538NateId,
 	)
 }
@@ -97,11 +97,11 @@ func installPosts(dba *db.DbAccess) {
 func installUserPosts(dba *db.DbAccess) {
 	ca := dba.Channel
 
-	articles := []string{bugs.Article1, bugs.Article2, bugs.Article3, bugs.Article4, bugs.Article5}
-	ca.InsertUserArticles(bugs.Channel538FeedId, articles)
+	posts := []string{bugs.Post1, bugs.Post2, bugs.Post3, bugs.Post4, bugs.Post5}
+	ca.InsertUserPosts(bugs.Channel538FeedId, posts)
 
-	articlesNate := []string{bugs.Article6, bugs.Article7}
-	ca.InsertUserArticles(bugs.Channel538NateId, articlesNate)
+	postsNate := []string{bugs.Post6, bugs.Post7}
+	ca.InsertUserPosts(bugs.Channel538NateId, postsNate)
 
 }
 

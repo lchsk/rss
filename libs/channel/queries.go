@@ -51,11 +51,11 @@ order by
 limit 1000
 `
 
-const sqlFetchLastArticleDate = `
+const sqlFetchLastPostDate = `
 select
     pub_at
 from
-    articles
+    posts
 where
     channel_id = $1
 order by
@@ -78,8 +78,8 @@ set last_successful_update = $1
 where id = $2
 `
 
-const sqlInsertArticle = `
-insert into articles (
+const sqlInsertPost = `
+insert into posts (
     id,
 	pub_at,
 	url,

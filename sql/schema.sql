@@ -102,10 +102,10 @@ create table user_channels (
 drop index if exists idx_user_channels_channel_id_user_id;
 create unique index idx_user_channels_channel_id_user_id on user_channels(channel_id, user_id);
 
--- articles
+-- posts
 
-drop table if exists articles cascade;
-create table articles (
+drop table if exists posts cascade;
+create table posts (
   id uuid not null primary key,
   created_at timestamp without time zone default (now() at time zone 'utc') not null,
 
@@ -120,34 +120,34 @@ create table articles (
 
   channel_id uuid not null,
 
-  constraint fk_articles_channel_id
+  constraint fk_posts_channel_id
      foreign key (channel_id)
      references channels (id)
 );
-create index idx_articles_channel_id on articles(channel_id);
+create index idx_posts_channel_id on posts(channel_id);
 
--- user_articles
+-- user_posts
 
-drop table if exists user_articles cascade;
+drop table if exists user_posts cascade;
 
-drop type if exists user_articles_status;
-create type user_articles_status as enum ('unread', 'read');
+drop type if exists user_posts_status;
+create type user_posts_status as enum ('unread', 'read');
 
-create table user_articles (
+create table user_posts (
   id uuid not null primary key,
   created_at timestamp without time zone default (now() at time zone 'utc') not null,
 
   user_id uuid not null,
-  article_id uuid not null,
+  post_id uuid not null,
 
-  status user_articles_status not null default 'unread',
+  status user_posts_status not null default 'unread',
 
-  constraint fk_user_articles_user_id
+  constraint fk_user_posts_user_id
      foreign key (user_id)
      references users (id),
-  constraint fk_user_articles_article_id
-     foreign key (article_id)
-     references articles (id)
+  constraint fk_user_posts_post_id
+     foreign key (post_id)
+     references posts (id)
 );
-create index idx_user_articles_user_id on user_articles(user_id);
-create index ids_user_articles_article_id on user_articles(article_id);
+create index idx_user_posts_user_id on user_posts(user_id);
+create index ids_user_posts_post_id on user_posts(post_id);

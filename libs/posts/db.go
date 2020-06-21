@@ -61,7 +61,7 @@ type PostData struct {
 }
 
 func (ca *PostsAccess) UpdatePostStatusForUser(postId string, userId string, status string) error {
-	query := ca.SQ.Update("user_articles").Set("status", status).Where(sq.Eq{"user_id": userId, "article_id": postId})
+	query := ca.SQ.Update("user_posts").Set("status", status).Where(sq.Eq{"user_id": userId, "post_id": postId})
 
 	_, err := query.RunWith(ca.Db).Exec()
 
@@ -71,7 +71,7 @@ func (ca *PostsAccess) UpdatePostStatusForUser(postId string, userId string, sta
 func (ca *PostsAccess) FetchPost(postId string) (*PostData, error) {
 	post := &PostData{}
 
-	postQuery := ca.SQ.Select("id, created_at, pub_at, title, url, description, content, author_name, author_email").From("articles").Where(sq.Eq{
+	postQuery := ca.SQ.Select("id, created_at, pub_at, title, url, description, content, author_name, author_email").From("posts").Where(sq.Eq{
 		"id": postId,
 	}).Limit(1)
 
@@ -94,11 +94,11 @@ func (ca *PostsAccess) getPostsCount(options FetchPostsOptions, userId string) (
 	} else if options.FetchPostsMode == FetchPostsModeInbox {
 		err = ca.Db.QueryRow(sqlFetchUserPostsInboxCount, userId).Scan(&postsCount)
 	} else if options.FetchPostsMode == FetchPostsModeChannels {
-		users := ca.SQ.Select("count(a.id)").From("articles a").Join(
-			"user_articles ua on ua.article_id = a.id",
+		users := ca.SQ.Select("count(p.id)").From("posts p").Join(
+			"user_posts up on up.post_id = p.id",
 		).Where(sq.Eq{
-			"a.channel_id": options.ChannelIds,
-			"ua.user_id":   userId})
+			"p.channel_id": options.ChannelIds,
+			"up.user_id":   userId})
 		err = users.RunWith(ca.Db).Scan(&postsCount)
 	}
 
@@ -116,11 +116,11 @@ func (ca *PostsAccess) getPosts(options FetchPostsOptions, userId string,
 	} else if options.FetchPostsMode == FetchPostsModeInbox {
 		rows, err = ca.Db.Query(sqlFetchUserPostsInbox, userId, paginationValues.Limit, paginationValues.Offset)
 	} else if options.FetchPostsMode == FetchPostsModeChannels {
-		users := ca.SQ.Select("a.id, a.pub_at, a.title, a.channel_id, ua.status").From("articles a").Join(
-			"user_articles ua on ua.article_id = a.id",
+		users := ca.SQ.Select("p.id, p.pub_at, p.title, p.channel_id, up.status").From("posts p").Join(
+			"user_posts up on up.post_id = p.id",
 		).Where(sq.Eq{
-			"a.channel_id": options.ChannelIds,
-			"ua.user_id":   userId}).OrderBy("a.pub_at ASC").Limit(uint64(paginationValues.Limit)).Offset(uint64(paginationValues.Offset))
+			"p.channel_id": options.ChannelIds,
+			"up.user_id":   userId}).OrderBy("p.pub_at ASC").Limit(uint64(paginationValues.Limit)).Offset(uint64(paginationValues.Offset))
 
 		rows, err = users.RunWith(ca.Db).Query()
 	}

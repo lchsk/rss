@@ -101,7 +101,7 @@ func (ca *ChannelAccess) UpdateChannels() error {
 	return nil
 }
 
-func (ca *ChannelAccess) InsertArticle(id string,
+func (ca *ChannelAccess) InsertPost(id string,
 	pubAt *time.Time,
 	url string,
 	title string,
@@ -110,12 +110,12 @@ func (ca *ChannelAccess) InsertArticle(id string,
 	authorName string,
 	authorEmail string,
 	channelId string) error {
-	stmt := ca.Queries["insertArticle"]
+	stmt := ca.Queries["insertPost"]
 
 	_, err := stmt.Exec(id, pubAt, url, title, description, content, authorName, authorEmail, channelId)
 
 	if err != nil {
-		log.Printf("Error on InsertArticle: %s", err)
+		log.Printf("Error on InsertPost: %s", err)
 	}
 
 	// TODO: Log postgres error
@@ -215,13 +215,13 @@ func (ca *ChannelAccess) FetchChannelsToUpdate() ([]*ChannelToUpdate, error) {
 	return channels, nil
 }
 
-func (ca *ChannelAccess) InsertUserArticles(channelId string, articleIds []string) {
+func (ca *ChannelAccess) InsertUserPosts(channelId string, postsIds []string) {
 	stmt := ca.Queries["fetchChannelUsers"]
 
 	rows, err := stmt.Query(channelId)
 
 	if err != nil {
-		log.Printf("Error getting user articles: %s", err)
+		log.Printf("Error getting user posts: %s", err)
 		return
 	}
 
@@ -234,24 +234,24 @@ func (ca *ChannelAccess) InsertUserArticles(channelId string, articleIds []strin
 			continue
 		}
 
-		valueStrings := make([]string, 0, len(articleIds))
-		valueArgs := make([]interface{}, 0, len(articleIds)*3)
+		valueStrings := make([]string, 0, len(postsIds))
+		valueArgs := make([]interface{}, 0, len(postsIds)*3)
 
-		for i, articleId := range articleIds {
+		for i, postId := range postsIds {
 			valueStrings = append(valueStrings,
 				fmt.Sprintf("($%d, $%d, $%d)", i*3+1, i*3+2, i*3+3))
 			valueArgs = append(valueArgs, uuid.New().String())
 			valueArgs = append(valueArgs, userId)
-			valueArgs = append(valueArgs, articleId)
+			valueArgs = append(valueArgs, postId)
 		}
 
 		stmt := fmt.Sprintf(`
-		insert into user_articles (id, user_id, article_id) values %s
+		insert into user_posts (id, user_id, post_id) values %s
 		`, strings.Join(valueStrings, ","))
 		_, err := ca.Db.Exec(stmt, valueArgs...)
 
 		if err != nil {
-			log.Printf("Error inserting user articles user_id=%s channel_id=%s: %s", userId, channelId, err)
+			log.Printf("Error inserting user posts user_id=%s channel_id=%s: %s", userId, channelId, err)
 		}
 	}
 
@@ -301,8 +301,8 @@ func (ca *ChannelAccess) FetchUserChannels(userId string) ([]UserChannel, error)
 func (ca *ChannelAccess) UpdateChannel(channelId string, feed *gofeed.Feed) error {
 	log.Printf("Updating channel_id=%s", channelId)
 
-	// Load last article published for this channel
-	stmt := ca.Queries["fetchLastArticleDate"]
+	// Load last post published for this channel
+	stmt := ca.Queries["fetchLastPostDate"]
 
 	var date time.Time
 	err := stmt.QueryRow(channelId).Scan(&date)
@@ -315,7 +315,7 @@ func (ca *ChannelAccess) UpdateChannel(channelId string, feed *gofeed.Feed) erro
 		minPubTime = date
 	}
 
-	var articleIds []string
+	var postIds []string
 
 	for _, item := range feed.Items {
 		var pubAt *time.Time
@@ -340,17 +340,17 @@ func (ca *ChannelAccess) UpdateChannel(channelId string, feed *gofeed.Feed) erro
 		}
 
 		// TODO: Escape title, description, content, and other strings
-		articleId := uuid.New().String()
+		postId := uuid.New().String()
 
-		err := ca.InsertArticle(articleId, pubAt,
+		err := ca.InsertPost(postId, pubAt,
 			item.Link, item.Title, item.Description, item.Content,
 			authorName, authorEmail, channelId,
 		)
 
 		if err == nil {
-			articleIds = append(articleIds, articleId)
+			postIds = append(postIds, postId)
 		} else {
-			log.Printf("Could not insert article to channel id=%s url=%s", channelId, item.Link)
+			log.Printf("Could not insert post to channel id=%s url=%s", channelId, item.Link)
 		}
 	}
 
@@ -367,8 +367,8 @@ func (ca *ChannelAccess) UpdateChannel(channelId string, feed *gofeed.Feed) erro
 		return err
 	}
 
-	if len(articleIds) > 0 {
-		ca.InsertUserArticles(channelId, articleIds)
+	if len(postIds) > 0 {
+		ca.InsertUserPosts(channelId, postIds)
 	}
 
 	log.Printf("Channel channel_id=%s updated", channelId)
@@ -382,11 +382,11 @@ func InitChannelAccess(db *sql.DB, psql *sq.StatementBuilderType) (*ChannelAcces
 		"insertChannel":              sqlInsertChannel,
 		"insertUserChannel":          sqlInsertUserChannel,
 		"insertUserCategory":         sqlInsertUserCategory,
-		"insertArticle":              sqlInsertArticle,
+		"insertPost":              sqlInsertPost,
 		"fetchChannelByUrl":          sqlFetchChannelByUrl,
 		"fetchUserChannels":          sqlFetchUserChannels,
 		"fetchChannelsToUpdate":      sqlFetchChannelsToUpdate,
-		"fetchLastArticleDate":       sqlFetchLastArticleDate,
+		"fetchLastPostDate":       sqlFetchLastPostDate,
 		"fetchChannelUsers":          sqlFetchChannelUsers,
 		"updateLastSuccessfulUpdate": sqlUpdateLastSuccessfulUpdate,
 	}

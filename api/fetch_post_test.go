@@ -29,7 +29,7 @@ func TestMarkPostAsRead(t *testing.T) {
 	}
 
 	inputJson, _ := json.Marshal(input)
-	req, err := http.NewRequest("PATCH", fmt.Sprintf("/api/posts/%s", demo.Bugs.Article1), bytes.NewBuffer(inputJson))
+	req, err := http.NewRequest("PATCH", fmt.Sprintf("/api/posts/%s", demo.Bugs.Post1), bytes.NewBuffer(inputJson))
 	req.AddCookie(getCookie("token", userTokens.AccessToken, AccessCookieDuration))
 
 	assert.Nil(t, err)
@@ -40,8 +40,8 @@ func TestMarkPostAsRead(t *testing.T) {
 
 	assert.Equal(t, 200, rr.Code)
 
-	query := DBA.SQ.Select("status").From("user_articles").Where(sq.Eq{
-		"article_id": demo.Bugs.Article1,
+	query := DBA.SQ.Select("status").From("user_posts").Where(sq.Eq{
+		"post_id": demo.Bugs.Post1,
 		"user_id":    demo.Bugs.UserId,
 	}).Limit(1)
 
@@ -60,7 +60,7 @@ func TestFetchPost(t *testing.T) {
 
 	userTokens := authUser("bugs@bunny.com", "bunny")
 
-	req, err := http.NewRequest("GET", fmt.Sprintf("/api/posts/%s", demo.Bugs.Article1), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf("/api/posts/%s", demo.Bugs.Post1), nil)
 	req.AddCookie(getCookie("token", userTokens.AccessToken, AccessCookieDuration))
 
 	assert.Nil(t, err)
@@ -74,7 +74,7 @@ func TestFetchPost(t *testing.T) {
 	var resp posts.PostData
 	json.Unmarshal(rr.Body.Bytes(), &resp)
 
-	assert.Equal(t, "Article 1", resp.Title)
+	assert.Equal(t, "Post 1", resp.Title)
 	assert.Equal(t, "url", resp.Url)
 	assert.Equal(t, "description", resp.Description)
 	assert.Equal(t, "content", resp.Content)
