@@ -1,4 +1,4 @@
-var m = require("mithril");
+const m = require("mithril");
 
 const Config = require("../config");
 const { checkAuthAndExtract } = require("./request");
@@ -9,7 +9,7 @@ const UserAuthState = {
   SIGNED_OUT: "signed_out"
 };
 
-var User = {
+const User = {
   AuthState: UserAuthState,
   data: {},
   channels: [],
@@ -32,7 +32,7 @@ var User = {
         User.defaultSuccess();
 
         const { response } = result;
-        console.log(response);
+
         User.channels = response["user_channels"];
 
         for (let i = 0; i < User.channels.length; i++) {
@@ -42,7 +42,9 @@ var User = {
           };
         }
       })
-      .catch(e => {});
+      .catch(e => {
+          console.log("load channels", e);
+      });
   },
   load: () => {
     // if (User.authState === UserAuthState.SIGNED_OUT) {

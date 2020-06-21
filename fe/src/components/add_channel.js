@@ -1,10 +1,10 @@
-var m = require("mithril");
-var { getErrorMessage, getSingleError } = require("../common/error");
+const m = require("mithril");
+const { getSingleError } = require("../common/error");
 const getLoadingView = require("./loading");
 
 const Config = require("../config");
 
-var AddChannel = {
+const AddChannel = {
   current: {},
   state: "ready",
   setError: function(error) {
@@ -32,7 +32,7 @@ var AddChannel = {
   }
 };
 
-var AddNewChannelComponent = {
+const AddNewChannelComponent = {
   view: function(node) {
     const getLoading = () => {
       return m("div", getLoadingView());

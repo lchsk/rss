@@ -1,8 +1,12 @@
-var m = require("mithril");
+const m = require("mithril");
 
 const MainView = {
   view: node => {
-    return m(".main-view", node.children);
+    return (
+        <div class="main-view">
+          {node.children}
+        </div>
+    );
   }
 };
 

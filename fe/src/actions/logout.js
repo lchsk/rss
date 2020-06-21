@@ -1,22 +1,23 @@
-var m = require("mithril");
+const m = require("mithril");
 
 const Config = require("../config");
 const User = require("./user");
 
-var Logout = {
+const Logout = {
   view: node => {
     m.request({
       method: "POST",
       url: Config.api_url + "/logout",
       withCredentials: true,
-      responseType: "json",
-      extract: checkAuthAndExtract
+      responseType: "json"
+      // extract: checkAuthAndExtract
     })
       .then(result => {
-        User.defaultSuccess();
+        m.route.set("/login");
+        // User.defaultSuccess();
       })
       .catch(e => {
-        User.authState = User.AuthState.SIGNED_OUT;
+        // User.authState = User.AuthState.SIGNED_OUT;
       });
 
     m.route.set("/index");

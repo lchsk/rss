@@ -1,4 +1,4 @@
-var m = require("mithril");
+const m = require("mithril");
 
 const Posts = require("../actions/posts");
 const getLink = require("./link");
@@ -58,14 +58,14 @@ const PostsList = {
     }
 
     let prev = getLink(
-      ".btn .btn-primary" + prevButtonCls,
-      base_url + "/?page=" + pagination.prev,
-      "Prev"
+      ".btn .btn-dark .together-left" + prevButtonCls,
+      base_url + "?page=" + pagination.prev,
+      "◄"
     );
     let next = getLink(
-      ".btn .btn-primary" + nextButtonCls,
-      base_url + "/?page=" + pagination.next,
-      "Next"
+      ".btn .btn-dark .together-right" + nextButtonCls,
+      base_url + "?page=" + pagination.next,
+      "►"
     );
 
     for (let i = 0; i < Posts.data.length; i++) {
@@ -78,20 +78,25 @@ const PostsList = {
       }
       rows.push(
         <tr class={postCls}>
-          <td>{getLink("", "/posts/" + post.id, post.title)}</td>
+          <td class="p-0">{getLink(".text-dark", "/posts/" + post.id, post.title)}</td>
+          <td class="text-muted">{post.pub_at}</td>
         </tr>
       );
     }
 
     return (
       <div class="container-fluid">
-        <h1>{title}</h1>
         <div class="row">
+          <h1>{title}</h1>
+        </div>
+
+        <div class="row mb-3">
           {prev}
           {next}
         </div>
+
         <div class="row">
-          <table>{rows}</table>
+          <table class="table table-borderless table-sm">{rows}</table>
         </div>
       </div>
     );

@@ -1,4 +1,4 @@
-var m = require("mithril");
+const m = require("mithril");
 
 const getLink = require("./link");
 const defDict = require("../common/data_structures");
@@ -33,26 +33,38 @@ const UserChannels = {
     var channelsHtml = [];
 
     for (const [categoryId, c1] of Object.entries(channels.dict)) {
-      channelsHtml.push(
-        getLink(
-          ".list-group-item .list-group-item-action .active",
-          "/categories/" + categoryId,
-          categories.dict[categoryId]["categoryTitle"]
-        )
+      let link = (
+          <p class="m-0">
+            {getLink(
+                 ".text-dark",
+               "/categories/" + categoryId,
+               categories.dict[categoryId]["categoryTitle"]
+            )}
+          </p>
       );
+      channelsHtml.push(link);
 
       for (const channel of c1) {
-        channelsHtml.push(
-          getLink(
-            ".list-group-item .list-group-item-action",
-            "/channels/" + channel["channel_id"],
-            channel["channel_title"]
-          )
+        const link = (
+            <p class="m-0 ml-3">
+              {getLink(
+              ".text-dark",
+              "/channels/" + channel["channel_id"],
+              channel["channel_title"]
+              )}
+            </p>
         );
+        channelsHtml.push(link);
       }
     }
 
-    return m("div", [m("div.list-group", channelsHtml)]);
+    return (
+        <div>
+          <div class="text-left">
+            {channelsHtml}
+          </div>
+        </div>
+    );
   }
 };
 

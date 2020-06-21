@@ -1,12 +1,11 @@
-var m = require("mithril");
+const m = require("mithril");
 
-const User = require("../actions/user");
 const Login = require("../actions/login");
-const getLoadingView = require("./loading");
 const Config = require("../config");
+const getLink = require("./link");
 
 const LoginComponent = {
-  oninit: node => {
+  oninit: () => {
     m.request({
       method: "GET",
       url: Config.api_url + "/users/current",
@@ -16,53 +15,44 @@ const LoginComponent = {
         if (xhr.status === 401) {
           LoginComponent.signedIn = false;
           return false;
+        } else if (xhr.status === 200) {
+          LoginComponent.signedIn = true;
+          return true;
         }
-
-        LoginComponent.signedIn = true;
-        return true;
+        LoginComponent.signedIn = false;
+        return false;
       }
     }).then(function(signedIn) {
-      console.log("signed-in", signedIn);
     });
   },
-  view: node => {
-    console.log("LoginComponent.signedIn", LoginComponent.signedIn);
+    submitForm: (e) => {
+        e.preventDefault();
 
+        const emailInput = document.getElementById("form-email");
+        const passwordInput = document.getElementById("form-password");
+
+        Login.current.email = emailInput.value;
+        Login.current.password = passwordInput.value;
+
+        Login.submit();
+    },
+  view: node => {
     if (LoginComponent.signedIn === true) {
       m.route.set("/");
       return;
     }
 
     if (LoginComponent.signedIn === false) {
-      return m(
-        "form.form-major",
-        {
-          onsubmit: e => {
-            e.preventDefault();
-            Login.submit();
-          }
-        },
-        [
-          m("div#login-error", Login.current.error),
-          m(
-            "input[type=email][placeholder=Email] .form-control .together-top",
-            {
-              oninput: m.withAttr("value", value => {
-                Login.current.email = value;
-              })
-            }
-          ),
-          m(
-            "input[type=password][placeholder=Password] .form-control .together-bottom",
-            {
-              oninput: m.withAttr("value", value => {
-                Login.current.password = value;
-              })
-            }
-          ),
-          m("button[type=submit] .btn .btn-lg .btn-primary", "Sign in")
-        ]
-      );
+      return (
+          <form class="form-major" onsubmit={LoginComponent.submitForm}>
+            <div class="text-center mb-3"><img src="data/text2011.png" alt="rss"/></div>
+            <div class="login-error">{Login.current.error}</div>
+            <input id="form-email" type="email" placeholder="Email" class="form-control together-top"/>
+            <input id="form-password" type="password" placeholder="Password" class="form-control together-bottom"/>
+              <div class="text-center"><button type="submit" class="btn btn-primary">Sign in</button></div>
+              <div className="text-center mt-3">{getLink(".mb-0", "/signup", "Sign up if you don't have an account")}</div>
+          </form>
+      )
     }
   }
 };

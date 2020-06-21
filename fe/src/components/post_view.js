@@ -1,4 +1,4 @@
-var m = require("mithril");
+const m = require("mithril");
 const Config = require("../config");
 const { checkAuthAndExtract } = require("../actions/request");
 

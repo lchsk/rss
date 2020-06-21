@@ -1,10 +1,18 @@
-var m = require("mithril");
+const m = require("mithril");
 
 const MainView = require("./main_view");
+const Footer = require("./Footer");
 
 const AppNoAuth = {
   view: node => {
-    return m(".app", [m(MainView, node.children)]);
+    return (
+        <div class="app">
+          <MainView>
+              {node.children}
+          </MainView>
+            <Footer></Footer>
+        </div>
+    )
   }
 };
 

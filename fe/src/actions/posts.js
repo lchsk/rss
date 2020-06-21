@@ -1,4 +1,4 @@
-var m = require("mithril");
+const m = require("mithril");
 
 const Config = require("../config");
 const User = require("./user");
@@ -61,7 +61,7 @@ const Posts = {
           extract: checkAuthAndExtract
         })
         .then(result => {
-          // console.log("result", result);
+          console.log("result", result);
           // User.defaultSuccess();
 
           const { response } = result;

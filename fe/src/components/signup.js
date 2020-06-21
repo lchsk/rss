@@ -1,12 +1,10 @@
-var m = require("mithril");
-var { getErrorMessage, getSingleError } = require("../common/error");
-const User = require("../actions/user");
-const getLoadingView = require("./loading");
+const m = require("mithril");
+const { getErrorMessage, getSingleError } = require("../common/error");
 const LoginComponent = require("./login");
-
+const getLink = require("./link");
 const Config = require("../config");
 
-var SignUp = {
+const SignUp = {
   current: {},
   setError: function(error) {
     this.current.error = error;
@@ -63,6 +61,21 @@ var SignUpComponent = {
       console.log("signed-in", signedIn);
     });
   },
+  submitForm: (e) => {
+    e.preventDefault();
+
+    const usernameInput = document.getElementById("form-username");
+    const emailInput = document.getElementById("form-email");
+    const passwordInput1 = document.getElementById("form-password-1");
+    const passwordInput2 = document.getElementById("form-password-2");
+
+    SignUp.current.username = usernameInput.value;
+    SignUp.current.email = emailInput.value;
+    SignUp.current.password1 = passwordInput1.value;
+    SignUp.current.password2 = passwordInput2.value;
+
+    SignUp.submit();
+  },
   view: node => {
     if (LoginComponent.signedIn === true) {
       m.route.set("/");
@@ -70,38 +83,19 @@ var SignUpComponent = {
     }
 
     if (LoginComponent.signedIn === false) {
-      return m(
-        "form.form-major",
-        {
-          onsubmit: e => {
-            e.preventDefault();
-            SignUp.submit();
-          }
-        },
-        [
-          m("div#signup-error", SignUp.current.error),
-          m("input[type=text][placeholder=Email] .form-control", {
-            oninput: m.withAttr("value", value => {
-              SignUp.current.email = value;
-            })
-          }),
-          m("input[type=text][placeholder=Username] .form-control", {
-            oninput: m.withAttr("value", value => {
-              SignUp.current.username = value;
-            })
-          }),
-          m("input[type=password][placeholder=Password] .form-control", {
-            oninput: m.withAttr("value", value => {
-              SignUp.current.password1 = value;
-            })
-          }),
-          m("input[type=password][placeholder=Repeat password] .form-control", {
-            oninput: m.withAttr("value", value => {
-              SignUp.current.password2 = value;
-            })
-          }),
-          m("button[type=submit] .btn .btn-lg .btn-primary", "Sign up")
-        ]
+      return (
+          <form class="form-major" onsubmit={SignUpComponent.submitForm}>
+            <div className="text-center mb-3"><img src="data/text2011.png" alt="rss"/></div>
+            <div class="signup-error">{SignUp.current.error}</div>
+            <input id="form-email" type="email" placeholder="Email" className="form-control together-top"/>
+            <input id="form-username" type="text" placeholder="Username" className="form-control together-both"/>
+            <input id="form-password-1" type="password" placeholder="Password" className="form-control together-both"/>
+            <input id="form-password-2" type="password" placeholder="Repeat password" className="form-control together-bottom"/>
+            <div className="text-center">
+              <button type="submit" className="btn btn-primary">Sign up</button>
+              <div className="text-center mt-3">{getLink(".mb-0", "/login", "Sign in if you already have an account")}</div>
+            </div>
+          </form>
       );
     }
   }
