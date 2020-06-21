@@ -1,6 +1,8 @@
 package main
 
 import (
+	"encoding/json"
+	"github.com/lchsk/rss/libs/user"
 	"net/http"
 
 	"github.com/google/uuid"
@@ -26,10 +28,11 @@ func handlerFetchCurrentUser(w http.ResponseWriter, req *http.Request) {
 	}
 
 	var err error = nil
+	var u *user.User
 
 	if err == nil {
 		var dbErr error
-		_, dbErr = DBA.User.FindUserById(userId)
+		u, dbErr = DBA.User.FindUserById(userId)
 
 		if dbErr != nil {
 			w.WriteHeader(404)
@@ -38,4 +41,5 @@ func handlerFetchCurrentUser(w http.ResponseWriter, req *http.Request) {
 	}
 
 	w.WriteHeader(200)
+	json.NewEncoder(w).Encode(u)
 }

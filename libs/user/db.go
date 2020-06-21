@@ -29,7 +29,7 @@ const sqlFindUserById = `
 
 type User struct {
 	ID        string    `json:"id"`
-	Username  string    `json:"-"`
+	Username  string    `json:"username"`
 	Email     string    `json:"-"`
 	CreatedAt time.Time `json:"-"`
 }
