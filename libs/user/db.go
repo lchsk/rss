@@ -2,30 +2,13 @@ package user
 
 import (
 	"database/sql"
+	sq "github.com/Masterminds/squirrel"
 	"time"
 
 	"github.com/google/uuid"
 
 	_ "github.com/lib/pq"
 )
-
-const sqlInsertUser = `
-    INSERT INTO users (id, username, email, password) VALUES
-    ($1, $2, $3, crypt($4, gen_salt('bf', 8)))
-    RETURNING id, username, email, created_at
-`
-
-const sqlFindUserByCredentials = `
-    SELECT id, username, email, created_at
-    FROM users
-    WHERE lower(email) = lower($1) AND password = crypt($2, password)
-`
-
-const sqlFindUserById = `
-    SELECT id, username, email, created_at
-    FROM users
-    WHERE id = $1
-`
 
 type User struct {
 	ID        string    `json:"id"`
@@ -35,6 +18,8 @@ type User struct {
 }
 
 type UserAccess struct {
+	Db      *sql.DB
+	SQ      *sq.StatementBuilderType
 	Queries map[string]*sql.Stmt
 }
 
@@ -50,8 +35,9 @@ type TokenData struct {
 func (ua *UserAccess) FindUserByCredentials(email string, password string) (*User, error) {
 	u := &User{}
 
-	stmt := ua.Queries["findUserByCredentials"]
-	err := stmt.QueryRow(email, password).Scan(&u.ID, &u.Username, &u.Email, &u.CreatedAt)
+	userQuery := ua.SQ.Select("id, username, email, created_at").From("users").Where(
+		"lower(email) = lower(?) AND password = crypt(?, password)", email, password).Limit(1)
+	err := userQuery.RunWith(ua.Db).Scan(&u.ID, &u.Username, &u.Email, &u.CreatedAt)
 
 	if err != nil {
 		if err == sql.ErrNoRows {
@@ -66,8 +52,10 @@ func (ua *UserAccess) FindUserByCredentials(email string, password string) (*Use
 func (ua *UserAccess) FindUserById(id string) (*User, error) {
 	u := &User{}
 
-	stmt := ua.Queries["findUserById"]
-	err := stmt.QueryRow(id).Scan(&u.ID, &u.Username, &u.Email, &u.CreatedAt)
+	userQuery := ua.SQ.Select("id, username, email, created_at").From("users").Where(sq.Eq{
+		"id": id,
+	}).Limit(1)
+	err := userQuery.RunWith(ua.Db).Scan(&u.ID, &u.Username, &u.Email, &u.CreatedAt)
 
 	if err != nil {
 		if err == sql.ErrNoRows {
@@ -82,28 +70,23 @@ func (ua *UserAccess) FindUserById(id string) (*User, error) {
 func (ua *UserAccess) InsertUser(username string, email string, password string) (*User, error) {
 	u := &User{}
 
-	stmt := ua.Queries["insertUser"]
+	id := uuid.New()
 
-	id, err := uuid.NewRandom()
+	query:= ua.SQ.
+		Insert("users").Columns("id", "username", "email", "password").
+		Values(id, username, email, sq.Expr("crypt(?, gen_salt('bf', 8))", password)).Suffix("RETURNING id, username, email, created_at")
 
-	if err != nil {
-		return nil, err
-	}
-
-	err = stmt.QueryRow(id, username, email, password).Scan(&u.ID, &u.Username, &u.Email, &u.CreatedAt)
+	err := query.RunWith(ua.Db).Scan(&u.ID, &u.Username, &u.Email, &u.CreatedAt)
 
 	// TODO: Log postgres error
 
 	return u, err
 }
 
-func InitUserAccess(db *sql.DB) (*UserAccess, error) {
+func InitUserAccess(db *sql.DB, psql *sq.StatementBuilderType) (*UserAccess, error) {
 	queries := map[string]*sql.Stmt{}
 
 	queriesToPrepare := map[string]string{
-		"insertUser":            sqlInsertUser,
-		"findUserByCredentials": sqlFindUserByCredentials,
-		"findUserById":          sqlFindUserById,
 	}
 
 	for name, sql := range queriesToPrepare {
@@ -116,7 +99,7 @@ func InitUserAccess(db *sql.DB) (*UserAccess, error) {
 		queries[name] = stmt
 	}
 
-	ua := &UserAccess{Queries: queries}
+	ua := &UserAccess{Db: db, SQ: psql, Queries: queries}
 
 	return ua, nil
 }

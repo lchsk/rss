@@ -65,7 +65,7 @@ func GetDBConnection() (*DbAccess, error) {
 func InitDbAccess(db *sql.DB) (*DbAccess, error) {
 	psql := sq.StatementBuilder.PlaceholderFormat(sq.Dollar)
 
-	ua, err := user.InitUserAccess(db)
+	ua, err := user.InitUserAccess(db, &psql)
 
 	if err != nil {
 		return nil, err
