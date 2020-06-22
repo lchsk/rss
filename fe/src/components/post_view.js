@@ -2,6 +2,10 @@ const m = require("mithril");
 const Config = require("../config");
 const { checkAuthAndExtract } = require("../actions/request");
 
+function backHistory () {
+    window.history.go(-1);
+}
+
 const PostView = {
   postData: {},
   oninit: node => {
@@ -34,10 +38,14 @@ const PostView = {
     const post = PostView.postData;
     return (
       <div>
-        <h1>{post.title}</h1>
-        <div>
+          <h1>{post.title}</h1>
+
+              <button title="Back" class="btn btn-dark" onclick={backHistory}>◄</button>
+
+          <div>
           {post.author_name} {post.author_email}
         </div>
+
         <div>{new Date(post.pub_at).toLocaleString()}</div>
         <div>
           <a href={post.url}>{post.url}</a>
