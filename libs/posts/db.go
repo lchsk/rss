@@ -181,8 +181,6 @@ func InitPostsAccess(db *sql.DB, psql *sq.StatementBuilderType) (*PostsAccess, e
 	queries := map[string]*sql.Stmt{}
 
 	queriesToPrepare := map[string]string{
-		// "fetchUserPostsInbox":      sqlFetchUserPostsInbox,
-		// "fetchUserPostsInboxCount": sqlFetchUserPostsInboxCount,
 	}
 
 	for name, sql := range queriesToPrepare {

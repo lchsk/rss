@@ -110,9 +110,12 @@ func (ca *ChannelAccess) InsertPost(id string,
 	authorName string,
 	authorEmail string,
 	channelId string) error {
-	stmt := ca.Queries["insertPost"]
 
-	_, err := stmt.Exec(id, pubAt, url, title, description, content, authorName, authorEmail, channelId)
+	query:= ca.SQ.
+		Insert("posts").Columns("id", "pub_at", "url", "title", "description", "content", "author_name", "author_email", "channel_id").
+		Values(id, pubAt, url, title, description, content, authorName, authorEmail, channelId)
+
+	_, err := query.RunWith(ca.Db).Exec()
 
 	if err != nil {
 		log.Printf("Error on InsertPost: %s", err)
@@ -143,11 +146,13 @@ func (ca *ChannelAccess) UpdateLastSuccessfulUpdateToNow(channelId string, title
 func (ca *ChannelAccess) InsertChannel(channelUrl string, categoryId *string) (*Channel, error) {
 	c := &Channel{}
 
-	stmt := ca.Queries["insertChannel"]
-
 	id := uuid.New()
 
-	err := stmt.QueryRow(id, channelUrl, categoryId).Scan(&c.ID)
+	query:= ca.SQ.
+		Insert("channels").Columns("id", "channel_url", "category_id").
+		Values(id, channelUrl, categoryId).Suffix("RETURNING id")
+
+	err := query.RunWith(ca.Db).Scan(&c.ID)
 
 	// TODO: Log postgres error
 
@@ -155,19 +160,23 @@ func (ca *ChannelAccess) InsertChannel(channelUrl string, categoryId *string) (*
 }
 
 func (ca *ChannelAccess) InsertUserCategory(title string, userId string, parentId *string) (uuid.UUID, error) {
-	stmt := ca.Queries["insertUserCategory"]
-
 	id := uuid.New()
 
-	_, err := stmt.Exec(id, title, userId, parentId)
+	query:= ca.SQ.
+		Insert("categories").Columns("id", "title", "user_id", "parent_id").
+		Values(id, title, userId, parentId)
+
+	_, err := query.RunWith(ca.Db).Exec()
 
 	return id, err
 }
 
 func (ca *ChannelAccess) InsertUserChannel(channelId string, userId string) error {
-	stmt := ca.Queries["insertUserChannel"]
+	query:= ca.SQ.
+		Insert("user_channels").Columns("id", "channel_id", "user_id").
+		Values(uuid.New(), channelId, userId)
 
-	_, err := stmt.Exec(uuid.New(), channelId, userId)
+	_, err := query.RunWith(ca.Db).Exec()
 
 	if err == nil {
 		log.Printf("Inserted user channel channel_id=%s user_id=%s\n", channelId, userId)
@@ -181,9 +190,10 @@ func (ca *ChannelAccess) InsertUserChannel(channelId string, userId string) erro
 func (ca *ChannelAccess) FetchChannelByUrl(channelUrl string) (*Channel, error) {
 	c := &Channel{}
 
-	stmt := ca.Queries["fetchChannelByUrl"]
-
-	err := stmt.QueryRow(channelUrl).Scan(&c.ID)
+		query := ca.SQ.Select("id").From("channels").Where(sq.Eq{
+			"channel_url": channelUrl,
+		}).Limit(1)
+		err := query.RunWith(ca.Db).Scan(&c.ID)
 
 	// TODO: Log postgres error
 
@@ -191,9 +201,11 @@ func (ca *ChannelAccess) FetchChannelByUrl(channelUrl string) (*Channel, error) 
 }
 
 func (ca *ChannelAccess) FetchChannelsToUpdate() ([]*ChannelToUpdate, error) {
-	stmt := ca.Queries["fetchChannelsToUpdate"]
+	query := ca.SQ.Select("id, channel_url").From("channels c").Where(
+		"now() at time zone 'utc' - c.last_successful_update >= c.refresh_interval",
+	).OrderBy("c.last_successful_update ASC").Limit(1000)
+	rows, err := query.RunWith(ca.Db).Query()
 
-	rows, err := stmt.Query()
 	defer rows.Close()
 
 	if err != nil {
@@ -216,9 +228,10 @@ func (ca *ChannelAccess) FetchChannelsToUpdate() ([]*ChannelToUpdate, error) {
 }
 
 func (ca *ChannelAccess) InsertUserPosts(channelId string, postsIds []string) {
-	stmt := ca.Queries["fetchChannelUsers"]
-
-	rows, err := stmt.Query(channelId)
+	query := ca.SQ.Select("user_id").From("user_channels").Where(
+		sq.Eq{"channel_id": channelId},
+	)
+	rows, err := query.RunWith(ca.Db).Query()
 
 	if err != nil {
 		log.Printf("Error getting user posts: %s", err)
@@ -260,9 +273,15 @@ func (ca *ChannelAccess) InsertUserPosts(channelId string, postsIds []string) {
 func (ca *ChannelAccess) FetchUserChannels(userId string) ([]UserChannel, error) {
 	userChannels := []UserChannel{}
 
-	stmt := ca.Queries["fetchUserChannels"]
+		query := ca.SQ.Select("c.ID as channel_id, c.title as channel_title, c.channel_url as channel_url, cat.id as category_id, cat.title as category_title").From(
+			"channels c").Join(
+			"user_channels uc on uc.channel_id = c.id",
+		).LeftJoin("categories cat on cat.id = c.category_id").Where(sq.Eq{
+			"uc.user_id": userId,
+			})
 
-	rows, err := stmt.Query(userId)
+		rows, err := query.RunWith(ca.Db).Query()
+
 	defer rows.Close()
 
 	if err != nil {
@@ -301,11 +320,12 @@ func (ca *ChannelAccess) FetchUserChannels(userId string) ([]UserChannel, error)
 func (ca *ChannelAccess) UpdateChannel(channelId string, feed *gofeed.Feed) error {
 	log.Printf("Updating channel_id=%s", channelId)
 
-	// Load last post published for this channel
-	stmt := ca.Queries["fetchLastPostDate"]
-
 	var date time.Time
-	err := stmt.QueryRow(channelId).Scan(&date)
+
+	query := ca.SQ.Select("pub_at").From("posts").Where(sq.Eq{
+		"channel_id": channelId,
+	}).OrderBy("pub_at DESC").Limit(1)
+	err := query.RunWith(ca.Db).Scan(&date)
 
 	var minPubTime time.Time
 
@@ -379,16 +399,6 @@ func InitChannelAccess(db *sql.DB, psql *sq.StatementBuilderType) (*ChannelAcces
 	queries := map[string]*sql.Stmt{}
 
 	queriesToPrepare := map[string]string{
-		"insertChannel":              sqlInsertChannel,
-		"insertUserChannel":          sqlInsertUserChannel,
-		"insertUserCategory":         sqlInsertUserCategory,
-		"insertPost":              sqlInsertPost,
-		"fetchChannelByUrl":          sqlFetchChannelByUrl,
-		"fetchUserChannels":          sqlFetchUserChannels,
-		"fetchChannelsToUpdate":      sqlFetchChannelsToUpdate,
-		"fetchLastPostDate":       sqlFetchLastPostDate,
-		"fetchChannelUsers":          sqlFetchChannelUsers,
-		"updateLastSuccessfulUpdate": sqlUpdateLastSuccessfulUpdate,
 	}
 
 	for name, sql := range queriesToPrepare {
