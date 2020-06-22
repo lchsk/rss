@@ -14,6 +14,7 @@ import (
 
 type AddNewChannelInput struct {
 	ChannelUrl string `json:"channel_url"`
+	CategoryId string `json:"category_id"`
 }
 
 type AddNewChannelResponse struct {
@@ -63,7 +64,7 @@ func handlerAddNewChannelUrl(w http.ResponseWriter, req *http.Request) {
 			insertUserChannel = true
 		} else {
 			// Channel doesn't exist - need to add it
-			channel, dbErr = DBA.Channel.InsertChannel(input.ChannelUrl, nil)
+			channel, dbErr = DBA.Channel.InsertChannel(input.ChannelUrl, input.CategoryId)
 
 			if dbErr == nil {
 				log.Printf("Added new channel URL: %s\n", input.ChannelUrl)

@@ -24,6 +24,7 @@ const (
 	logoutUrl                   = "/api/logout"
 	fetchCurrentUserUrl         = "/api/users/current"
 	fetchCurrentUserChannelsUrl = "/api/users/current/channels"
+	fetchCurrentUserCategoriesUrl = "/api/users/current/categories"
 	addNewChannelUrl            = "/api/channels"
 	fetchInboxPostsUrl          = "/api/posts-inbox"
 	fetchChannelPostsUrl        = "/api/posts/channels/{channel}"
@@ -53,8 +54,10 @@ func getRouter() *mux.Router {
 	// router.HandleFunc(refreshTokenUrl, Refresh).Methods(http.MethodPost)
 	router.HandleFunc(fetchCurrentUserUrl, checkValidToken(handlerFetchCurrentUser)).Methods(http.MethodGet)
 	router.HandleFunc(fetchCurrentUserChannelsUrl, checkValidToken(handlerFetchCurrentUserChannels)).Methods(http.MethodGet)
+	router.HandleFunc(fetchCurrentUserCategoriesUrl, checkValidToken(handlerFetchCurrentUserCategories)).Methods(http.MethodGet)
 	router.HandleFunc(addNewChannelUrl, checkValidToken(handlerAddNewChannelUrl)).Methods(http.MethodPost)
 	router.HandleFunc(fetchInboxPostsUrl, checkValidToken(handlerFetchInboxPosts)).Methods(http.MethodGet)
+
 	router.HandleFunc(fetchChannelPostsUrl, checkValidToken(handlerFetchChannelPosts)).Methods(http.MethodGet)
 	router.HandleFunc(fetchCategoryPostsUrl, checkValidToken(handlerFetchCategoryPosts)).Methods(http.MethodGet)
 	router.HandleFunc(PostsUrl, checkValidToken(handlerPosts)).Methods(http.MethodGet, http.MethodPatch)

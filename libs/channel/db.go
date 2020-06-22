@@ -30,6 +30,11 @@ type UserChannel struct {
 	DbCategoryTitle sql.NullString `json:"-"`
 }
 
+type UserCategory struct {
+	Id string `json:"id"`
+	Title string `json:"title"`
+}
+
 type ChannelToUpdate struct {
 	ChannelId  string
 	ChannelUrl string
@@ -144,7 +149,7 @@ func (ca *ChannelAccess) UpdateLastSuccessfulUpdateToNow(channelId string, title
 	return err
 }
 
-func (ca *ChannelAccess) InsertChannel(channelUrl string, categoryId *string) (*Channel, error) {
+func (ca *ChannelAccess) InsertChannel(channelUrl string, categoryId string) (*Channel, error) {
 	c := &Channel{}
 
 	id := uuid.New()
@@ -271,8 +276,41 @@ func (ca *ChannelAccess) InsertUserPosts(channelId string, postsIds []string) {
 
 }
 
+func (ca *ChannelAccess) FetchUserCategories(userId string) ([]UserCategory, error) {
+	var userCategories []UserCategory
+
+	query := ca.SQ.Select("id, title").From("categories").Where(sq.Eq{
+		"user_id": userId,
+	})
+
+	rows, err := query.RunWith(ca.Db).Query()
+
+	defer rows.Close()
+
+	if err != nil {
+		log.Printf("Error fetching user categories for user_id=%s: %s\n", userId, err)
+		return nil, err
+	}
+
+	for rows.Next() {
+		uc := UserCategory{}
+
+		if err := rows.Scan(
+			&uc.Id,
+			&uc.Title,
+		); err != nil {
+			log.Printf("Error reading user categories for user_id=%s: %s\n", userId, err)
+			return nil, err
+		}
+
+		userCategories = append(userCategories, uc)
+	}
+
+	return userCategories, err
+}
+
 func (ca *ChannelAccess) FetchUserChannels(userId string) ([]UserChannel, error) {
-	userChannels := []UserChannel{}
+	var userChannels []UserChannel
 
 		query := ca.SQ.Select("c.ID as channel_id, c.title as channel_title, c.channel_url as channel_url, cat.id as category_id, cat.title as category_title").From(
 			"channels c").Join(
