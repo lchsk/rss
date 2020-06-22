@@ -125,7 +125,7 @@ func installChannels(dba *db.DbAccess) {
 	bugs.ChannelNYTUSPoliticsId = channel.ID
 
 	// https: //rss.nytimes.com/services/xml/rss/nyt/Science.xml
-	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/nyt_science", nil)
+	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/nyt_science", &bugs.CategoryPoliticsId)
 	bugs.ChannelNYTScienceId = channel.ID
 }
 

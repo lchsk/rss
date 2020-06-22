@@ -66,7 +66,7 @@ create table channels (
   managing_editor text not null default '',
   pub_date_str text not null default '',
   pub_date timestamp without time zone null,
-  category_id uuid null,
+  category_id uuid not null,
 
   -- In seconds
   refresh_interval interval not null default '30 minutes',

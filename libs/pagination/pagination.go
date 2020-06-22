@@ -19,7 +19,7 @@ func GetPaginationValues(page int, count int, perPage int) (*PaginationValues, e
 	}
 
 	if lastPage := GetLastPage(count, perPage); page > lastPage {
-		return nil, errors.New("this page doesn't exist")
+		return &PaginationValues{Limit: 0, Offset: 0}, nil
 	}
 
 	offset := (page - 1) * perPage
