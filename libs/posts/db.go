@@ -33,6 +33,7 @@ type InboxPosts struct {
 type PostsAccess struct {
 	Db      *sql.DB
 	SQ      *sq.StatementBuilderType
+	DbCache sq.DBProxy
 	Queries map[string]*sql.Stmt
 }
 
@@ -122,33 +123,29 @@ func (ca *PostsAccess) getPosts(options FetchPostsOptions, userId string,
 	var rows *sql.Rows
 	var err error
 
+	var query sq.SelectBuilder
+
 	if options.FetchPostsMode == FetchPostsModeChannel {
-		users := ca.SQ.Select("p.id, p.pub_at, p.title, p.channel_id, up.status").From("posts p").Join(
+		query = ca.SQ.Select("p.id, p.pub_at, p.title, p.channel_id, up.status").From("posts p").Join(
 			"user_posts up on up.post_id = p.id",
 		).Where(sq.Eq{
 			"up.user_id":   userId,
 			"p.channel_id": options.ChannelId,
 		}).OrderBy("p.pub_at ASC").Limit(uint64(paginationValues.Limit)).Offset(uint64(paginationValues.Offset))
-
-		rows, err = users.RunWith(ca.Db).Query()
-
 	} else if options.FetchPostsMode == FetchPostsModeInbox {
-		users := ca.SQ.Select("p.id, p.pub_at, p.title, p.channel_id, up.status").From("posts p").Join(
+		query = ca.SQ.Select("p.id, p.pub_at, p.title, p.channel_id, up.status").From("posts p").Join(
 			"user_posts up on up.post_id = p.id",
 		).Where(sq.Eq{
 			"up.user_id":   userId}).OrderBy("p.pub_at ASC").Limit(uint64(paginationValues.Limit)).Offset(uint64(paginationValues.Offset))
-
-		rows, err = users.RunWith(ca.Db).Query()
-
 	} else if options.FetchPostsMode == FetchPostsModeChannels {
-		users := ca.SQ.Select("p.id, p.pub_at, p.title, p.channel_id, up.status").From("posts p").Join(
+		query = ca.SQ.Select("p.id, p.pub_at, p.title, p.channel_id, up.status").From("posts p").Join(
 			"user_posts up on up.post_id = p.id",
 		).Where(sq.Eq{
 			"p.channel_id": options.ChannelIds,
 			"up.user_id":   userId}).OrderBy("p.pub_at ASC").Limit(uint64(paginationValues.Limit)).Offset(uint64(paginationValues.Offset))
-
-		rows, err = users.RunWith(ca.Db).Query()
 	}
+
+	rows, err = query.RunWith(ca.DbCache).Query()
 
 	return rows, err
 }
@@ -202,7 +199,7 @@ func (ca *PostsAccess) FetchInboxPosts(options FetchPostsOptions, userId string,
 	return inboxPosts, nil
 }
 
-func InitPostsAccess(db *sql.DB, psql *sq.StatementBuilderType) (*PostsAccess, error) {
+func InitPostsAccess(db *sql.DB, DbCache sq.DBProxy, psql *sq.StatementBuilderType) (*PostsAccess, error) {
 	queries := map[string]*sql.Stmt{}
 
 	queriesToPrepare := map[string]string{
@@ -218,7 +215,7 @@ func InitPostsAccess(db *sql.DB, psql *sq.StatementBuilderType) (*PostsAccess, e
 		queries[name] = stmt
 	}
 
-	ca := &PostsAccess{Db: db, SQ: psql, Queries: queries}
+	ca := &PostsAccess{Db: db, SQ: psql, DbCache: DbCache, Queries: queries}
 
 	return ca, nil
 }

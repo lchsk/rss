@@ -20,6 +20,7 @@ type User struct {
 type UserAccess struct {
 	Db      *sql.DB
 	SQ      *sq.StatementBuilderType
+	DbCache sq.DBProxy
 	Queries map[string]*sql.Stmt
 }
 
@@ -83,7 +84,7 @@ func (ua *UserAccess) InsertUser(username string, email string, password string)
 	return u, err
 }
 
-func InitUserAccess(db *sql.DB, psql *sq.StatementBuilderType) (*UserAccess, error) {
+func InitUserAccess(db *sql.DB, DbCache sq.DBProxy, psql *sq.StatementBuilderType) (*UserAccess, error) {
 	queries := map[string]*sql.Stmt{}
 
 	queriesToPrepare := map[string]string{
@@ -99,7 +100,7 @@ func InitUserAccess(db *sql.DB, psql *sq.StatementBuilderType) (*UserAccess, err
 		queries[name] = stmt
 	}
 
-	ua := &UserAccess{Db: db, SQ: psql, Queries: queries}
+	ua := &UserAccess{Db: db, SQ: psql, DbCache: DbCache, Queries: queries}
 
 	return ua, nil
 }

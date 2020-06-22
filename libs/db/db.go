@@ -17,6 +17,8 @@ import (
 type DbAccess struct {
 	DB      *sql.DB
 	SQ      *sq.StatementBuilderType
+	DbCache sq.DBProxy
+
 	User    *user.UserAccess
 	Channel *channel.ChannelAccess
 	Posts   *posts.PostsAccess
@@ -63,27 +65,29 @@ func GetDBConnection() (*DbAccess, error) {
 }
 
 func InitDbAccess(db *sql.DB) (*DbAccess, error) {
+	dbCache := sq.NewStmtCacher(db)
+
 	psql := sq.StatementBuilder.PlaceholderFormat(sq.Dollar)
 
-	ua, err := user.InitUserAccess(db, &psql)
+	ua, err := user.InitUserAccess(db, dbCache, &psql)
 
 	if err != nil {
 		return nil, err
 	}
 
-	ca, err := channel.InitChannelAccess(db, &psql)
+	ca, err := channel.InitChannelAccess(db, dbCache, &psql)
 
 	if err != nil {
 		return nil, err
 	}
 
-	pa, err := posts.InitPostsAccess(db, &psql)
+	pa, err := posts.InitPostsAccess(db, dbCache, &psql)
 
 	if err != nil {
 		return nil, err
 	}
 
-	return &DbAccess{DB: db, SQ: &psql, User: ua, Channel: ca, Posts: pa}, nil
+	return &DbAccess{DB: db, DbCache: dbCache, SQ: &psql, User: ua, Channel: ca, Posts: pa}, nil
 }
 
 func GetDBConn(host, user, password, dbname, port string) (*sql.DB, error) {

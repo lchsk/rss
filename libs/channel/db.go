@@ -38,6 +38,7 @@ type ChannelToUpdate struct {
 type ChannelAccess struct {
 	Db      *sql.DB
 	SQ      *sq.StatementBuilderType
+	DbCache sq.DBProxy
 	Queries map[string]*sql.Stmt
 }
 
@@ -395,7 +396,7 @@ func (ca *ChannelAccess) UpdateChannel(channelId string, feed *gofeed.Feed) erro
 	return nil
 }
 
-func InitChannelAccess(db *sql.DB, psql *sq.StatementBuilderType) (*ChannelAccess, error) {
+func InitChannelAccess(db *sql.DB, DbCache sq.DBProxy, psql *sq.StatementBuilderType) (*ChannelAccess, error) {
 	queries := map[string]*sql.Stmt{}
 
 	queriesToPrepare := map[string]string{
@@ -411,7 +412,7 @@ func InitChannelAccess(db *sql.DB, psql *sq.StatementBuilderType) (*ChannelAcces
 		queries[name] = stmt
 	}
 
-	ca := &ChannelAccess{Db: db, SQ: psql, Queries: queries}
+	ca := &ChannelAccess{Db: db, SQ: psql, DbCache: DbCache, Queries: queries}
 
 	return ca, nil
 }
