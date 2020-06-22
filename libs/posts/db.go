@@ -90,9 +90,20 @@ func (ca *PostsAccess) getPostsCount(options FetchPostsOptions, userId string) (
 	var err error
 
 	if options.FetchPostsMode == FetchPostsModeChannel {
-		err = ca.Db.QueryRow(sqlFetchUserPostsChannelCount, userId, options.ChannelId).Scan(&postsCount)
+		users := ca.SQ.Select("count(p.id)").From("posts p").Join(
+			"user_posts up on up.post_id = p.id",
+		).Where(sq.Eq{
+			"p.channel_id": options.ChannelId,
+			"up.user_id":   userId,
+		})
+		err = users.RunWith(ca.Db).Scan(&postsCount)
 	} else if options.FetchPostsMode == FetchPostsModeInbox {
-		err = ca.Db.QueryRow(sqlFetchUserPostsInboxCount, userId).Scan(&postsCount)
+		users := ca.SQ.Select("count(p.id)").From("posts p").Join(
+			"user_posts up on up.post_id = p.id",
+		).Where(sq.Eq{
+			"up.user_id":   userId})
+		err = users.RunWith(ca.Db).Scan(&postsCount)
+
 	} else if options.FetchPostsMode == FetchPostsModeChannels {
 		users := ca.SQ.Select("count(p.id)").From("posts p").Join(
 			"user_posts up on up.post_id = p.id",
@@ -112,9 +123,23 @@ func (ca *PostsAccess) getPosts(options FetchPostsOptions, userId string,
 	var err error
 
 	if options.FetchPostsMode == FetchPostsModeChannel {
-		rows, err = ca.Db.Query(sqlFetchUserPostsChannel, userId, options.ChannelId, paginationValues.Limit, paginationValues.Offset)
+		users := ca.SQ.Select("p.id, p.pub_at, p.title, p.channel_id, up.status").From("posts p").Join(
+			"user_posts up on up.post_id = p.id",
+		).Where(sq.Eq{
+			"up.user_id":   userId,
+			"p.channel_id": options.ChannelId,
+		}).OrderBy("p.pub_at ASC").Limit(uint64(paginationValues.Limit)).Offset(uint64(paginationValues.Offset))
+
+		rows, err = users.RunWith(ca.Db).Query()
+
 	} else if options.FetchPostsMode == FetchPostsModeInbox {
-		rows, err = ca.Db.Query(sqlFetchUserPostsInbox, userId, paginationValues.Limit, paginationValues.Offset)
+		users := ca.SQ.Select("p.id, p.pub_at, p.title, p.channel_id, up.status").From("posts p").Join(
+			"user_posts up on up.post_id = p.id",
+		).Where(sq.Eq{
+			"up.user_id":   userId}).OrderBy("p.pub_at ASC").Limit(uint64(paginationValues.Limit)).Offset(uint64(paginationValues.Offset))
+
+		rows, err = users.RunWith(ca.Db).Query()
+
 	} else if options.FetchPostsMode == FetchPostsModeChannels {
 		users := ca.SQ.Select("p.id, p.pub_at, p.title, p.channel_id, up.status").From("posts p").Join(
 			"user_posts up on up.post_id = p.id",
