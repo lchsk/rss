@@ -29,6 +29,8 @@ const PostsList = {
       return;
     }
 
+    Posts.data = Posts.data || [];
+
     let prevButtonCls = "";
     let nextButtonCls = "";
 
@@ -56,17 +58,17 @@ const PostsList = {
         title = User.channelsByCategory[id].categoryTitle;
       }
     }
-
-    let prev = getLink(
-      ".btn .btn-dark .together-left" + prevButtonCls,
-      base_url + "?page=" + pagination.prev,
-      "◄"
-    );
-    let next = getLink(
-      ".btn .btn-dark .together-right" + nextButtonCls,
-      base_url + "?page=" + pagination.next,
-      "►"
-    );
+    
+      const prev = getLink(
+          ".btn .btn-dark .together-left" + prevButtonCls,
+          base_url + "?page=" + pagination.prev,
+          "◄"
+      );
+      const next = getLink(
+          ".btn .btn-dark .together-right" + nextButtonCls,
+          base_url + "?page=" + pagination.next,
+          "►"
+      );
 
     for (let i = 0; i < Posts.data.length; i++) {
       const post = Posts.data[i];

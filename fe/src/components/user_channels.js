@@ -14,6 +14,10 @@ const UserChannels = {
     // User.loadChannels();
   },
   view: node => {
+    if (!User.channels) {
+      return;
+    }
+
     var channels = defDict([]);
     var categories = defDict({});
 

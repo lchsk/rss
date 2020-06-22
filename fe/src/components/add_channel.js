@@ -1,6 +1,7 @@
 const m = require("mithril");
 const { getSingleError } = require("../common/error");
 const getLoadingView = require("./loading");
+const { checkAuthAndExtract } = require("../actions/request");
 
 const Config = require("../config");
 
@@ -13,11 +14,18 @@ const AddChannel = {
   submit: function() {
     AddChannel.state = "in_progress";
 
+      const channelUrlInput = document.getElementById("form-channel-url");
+      const categoryInput = document.getElementById("form-channel-category");
+      const categoryId = categoryInput[categoryInput.selectedIndex].id;
+
     return m
       .request({
         method: "POST",
         url: Config.api_url + "/channels",
-        data: AddChannel.current,
+        data: {
+            "channel_url": channelUrlInput.value,
+            "category_id": categoryId,
+        },
         withCredentials: true
       })
       .then(result => {
@@ -33,29 +41,50 @@ const AddChannel = {
 };
 
 const AddNewChannelComponent = {
+    user_categories: [],
+    oninit: node => {
+        return m.request({
+            method: "GET",
+            url: Config.api_url + "/users/current/categories",
+            withCredentials: true,
+            responseType: "json",
+            extract: checkAuthAndExtract
+        }).then(function(result) {
+            AddNewChannelComponent.user_categories = result['response']['user_categories'];
+        });
+    },
   view: function(node) {
     const getLoading = () => {
-      return m("div", getLoadingView());
+      return (
+          <div>
+          {getLoadingView()}
+          </div>
+      );
     };
 
+    let options = [];
+
+      for (let c in AddNewChannelComponent.user_categories) {
+          const category = AddNewChannelComponent.user_categories[c];
+          options.push(<option id={category['id']}>{category['title']}</option>);
+      }
+
     const getForm = () => {
-      return m("div.form-group", [
-        m("div#new-channel-error", AddChannel.current.error),
-        m("div.col-lg-5", [
-          m(
-            "input[type=text][placeholder=RSS Channel URL] autofocus .form-control .form-control-lg",
-            {
-              autofocus: true,
-              oninput: m.withAttr("value", value => {
-                AddChannel.current.channel_url = value;
-              })
-            }
-          ),
-          m("small.form-text .text-muted", "Some helpful info"),
-          m("div", { style: { paddingTop: "8px" } }),
-          m("button[type=submit] .btn .btn-lg .btn-primary", "Add")
-        ])
-      ]);
+
+      return (
+          <div class="form-group">
+            <div class="new-channel-error">{AddChannel.current.error}</div>
+            <div class="col-lg-5">
+              <input id="form-channel-url" type="text" placeholder="RSS Channel URL" autofocus class="form-control"></input>
+              <div class="mt-2">
+                  <select id="form-channel-category">
+                    {options}
+                  </select>
+              </div>
+              <button type="submit" class="btn btn-primary mt-2">Add</button>
+            </div>
+          </div>
+      );
     };
 
     const content =

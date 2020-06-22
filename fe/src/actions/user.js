@@ -37,8 +37,8 @@ const User = {
 
         for (let i = 0; i < User.channels.length; i++) {
           const channel = User.channels[i];
-          User.channelsByCategory[channel.category_id] = {
-            categoryTitle: channel.category_title
+          User.channelsByCategory[channel]["category_id"] = {
+            categoryTitle: channel["category_title"]
           };
         }
       })
