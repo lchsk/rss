@@ -118,6 +118,14 @@ func runAPI() {
 	apiPort := os.Getenv("API_PORT")
 
 	log.Print(fmt.Sprintf("DEBUG mode: %v\n", DEBUG))
+
+	if DEBUG {
+		log.Println("RSS Channels for debugging")
+		for channel, _ := range testChannels {
+			log.Printf("http://localhost:%s/api/debug/channels/%s", apiPort, channel)
+		}
+	}
+
 	log.Print(fmt.Sprintf("Running API on port %s", apiPort))
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", apiPort), api.CommonMiddleware(router)))
 }

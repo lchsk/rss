@@ -94,6 +94,8 @@ func handlerAddNewChannelUrl(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
+	go DBA.Channel.RefreshChannel(channel.ID)
+
 	w.WriteHeader(201)
 	json.NewEncoder(w).Encode(AddNewChannelResponse{
 		Channel: channel,

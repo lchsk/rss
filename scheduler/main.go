@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/joho/godotenv"
-	"github.com/lchsk/rss/libs/comms"
 	"github.com/lchsk/rss/libs/channel"
+	"github.com/lchsk/rss/libs/comms"
 	"github.com/lchsk/rss/libs/db"
 	"github.com/lchsk/rss/libs/tasktimer"
 )
@@ -63,13 +63,7 @@ func main() {
 		Every:         2000 * time.Millisecond,
 		LastExecution: time.Now().UTC(),
 		Func: func() {
-			err := DBA.Channel.UpdateChannels()
-
-			if err == nil {
-				log.Println("UpdateChannels finished successfully")
-			} else {
-				log.Printf("Error updating channels: %s", err)
-			}
+			DBA.Channel.UpdateChannelsDirectly()
 		},
 	})
 

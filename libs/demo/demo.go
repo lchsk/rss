@@ -109,23 +109,23 @@ func installChannels(dba *db.DbAccess) {
 	ca := dba.Channel
 
 	// https://fivethirtyeight.com/features/feed
-	channel, _ := ca.InsertChannel("http://localhost:8000/api/debug/channels/538_features", &bugs.CategoryNewsId)
+	channel, _ := ca.InsertChannel("http://localhost:8000/api/debug/channels/538_features", bugs.CategoryNewsId)
 	bugs.Channel538FeedId = channel.ID
 
 	// https://fivethirtyeight.com/politics/feed
-	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/538_politics", &bugs.CategoryPoliticsId)
+	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/538_politics", bugs.CategoryPoliticsId)
 	bugs.Channel538PoliticsId = channel.ID
 
 	// https://fivethirtyeight.com/contributors/nate-silver/feed/
-	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/538_nate", &bugs.CategoryBlogsId)
+	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/538_nate", bugs.CategoryBlogsId)
 	bugs.Channel538NateId = channel.ID
 
 	// https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml
-	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/nyt_politics", &bugs.CategoryPoliticsId)
+	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/nyt_politics", bugs.CategoryPoliticsId)
 	bugs.ChannelNYTUSPoliticsId = channel.ID
 
 	// https: //rss.nytimes.com/services/xml/rss/nyt/Science.xml
-	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/nyt_science", &bugs.CategoryPoliticsId)
+	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/nyt_science", bugs.CategoryPoliticsId)
 	bugs.ChannelNYTScienceId = channel.ID
 }
 
