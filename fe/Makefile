@@ -7,3 +7,6 @@ prettier:
 
 lint:
 	./node_modules/eslint/bin/eslint.js -c ./.eslintrs.js src/
+
+run:
+	npm run start
