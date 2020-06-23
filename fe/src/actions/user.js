@@ -14,6 +14,7 @@ const User = {
   data: {},
   channels: [],
   channelsByCategory: {},
+    channelsById: {},
   authState: UserAuthState.UNKNOWN,
 
   defaultSuccess: () => {
@@ -37,9 +38,12 @@ const User = {
 
         for (let i = 0; i < User.channels.length; i++) {
           const channel = User.channels[i];
-          User.channelsByCategory[channel]["category_id"] = {
+          User.channelsByCategory[channel["category_id"]] = {
             categoryTitle: channel["category_title"]
           };
+            User.channelsById[channel["channel_id"]] = {
+                channelTitle: channel["channel_title"]
+            };
         }
       })
       .catch(e => {

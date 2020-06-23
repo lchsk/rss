@@ -3,6 +3,7 @@ const m = require("mithril");
 const Posts = require("../actions/posts");
 const getLink = require("./link");
 const User = require("../actions/user");
+const UserChannels = require("./user_channels");
 
 const PostsList = {
   oninit: function(node) {
@@ -22,7 +23,6 @@ const PostsList = {
   view: function(node) {
     let rows = [];
 
-    console.log("posts", Posts);
     const pagination = Posts.pagination;
 
     if (pagination === null) {
@@ -51,6 +51,9 @@ const PostsList = {
     } else if (node.attrs.type === "channel") {
       const id = m.route.param("id");
       base_url = "/channels/" + id;
+      if (User.channelsById[id] !== undefined) {
+        title = User.channelsById[id].channelTitle;
+      }
     } else if (node.attrs.type === "category") {
       const id = m.route.param("id");
       base_url = "/categories/" + id;

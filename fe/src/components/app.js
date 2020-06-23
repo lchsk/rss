@@ -6,6 +6,8 @@ const User = require("../actions/user");
 const Config = require("../config");
 const LoginComponent = require("./login");
 const Footer = require("./Footer");
+const Refresh = require("../common/Refresh");
+const Posts = require("../actions/posts");
 
 const App = {
   oninit: node => {
@@ -33,6 +35,30 @@ const App = {
     });
   },
   view: node => {
+    if (Refresh.posts) {
+      Refresh.posts = false;
+      Refresh.postsIntervalId = setInterval(function(){
+        const page = m.route.param("page");
+        const id = m.route.param("id");
+        const ret = Posts.loadChannels(node.attrs.type, page, id);
+        ret.then(result => {
+          clearInterval(Refresh.postsIntervalId);
+          Refresh.postsIntervalId = null;
+        })
+      }, 1000);
+    }
+
+    if (Refresh.userChannels) {
+      Refresh.userChannels = false;
+      Refresh.userChannelsId = setInterval(function(){
+        const ret = User.loadChannels();
+        ret.then(result => {
+          clearInterval(Refresh.userChannelsId);
+          Refresh.userChannelsId = null;
+        })
+      }, 1000);
+    }
+
     return (
         <div class="app">
           <NavBar>

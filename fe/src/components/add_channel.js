@@ -1,7 +1,10 @@
 const m = require("mithril");
 const { getSingleError } = require("../common/error");
+const Refresh = require("../common/Refresh");
 const getLoadingView = require("./loading");
+const UserChannels = require("./user_channels");
 const { checkAuthAndExtract } = require("../actions/request");
+const User = require("../actions/user");
 
 const Config = require("../config");
 
@@ -31,7 +34,10 @@ const AddChannel = {
       .then(result => {
         this.setError("");
         AddChannel.state = "ready";
-        m.route.set("/index");
+        Refresh.posts = true;
+        Refresh.userChannels = true;
+
+        m.route.set("/");
       })
       .catch(e => {
         AddChannel.state = "ready";
