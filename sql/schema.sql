@@ -66,20 +66,14 @@ create table channels (
   managing_editor text not null default '',
   pub_date_str text not null default '',
   pub_date timestamp without time zone null,
-  category_id uuid not null,
 
   -- In seconds
   refresh_interval interval not null default '30 minutes',
-  last_successful_update timestamp without time zone default (now() at time zone 'utc') not null,
-
-  constraint fk_channels_category_id
-     foreign key (category_id)
-     references categories (id)
+  last_successful_update timestamp without time zone default (now() at time zone 'utc') not null
 );
 
 drop index if exists idx_channels_channel_url;
 create unique index idx_channels_channel_url on channels(channel_url);
-create index channels_category_id on channels(category_id);
 
 -- user_channels
 
@@ -90,17 +84,22 @@ create table user_channels (
 
   channel_id uuid not null,
   user_id uuid not null,
+  category_id uuid not null,
 
   constraint fk_user_channels_channel_id
      foreign key (channel_id)
      references channels (id),
   constraint fk_user_channels_user_id
      foreign key (user_id)
-     references users (id)
+     references users (id),
+  constraint fk_channels_category_id
+      foreign key (category_id)
+          references categories (id)
 );
 
 drop index if exists idx_user_channels_channel_id_user_id;
 create unique index idx_user_channels_channel_id_user_id on user_channels(channel_id, user_id);
+create unique index idx_user_channels_channel_id_category_id on user_channels(channel_id, category_id);
 
 -- posts
 
@@ -151,3 +150,4 @@ create table user_posts (
 );
 create index idx_user_posts_user_id on user_posts(user_id);
 create index ids_user_posts_post_id on user_posts(post_id);
+create unique index ids_user_posts_unique_user_post on user_posts(user_id, post_id);
