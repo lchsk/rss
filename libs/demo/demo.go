@@ -109,33 +109,33 @@ func installChannels(dba *db.DbAccess) {
 	ca := dba.Channel
 
 	// https://fivethirtyeight.com/features/feed
-	channel, _ := ca.InsertChannel("http://localhost:8000/api/debug/channels/538_features", bugs.CategoryNewsId)
+	channel, _ := ca.InsertChannel("http://localhost:8000/api/debug/channels/538_features")
 	bugs.Channel538FeedId = channel.ID
 
 	// https://fivethirtyeight.com/politics/feed
-	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/538_politics", bugs.CategoryPoliticsId)
+	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/538_politics")
 	bugs.Channel538PoliticsId = channel.ID
 
 	// https://fivethirtyeight.com/contributors/nate-silver/feed/
-	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/538_nate", bugs.CategoryBlogsId)
+	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/538_nate")
 	bugs.Channel538NateId = channel.ID
 
 	// https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml
-	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/nyt_politics", bugs.CategoryPoliticsId)
+	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/nyt_politics")
 	bugs.ChannelNYTUSPoliticsId = channel.ID
 
 	// https: //rss.nytimes.com/services/xml/rss/nyt/Science.xml
-	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/nyt_science", bugs.CategoryPoliticsId)
+	channel, _ = ca.InsertChannel("http://localhost:8000/api/debug/channels/nyt_science")
 	bugs.ChannelNYTScienceId = channel.ID
 }
 
 func installUserChannels(dba *db.DbAccess) {
 	ca := dba.Channel
 
-	ca.InsertUserChannel(bugs.Channel538FeedId, bugs.UserId)
-	ca.InsertUserChannel(bugs.Channel538NateId, bugs.UserId)
-	ca.InsertUserChannel(bugs.ChannelNYTUSPoliticsId, bugs.UserId)
-	ca.InsertUserChannel(bugs.ChannelNYTScienceId, bugs.UserId)
+	ca.InsertUserChannel(bugs.Channel538FeedId, bugs.UserId, bugs.CategorySportId)
+	ca.InsertUserChannel(bugs.Channel538NateId, bugs.UserId, bugs.CategoryBlogsId)
+	ca.InsertUserChannel(bugs.ChannelNYTUSPoliticsId, bugs.UserId, bugs.CategoryPoliticsId)
+	ca.InsertUserChannel(bugs.ChannelNYTScienceId, bugs.UserId, bugs.CategoryNewsId)
 }
 
 func installCategories(dba *db.DbAccess) {

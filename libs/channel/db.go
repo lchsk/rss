@@ -149,14 +149,14 @@ func (ca *ChannelAccess) UpdateLastSuccessfulUpdateToNow(channelId string, title
 	return err
 }
 
-func (ca *ChannelAccess) InsertChannel(channelUrl string, categoryId string) (*Channel, error) {
+func (ca *ChannelAccess) InsertChannel(channelUrl string) (*Channel, error) {
 	c := &Channel{}
 
 	id := uuid.New()
 
 	query:= ca.SQ.
-		Insert("channels").Columns("id", "channel_url", "category_id").
-		Values(id, channelUrl, categoryId).Suffix("RETURNING id")
+		Insert("channels").Columns("id", "channel_url").
+		Values(id, channelUrl).Suffix("RETURNING id")
 
 	err := query.RunWith(ca.Db).Scan(&c.ID)
 
@@ -177,10 +177,10 @@ func (ca *ChannelAccess) InsertUserCategory(title string, userId string, parentI
 	return id, err
 }
 
-func (ca *ChannelAccess) InsertUserChannel(channelId string, userId string) error {
+func (ca *ChannelAccess) InsertUserChannel(channelId string, userId string, categoryId string) error {
 	query:= ca.SQ.
-		Insert("user_channels").Columns("id", "channel_id", "user_id").
-		Values(uuid.New(), channelId, userId)
+		Insert("user_channels").Columns("id", "channel_id", "user_id", "category_id").
+		Values(uuid.New(), channelId, userId, categoryId)
 
 	_, err := query.RunWith(ca.Db).Exec()
 
@@ -315,7 +315,7 @@ func (ca *ChannelAccess) FetchUserChannels(userId string) ([]UserChannel, error)
 		query := ca.SQ.Select("c.ID as channel_id, c.title as channel_title, c.channel_url as channel_url, cat.id as category_id, cat.title as category_title").From(
 			"channels c").Join(
 			"user_channels uc on uc.channel_id = c.id",
-		).LeftJoin("categories cat on cat.id = c.category_id").Where(sq.Eq{
+		).Join("categories cat on cat.id = uc.category_id").Where(sq.Eq{
 			"uc.user_id": userId,
 			})
 

@@ -52,6 +52,7 @@ func handlerAddNewChannelUrl(w http.ResponseWriter, req *http.Request) {
 	}
 
 	var channel *channel.Channel
+	action := ""
 
 	if err == nil {
 		var insertUserChannel bool = false
@@ -62,13 +63,15 @@ func handlerAddNewChannelUrl(w http.ResponseWriter, req *http.Request) {
 		if dbErr == nil {
 			// Channel exists - we can insert user channel
 			insertUserChannel = true
+			action = "add_posts_to_user"
 		} else {
 			// Channel doesn't exist - need to add it
-			channel, dbErr = DBA.Channel.InsertChannel(input.ChannelUrl, input.CategoryId)
+			channel, dbErr = DBA.Channel.InsertChannel(input.ChannelUrl)
 
 			if dbErr == nil {
 				log.Printf("Added new channel URL: %s\n", input.ChannelUrl)
 				insertUserChannel = true
+				action = "refresh_channel"
 			} else {
 				log.Printf("Error insertint new channel %s: %s\n", input.ChannelUrl, dbErr)
 				err = errors.New(errDbError)
@@ -76,7 +79,7 @@ func handlerAddNewChannelUrl(w http.ResponseWriter, req *http.Request) {
 		}
 
 		if insertUserChannel {
-			userChannelErr := DBA.Channel.InsertUserChannel(channel.ID, tokenAuth.UserId)
+			userChannelErr := DBA.Channel.InsertUserChannel(channel.ID, tokenAuth.UserId, input.CategoryId)
 
 			if userChannelErr != nil {
 				log.Printf("Error inserting user channel user_id=%s channel_id=%s : %s\n", channel.ID, tokenAuth.UserId, userChannelErr)
@@ -94,7 +97,12 @@ func handlerAddNewChannelUrl(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	go DBA.Channel.RefreshChannel(channel.ID)
+	if action == "refresh_channel" {
+		go DBA.Channel.RefreshChannel(channel.ID)
+	} else if action == "add_posts_to_user" {
+		go DBA.Channel.AddPostsToUser(channel.ID, tokenAuth.UserId)
+	}
+
 
 	w.WriteHeader(201)
 	json.NewEncoder(w).Encode(AddNewChannelResponse{
