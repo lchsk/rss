@@ -95,6 +95,9 @@ var SignUpComponent = {
               <button type="submit" className="btn btn-primary">Sign up</button>
               <div className="text-center mt-3">{getLink(".mb-0", "/login", "Sign in if you already have an account")}</div>
             </div>
+            <div class="text-muted small mt-4">
+              By continuing, you agree to <a href="/pages/terms.html">Terms of Service</a> and <a href="/pages/privacy.html">Privacy Policy</a>.
+            </div>
           </form>
       );
     }
