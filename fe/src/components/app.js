@@ -11,6 +11,8 @@ const Posts = require("../actions/posts");
 
 const App = {
   oninit: node => {
+    const redirectTo = node.attrs['redirectTo'];
+
     m.request({
       method: "GET",
       url: Config.api_url + "/users/current",
@@ -19,12 +21,21 @@ const App = {
       extract: function(xhr, options) {
         if (xhr.status === 401) {
           LoginComponent.signedIn = false;
+
+          if (redirectTo === "landing") {
+            window.location.href = Config.landing_url;
+          }
+
           return false;
         } else if (xhr.status === 200) {
           const response = options.deserialize(xhr.response);
           LoginComponent.username = response['username'];
-          console.log("here", options.deserialize(xhr.response));
           LoginComponent.signedIn = true;
+
+          if (redirectTo === "landing") {
+            m.route.set("/index");
+          }
+
           return true;
         }
 
@@ -35,6 +46,9 @@ const App = {
     });
   },
   view: node => {
+    if (node.attrs['redirectTo'] === "landing" && LoginComponent.signedIn) {
+      m.route.set("/index");
+    }
     if (Refresh.posts) {
       Refresh.posts = false;
       Refresh.postsIntervalId = setInterval(function(){
