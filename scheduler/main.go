@@ -60,7 +60,7 @@ func main() {
 	// TODO: Improve the interface for adding a task
 	mgr.Interval = 1 * time.Second
 	mgr.Tasks = append(mgr.Tasks, &tasktimer.Task{
-		Every:         2000 * time.Millisecond,
+		Every:         20 * time.Minute,
 		LastExecution: time.Now().UTC(),
 		Func: func() {
 			DBA.Channel.UpdateChannelsDirectly()
