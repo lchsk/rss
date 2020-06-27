@@ -1,29 +1,33 @@
-const webpack = require('webpack');
+const webpack = require("webpack");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   module: {
-      rules: [{
-            test: /\.js$/,
-            exclude: /\/node_modules\//,
-            use: {
-                loader: 'babel-loader'
-            }
-        }]
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /\/node_modules\//,
+        use: {
+          loader: "babel-loader"
+        }
+      }
+    ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ["*", ".js", ".jsx"]
   },
   output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
-    filename: 'bundle.js'
+    path: __dirname + "/dist/data/",
+    // publicPath: "/",
+    filename: "bundle.js"
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
-    contentBase: './dist',
+    contentBase: "./dist",
+    writeToDisk: (filePath) => {
+      return /bundle.js$/.test(filePath);
+    },
+      // writeToDisk: true,
     hot: true
   }
 };
