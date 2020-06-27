@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="{{description}}">
+    <meta name="keywords" content="{{keywords}}">
+    <meta name="author" content="rsshawk.com">
+    <title>{{title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../data/bundle.css">
+</head>
+<body>
+    {{#include top_menu.html}}
+    <div class="container">
+        <div class="row">
+            <div>
+                <h1 class="display-4">{{title}}</h1>
+                {{body}}
+            </div>
+        </div>
+    </div>
+    {{#include footer_menu.html}}
+</body>
+</html>
