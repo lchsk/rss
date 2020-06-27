@@ -84,10 +84,14 @@ select
 from
 	categories c
 inner join subcategories s on
-	s.id = c.parent_id ) select
+	s.id = c.parent_id 
+) 
+select
 	c.id
 from
 	subcategories s
+join user_channels uc on
+	uc.category_id = s.id
 join channels c on
-	c.category_id = s.id
+	c.id = uc.channel_id
 `
