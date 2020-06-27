@@ -13,7 +13,15 @@ const AddNewChannelComponent = require("./components/add_channel");
 m.route.prefix("#!");
 
 m.route(document.body, "/", {
-  "/": {
+    "/": {
+        render: function() {
+            return (
+                <App redirectTo="landing">
+                </App>
+            );
+        }
+    },
+  "/index": {
     render: function() {
       return (
         <App>

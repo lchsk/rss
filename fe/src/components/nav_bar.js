@@ -33,7 +33,7 @@ const NavBar = {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarToggler">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/#!/index">
           <img src="data/text2011.png" alt="rss"/>
         </a>
         <div class="mr-auto mt-2 mt-lg-0"></div>

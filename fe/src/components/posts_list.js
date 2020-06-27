@@ -46,7 +46,7 @@ const PostsList = {
     let title = "";
 
     if (node.attrs.type === "inbox") {
-      base_url = "/";
+      base_url = "/index";
       title = "Inbox";
     } else if (node.attrs.type === "channel") {
       const id = m.route.param("id");
