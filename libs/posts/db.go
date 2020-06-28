@@ -131,18 +131,18 @@ func (ca *PostsAccess) getPosts(options FetchPostsOptions, userId string,
 		).Where(sq.Eq{
 			"up.user_id":   userId,
 			"p.channel_id": options.ChannelId,
-		}).OrderBy("p.pub_at ASC").Limit(uint64(paginationValues.Limit)).Offset(uint64(paginationValues.Offset))
+		}).OrderBy("p.pub_at DESC").Limit(uint64(paginationValues.Limit)).Offset(uint64(paginationValues.Offset))
 	} else if options.FetchPostsMode == FetchPostsModeInbox {
 		query = ca.SQ.Select("p.id, p.pub_at, p.title, p.channel_id, up.status").From("posts p").Join(
 			"user_posts up on up.post_id = p.id",
 		).Where(sq.Eq{
-			"up.user_id":   userId}).OrderBy("p.pub_at ASC").Limit(uint64(paginationValues.Limit)).Offset(uint64(paginationValues.Offset))
+			"up.user_id":   userId}).OrderBy("p.pub_at DESC").Limit(uint64(paginationValues.Limit)).Offset(uint64(paginationValues.Offset))
 	} else if options.FetchPostsMode == FetchPostsModeChannels {
 		query = ca.SQ.Select("p.id, p.pub_at, p.title, p.channel_id, up.status").From("posts p").Join(
 			"user_posts up on up.post_id = p.id",
 		).Where(sq.Eq{
 			"p.channel_id": options.ChannelIds,
-			"up.user_id":   userId}).OrderBy("p.pub_at ASC").Limit(uint64(paginationValues.Limit)).Offset(uint64(paginationValues.Offset))
+			"up.user_id":   userId}).OrderBy("p.pub_at DESC").Limit(uint64(paginationValues.Limit)).Offset(uint64(paginationValues.Offset))
 	}
 
 	rows, err = query.RunWith(ca.DbCache).Query()
