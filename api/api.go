@@ -18,18 +18,19 @@ import (
 
 const (
 	// URLs
-	registerUserUrl             = "/api/users"
-	authenticationUrl           = "/api/authentication"
-	refreshTokenUrl             = "/api/authentication/refresh"
-	logoutUrl                   = "/api/logout"
-	fetchCurrentUserUrl         = "/api/users/current"
-	fetchCurrentUserChannelsUrl = "/api/users/current/channels"
+	registerUserUrl               = "/api/users"
+	authenticationUrl             = "/api/authentication"
+	refreshTokenUrl               = "/api/authentication/refresh"
+	logoutUrl                     = "/api/logout"
+	fetchCurrentUserUrl           = "/api/users/current"
+	fetchCurrentUserChannelsUrl   = "/api/users/current/channels"
 	fetchCurrentUserCategoriesUrl = "/api/users/current/categories"
-	addNewChannelUrl            = "/api/channels"
-	fetchInboxPostsUrl          = "/api/posts-inbox"
-	fetchChannelPostsUrl        = "/api/posts/channels/{channel}"
-	fetchCategoryPostsUrl       = "/api/posts/categories/{category}"
-	PostsUrl                    = "/api/posts/{id}"
+	changeUserPassword            = "/api/users/current/password"
+	addNewChannelUrl              = "/api/channels"
+	fetchInboxPostsUrl            = "/api/posts-inbox"
+	fetchChannelPostsUrl          = "/api/posts/channels/{channel}"
+	fetchCategoryPostsUrl         = "/api/posts/categories/{category}"
+	postsUrl                      = "/api/posts/{id}"
 
 	// API Errors
 	errInvalidUsernameLen = "invalid_username_len"
@@ -55,12 +56,13 @@ func getRouter() *mux.Router {
 	router.HandleFunc(fetchCurrentUserUrl, checkValidToken(handlerFetchCurrentUser)).Methods(http.MethodGet)
 	router.HandleFunc(fetchCurrentUserChannelsUrl, checkValidToken(handlerFetchCurrentUserChannels)).Methods(http.MethodGet)
 	router.HandleFunc(fetchCurrentUserCategoriesUrl, checkValidToken(handlerFetchCurrentUserCategories)).Methods(http.MethodGet)
+	router.HandleFunc(changeUserPassword, checkValidToken(handlerChangeUserPassword)).Methods(http.MethodPatch)
 	router.HandleFunc(addNewChannelUrl, checkValidToken(handlerAddNewChannelUrl)).Methods(http.MethodPost)
 	router.HandleFunc(fetchInboxPostsUrl, checkValidToken(handlerFetchInboxPosts)).Methods(http.MethodGet)
 
 	router.HandleFunc(fetchChannelPostsUrl, checkValidToken(handlerFetchChannelPosts)).Methods(http.MethodGet)
 	router.HandleFunc(fetchCategoryPostsUrl, checkValidToken(handlerFetchCategoryPosts)).Methods(http.MethodGet)
-	router.HandleFunc(PostsUrl, checkValidToken(handlerPosts)).Methods(http.MethodGet, http.MethodPatch)
+	router.HandleFunc(postsUrl, checkValidToken(handlerPosts)).Methods(http.MethodGet, http.MethodPatch)
 
 	if DEBUG {
 		const serveTestChannels = "/api/debug/channels/{channel}"

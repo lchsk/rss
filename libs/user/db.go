@@ -84,6 +84,17 @@ func (ua *UserAccess) InsertUser(username string, email string, password string)
 	return u, err
 }
 
+func (ua *UserAccess) UpdateUserPassword(id string, newPassword string) error {
+	query:= ua.SQ.
+		Update("users").Set("password", sq.Expr("crypt(?, gen_salt('bf', 8))", newPassword)).Where("id = ?", id)
+
+	_, err := query.RunWith(ua.Db).Exec()
+
+	// TODO: Log postgres error
+
+	return err
+}
+
 func InitUserAccess(db *sql.DB, DbCache sq.DBProxy, psql *sq.StatementBuilderType) (*UserAccess, error) {
 	queries := map[string]*sql.Stmt{}
 
