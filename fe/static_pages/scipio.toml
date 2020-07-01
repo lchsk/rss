@@ -1,0 +1,5 @@
+
+
+[Build]
+remove_build_dir = false
+copy_static_dirs = false
