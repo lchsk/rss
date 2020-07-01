@@ -9,18 +9,16 @@ const PostsList = require("./components/posts_list");
 const LoginComponent = require("./components/login");
 const PostView = require("./components/post_view");
 const AddNewChannelComponent = require("./components/add_channel");
+const Account = require("./components/Account");
 
 m.route.prefix("#!");
 
 m.route(document.body, "/", {
-    "/": {
-        render: function() {
-            return (
-                <App redirectTo="landing">
-                </App>
-            );
-        }
-    },
+  "/": {
+    render: function() {
+      return <App redirectTo="landing"></App>;
+    }
+  },
   "/index": {
     render: function() {
       return (
@@ -35,12 +33,12 @@ m.route(document.body, "/", {
   "/channels/new": {
     render: function() {
       return (
-          <App>
-            <MainViewWithChannelsList>
-              <AddNewChannelComponent></AddNewChannelComponent>
-            </MainViewWithChannelsList>
-          </App>
-      )
+        <App>
+          <MainViewWithChannelsList>
+            <AddNewChannelComponent></AddNewChannelComponent>
+          </MainViewWithChannelsList>
+        </App>
+      );
     }
   },
   "/channels/:id": {
@@ -79,26 +77,33 @@ m.route(document.body, "/", {
   "/login": {
     render: function() {
       return (
-          <AppNoAuth>
-            <LoginComponent></LoginComponent>
-          </AppNoAuth>
-      )
+        <AppNoAuth>
+          <LoginComponent></LoginComponent>
+        </AppNoAuth>
+      );
     }
   },
   "/logout": {
     render: function() {
-      return (
-          <Logout></Logout>
-      )
+      return <Logout></Logout>;
     }
   },
   "/signup": {
     render: () => {
       return (
-          <AppNoAuth>
-            <SignUpComponent></SignUpComponent>
-          </AppNoAuth>
-      )
+        <AppNoAuth>
+          <SignUpComponent></SignUpComponent>
+        </AppNoAuth>
+      );
+    }
+  },
+  "/account": {
+    render: () => {
+      return (
+        <App>
+          <Account></Account>
+        </App>
+      );
     }
   }
 });
