@@ -66,7 +66,9 @@ func handlerRegisterUser(w http.ResponseWriter, req *http.Request) {
 
 		_, userCatErr := DBA.Channel.InsertUserCategory("Default category", newUser.ID, nil)
 
-		log.Printf("Error creating default category for user=%s: %s", newUser.ID, userCatErr)
+		if userCatErr != nil {
+			log.Printf("Error creating default category for user=%s: %s", newUser.ID, userCatErr)
+		}
 	}
 
 	if err != nil {

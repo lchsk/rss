@@ -42,8 +42,8 @@ func TestFetchChannelPosts(t *testing.T) {
 	post2 := resp.Posts[1]
 	pagination := resp.Pagination
 
-	assert.Equal(t, "Post 6", post1.Title)
-	assert.Equal(t, "Post 7", post2.Title)
+	assert.Equal(t, "Post 7", post1.Title)
+	assert.Equal(t, "Post 6", post2.Title)
 	assert.Equal(t, posts.Pagination{
 		CurrentPage: 1,
 		LastPage:    1,

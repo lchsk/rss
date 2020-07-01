@@ -6,13 +6,14 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"net/http"
+	"net/http/httptest"
+	"testing"
+
 	sq "github.com/Masterminds/squirrel"
 	"github.com/lchsk/rss/libs/demo"
 	"github.com/lchsk/rss/libs/posts"
 	"github.com/stretchr/testify/assert"
-	"net/http"
-	"net/http/httptest"
-	"testing"
 )
 
 func TestMarkPostAsRead(t *testing.T) {
@@ -42,7 +43,7 @@ func TestMarkPostAsRead(t *testing.T) {
 
 	query := DBA.SQ.Select("status").From("user_posts").Where(sq.Eq{
 		"post_id": demo.Bugs.Post1,
-		"user_id":    demo.Bugs.UserId,
+		"user_id": demo.Bugs.UserId,
 	}).Limit(1)
 
 	var status string
@@ -75,7 +76,7 @@ func TestFetchPost(t *testing.T) {
 	json.Unmarshal(rr.Body.Bytes(), &resp)
 
 	assert.Equal(t, "Post 1", resp.Title)
-	assert.Equal(t, "url", resp.Url)
+	assert.Equal(t, "url1", resp.Url)
 	assert.Equal(t, "description", resp.Description)
 	assert.Equal(t, "content", resp.Content)
 	assert.Equal(t, "authorName", resp.AuthorName)

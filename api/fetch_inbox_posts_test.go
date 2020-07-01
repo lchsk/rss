@@ -21,7 +21,7 @@ func TestFetchInboxPosts(t *testing.T) {
 
 	userTokens := authUser("bugs@bunny.com", "bunny")
 
-	req, err := http.NewRequest("GET", "/api/posts/inbox", nil)
+	req, err := http.NewRequest("GET", "/api/posts-inbox", nil)
 	req.AddCookie(getCookie("token", userTokens.AccessToken, AccessCookieDuration))
 
 	assert.Nil(t, err)
@@ -41,8 +41,8 @@ func TestFetchInboxPosts(t *testing.T) {
 	post2 := resp.Posts[1]
 	pagination := resp.Pagination
 
-	assert.Equal(t, "Post 1", post1.Title)
-	assert.Equal(t, "Post 2", post2.Title)
+	assert.Equal(t, "Post 5", post1.Title)
+	assert.Equal(t, "Post 7", post2.Title)
 	assert.Equal(t, posts.Pagination{
 		CurrentPage: 1,
 		LastPage:    4,

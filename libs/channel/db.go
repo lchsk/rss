@@ -3,10 +3,11 @@ package channel
 import (
 	"database/sql"
 	"fmt"
-	sq "github.com/Masterminds/squirrel"
 	"log"
 	"strings"
 	"time"
+
+	sq "github.com/Masterminds/squirrel"
 
 	"github.com/google/uuid"
 	"github.com/lchsk/rss/libs/comms"
@@ -31,7 +32,7 @@ type UserChannel struct {
 }
 
 type UserCategory struct {
-	Id string `json:"id"`
+	Id    string `json:"id"`
 	Title string `json:"title"`
 }
 
@@ -117,7 +118,7 @@ func (ca *ChannelAccess) InsertPost(id string,
 	authorEmail string,
 	channelId string) error {
 
-	query:= ca.SQ.
+	query := ca.SQ.
 		Insert("posts").Columns("id", "pub_at", "url", "title", "description", "content", "author_name", "author_email", "channel_id").
 		Values(id, pubAt, url, title, description, content, authorName, authorEmail, channelId)
 
@@ -154,7 +155,7 @@ func (ca *ChannelAccess) InsertChannel(channelUrl string) (*Channel, error) {
 
 	id := uuid.New()
 
-	query:= ca.SQ.
+	query := ca.SQ.
 		Insert("channels").Columns("id", "channel_url").
 		Values(id, channelUrl).Suffix("RETURNING id")
 
@@ -168,7 +169,7 @@ func (ca *ChannelAccess) InsertChannel(channelUrl string) (*Channel, error) {
 func (ca *ChannelAccess) InsertUserCategory(title string, userId string, parentId *string) (uuid.UUID, error) {
 	id := uuid.New()
 
-	query:= ca.SQ.
+	query := ca.SQ.
 		Insert("categories").Columns("id", "title", "user_id", "parent_id").
 		Values(id, title, userId, parentId)
 
@@ -178,7 +179,7 @@ func (ca *ChannelAccess) InsertUserCategory(title string, userId string, parentI
 }
 
 func (ca *ChannelAccess) InsertUserChannel(channelId string, userId string, categoryId string) error {
-	query:= ca.SQ.
+	query := ca.SQ.
 		Insert("user_channels").Columns("id", "channel_id", "user_id", "category_id").
 		Values(uuid.New(), channelId, userId, categoryId)
 
@@ -196,10 +197,10 @@ func (ca *ChannelAccess) InsertUserChannel(channelId string, userId string, cate
 func (ca *ChannelAccess) FetchChannelByUrl(channelUrl string) (*Channel, error) {
 	c := &Channel{}
 
-		query := ca.SQ.Select("id").From("channels").Where(sq.Eq{
-			"channel_url": channelUrl,
-		}).Limit(1)
-		err := query.RunWith(ca.Db).Scan(&c.ID)
+	query := ca.SQ.Select("id").From("channels").Where(sq.Eq{
+		"channel_url": channelUrl,
+	}).Limit(1)
+	err := query.RunWith(ca.Db).Scan(&c.ID)
 
 	// TODO: Log postgres error
 
@@ -312,14 +313,14 @@ func (ca *ChannelAccess) FetchUserCategories(userId string) ([]UserCategory, err
 func (ca *ChannelAccess) FetchUserChannels(userId string) ([]UserChannel, error) {
 	var userChannels []UserChannel
 
-		query := ca.SQ.Select("c.ID as channel_id, c.title as channel_title, c.channel_url as channel_url, cat.id as category_id, cat.title as category_title").From(
-			"channels c").Join(
-			"user_channels uc on uc.channel_id = c.id",
-		).Join("categories cat on cat.id = uc.category_id").Where(sq.Eq{
-			"uc.user_id": userId,
-			})
+	query := ca.SQ.Select("c.ID as channel_id, c.title as channel_title, c.channel_url as channel_url, cat.id as category_id, cat.title as category_title").From(
+		"channels c").Join(
+		"user_channels uc on uc.channel_id = c.id",
+	).Join("categories cat on cat.id = uc.category_id").Where(sq.Eq{
+		"uc.user_id": userId,
+	})
 
-		rows, err := query.RunWith(ca.Db).Query()
+	rows, err := query.RunWith(ca.Db).Query()
 
 	defer rows.Close()
 
@@ -437,8 +438,7 @@ func (ca *ChannelAccess) UpdateChannel(channelId string, feed *gofeed.Feed) erro
 func InitChannelAccess(db *sql.DB, DbCache sq.DBProxy, psql *sq.StatementBuilderType) (*ChannelAccess, error) {
 	queries := map[string]*sql.Stmt{}
 
-	queriesToPrepare := map[string]string{
-	}
+	queriesToPrepare := map[string]string{}
 
 	for name, sql := range queriesToPrepare {
 		stmt, err := db.Prepare(sql)

@@ -21,7 +21,7 @@ func TestFetchCategoryPosts(t *testing.T) {
 
 	userTokens := authUser("bugs@bunny.com", "bunny")
 
-	categoryId := demo.Bugs.CategoryNewsId
+	categoryId := demo.Bugs.CategoryBlogsId
 	req, err := http.NewRequest("GET", "/api/posts/categories/"+categoryId, nil)
 	req.AddCookie(getCookie("token", userTokens.AccessToken, AccessCookieDuration))
 
@@ -40,12 +40,12 @@ func TestFetchCategoryPosts(t *testing.T) {
 	pagination := resp.Pagination
 	assert.Equal(t, 2, len(postsData))
 
-	assert.Equal(t, "Post 1", postsData[0].Title)
-	assert.Equal(t, "Post 2", postsData[1].Title)
+	assert.Equal(t, "Post 7", postsData[0].Title)
+	assert.Equal(t, "Post 6", postsData[1].Title)
 	assert.Equal(t, posts.Pagination{
 		CurrentPage: 1,
-		LastPage:    3,
-		Next:        2,
+		LastPage:    1,
+		Next:        -1,
 		Prev:        -1,
 	}, pagination)
 }

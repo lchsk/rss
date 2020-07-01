@@ -70,26 +70,26 @@ func installPosts(dba *db.DbAccess) {
 	bugs.Post6 = uuid.New().String()
 	bugs.Post7 = uuid.New().String()
 
-	ca.InsertPost(bugs.Post1, &now1, "url", "Post 1", "description", "content",
+	ca.InsertPost(bugs.Post1, &now1, "url1", "Post 1", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538FeedId,
 	)
-	ca.InsertPost(bugs.Post2, &now2, "url", "Post 2", "description", "content",
+	ca.InsertPost(bugs.Post2, &now2, "url2", "Post 2", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538FeedId,
 	)
-	ca.InsertPost(bugs.Post3, &now3, "url", "Post 3", "description", "content",
+	ca.InsertPost(bugs.Post3, &now3, "url3", "Post 3", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538FeedId,
 	)
-	ca.InsertPost(bugs.Post4, &now4, "url", "Post 4", "description", "content",
+	ca.InsertPost(bugs.Post4, &now4, "url4", "Post 4", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538FeedId,
 	)
-	ca.InsertPost(bugs.Post5, &now5, "url", "Post 5", "description", "content",
+	ca.InsertPost(bugs.Post5, &now5, "url5", "Post 5", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538FeedId,
 	)
 
-	ca.InsertPost(bugs.Post6, &now4, "url", "Post 6", "description", "content",
+	ca.InsertPost(bugs.Post6, &now4, "url6", "Post 6", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538NateId,
 	)
-	ca.InsertPost(bugs.Post7, &now5, "url", "Post 7", "description", "content",
+	ca.InsertPost(bugs.Post7, &now5, "url7", "Post 7", "description", "content",
 		"authorName", "authorEmail", bugs.Channel538NateId,
 	)
 }
