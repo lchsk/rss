@@ -124,6 +124,7 @@ create table posts (
      references channels (id)
 );
 create index idx_posts_channel_id on posts(channel_id);
+create unique index idx_posts_unique_url on posts(url);
 
 -- user_posts
 
