@@ -16,7 +16,8 @@ m.route.prefix("#!");
 m.route(document.body, "/", {
   "/": {
     render: function() {
-      return <App redirectTo="landing"></App>;
+      m.route.set("/index");
+      // return <App redirectTo="landing"></App>;
     }
   },
   "/index": {

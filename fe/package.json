@@ -7,9 +7,9 @@
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "prettier": "./node_modules/prettier/bin-prettier.js --write 'src/**/*.js'",
     "lint": "./node_modules/eslint/bin/eslint.js -c ./.eslintrs.js src/",
-    "sass": "./node_modules/sass/sass.js --no-source-map --style=compressed dist/scss/bundle.scss ./dist/data/bundle.css",
-    "sass-watch": "./node_modules/sass/sass.js --no-source-map --style=compressed --watch dist/scss/bundle.scss ./dist/data/bundle.css",
-    "build": "webpack -p --output dist/data/bundle.prod.js",
+    "sass": "./node_modules/sass/sass.js --no-source-map --style=compressed dist/scss/bundle.scss ./dist/assets/bundle.css",
+    "sass-watch": "./node_modules/sass/sass.js --no-source-map --style=compressed --watch dist/scss/bundle.scss ./dist/assets/bundle.css",
+    "build": "webpack -p --output dist/assets/bundle.prod.js",
     "test": "ospec --preload ./src/tests/setup.js"
   },
   "keywords": [],

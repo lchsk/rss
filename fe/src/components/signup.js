@@ -61,7 +61,7 @@ var SignUpComponent = {
       console.log("signed-in", signedIn);
     });
   },
-  submitForm: (e) => {
+  submitForm: e => {
     e.preventDefault();
 
     const usernameInput = document.getElementById("form-username");
@@ -84,21 +84,53 @@ var SignUpComponent = {
 
     if (LoginComponent.signedIn === false) {
       return (
-          <form class="form-major" onsubmit={SignUpComponent.submitForm}>
-            <div className="text-center mb-3"><img src="data/text2011.png" alt="rss"/></div>
-            <div class="signup-error">{SignUp.current.error}</div>
-            <input id="form-email" type="email" placeholder="Email" className="form-control together-top"/>
-            <input id="form-username" type="text" placeholder="Username" className="form-control together-both"/>
-            <input id="form-password-1" type="password" placeholder="Password" className="form-control together-both"/>
-            <input id="form-password-2" type="password" placeholder="Repeat password" className="form-control together-bottom"/>
-            <div className="text-center">
-              <button type="submit" className="btn btn-primary">Sign up</button>
-              <div className="text-center mt-3">{getLink(".mb-0", "/login", "Sign in if you already have an account")}</div>
+        <form class="form-major" onsubmit={SignUpComponent.submitForm}>
+          <div className="text-center mb-3">
+            <img src="../assets/text2011.png" alt="rss" />
+          </div>
+          <div class="signup-error">{SignUp.current.error}</div>
+          <input
+            id="form-email"
+            type="email"
+            placeholder="Email"
+            className="form-control together-top"
+          />
+          <input
+            id="form-username"
+            type="text"
+            placeholder="Username"
+            className="form-control together-both"
+          />
+          <input
+            id="form-password-1"
+            type="password"
+            placeholder="Password"
+            className="form-control together-both"
+          />
+          <input
+            id="form-password-2"
+            type="password"
+            placeholder="Repeat password"
+            className="form-control together-bottom"
+          />
+          <div className="text-center">
+            <button type="submit" className="btn btn-primary">
+              Sign up
+            </button>
+            <div className="text-center mt-3">
+              {getLink(
+                ".mb-0",
+                "/login",
+                "Sign in if you already have an account"
+              )}
             </div>
-            <div class="text-muted small mt-4">
-              By continuing, you agree to <a href="/pages/terms.html">Terms of Service</a> and <a href="/pages/privacy.html">Privacy Policy</a>.
-            </div>
-          </form>
+          </div>
+          <div class="text-muted small mt-4">
+            By continuing, you agree to{" "}
+            <a href="/pages/terms.html">Terms of Service</a> and{" "}
+            <a href="/pages/privacy.html">Privacy Policy</a>.
+          </div>
+        </form>
       );
     }
   }

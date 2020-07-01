@@ -17,17 +17,17 @@ module.exports = {
     extensions: ["*", ".js", ".jsx"]
   },
   output: {
-    path: __dirname + "/dist/data/",
+    path: __dirname + "/dist/assets/",
     // publicPath: "/",
     filename: "bundle.js"
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
     contentBase: "./dist",
-    writeToDisk: (filePath) => {
+    writeToDisk: filePath => {
       return /bundle.js$/.test(filePath);
     },
-      // writeToDisk: true,
+    // writeToDisk: true,
     hot: true
   }
 };
