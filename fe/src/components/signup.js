@@ -127,8 +127,8 @@ var SignUpComponent = {
           </div>
           <div class="text-muted small mt-4">
             By continuing, you agree to{" "}
-            <a href="/pages/terms.html">Terms of Service</a> and{" "}
-            <a href="/pages/privacy.html">Privacy Policy</a>.
+            <a href="/terms.html">Terms of Service</a> and{" "}
+            <a href="/privacy.html">Privacy Policy</a>.
           </div>
         </form>
       );
